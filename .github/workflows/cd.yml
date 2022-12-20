@@ -34,4 +34,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_EC2_METADATA_DISABLED: true
         run: |
-          aws s3 sync out s3://jeju-diving.site --acl public-read --delete
+          aws s3 sync /out s3://jeju-diving.site --acl public-read --delete
