@@ -1,11 +1,12 @@
 #  참고 : https://www.binaryflavor.com/aws-s3-cloudfront-route53gwa-github-actionseuro-jeongjeog-webpeiji-baepo-hoseuting-jadonghwahagi/
 
-name: sub-branch
+name: deploy to s3
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - develop    
+      - main    
 
 jobs:
   build:
@@ -29,7 +30,7 @@ jobs:
       - name: Build
         run: yarn build:ssg
 
-      - name: Deploy
+      - name: deploy to s3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
