@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Global styles={resetStyles} />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }
