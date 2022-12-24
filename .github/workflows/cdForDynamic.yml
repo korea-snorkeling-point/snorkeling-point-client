@@ -18,7 +18,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: hyejineee/korea-snorkeling-point
+          images: ${{ secrets.DOCKERHUB_REPONAME }}
       -
         name: Login to DockerHub
         if: github.event_name != 'pull_request'
@@ -34,3 +34,17 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      -
+        name : Pull and Run 
+        uses : appleboy/ssh-action@master
+        with : 
+          host : ${{secrets.EC2_HOST}}
+          username : ec2-user
+          key : ${{secrets.EC2_SSH_KEY}}
+          port: ${{ secrets.PORT }}
+          script : |
+            docker rm -f $(docker ps -qa)
+            docker rmi ${{ secrets.DOCKERHUB_REPONAME }}/도커 레파지토리 이름
+            docker pull ${{ secrets.DOCKERHUB_REPONAME }}/도커 레파지토리 이름
+            docker run -d -p 3000:3000 ${{ secrets.DOCKERHUB_REPONAME }}
