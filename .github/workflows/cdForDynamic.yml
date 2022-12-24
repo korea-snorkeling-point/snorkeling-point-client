@@ -32,7 +32,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          # tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ secrets.DOCKERHUB_TAG }}
           labels: ${{ steps.meta.outputs.labels }}
 
       -
@@ -45,6 +45,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script : |
             docker rm -f $(docker ps -qa)
-            docker rmi ${{ secrets.DOCKERHUB_REPONAME }}
-            docker pull ${{ secrets.DOCKERHUB_REPONAME }}
-            docker run -d -p 3000:3000 ${{ secrets.DOCKERHUB_REPONAME }}
+            docker rmi ${{ secrets.DOCKERHUB_REPONAME }}:${{ secrets.DOCKERHUB_TAG }}
+            docker pull ${{ secrets.DOCKERHUB_REPONAME }}:${{ secrets.DOCKERHUB_TAG }}
+            docker run -d -p 3000:3000 ${{ secrets.DOCKERHUB_REPONAME }}:${{ secrets.DOCKERHUB_TAG }}
