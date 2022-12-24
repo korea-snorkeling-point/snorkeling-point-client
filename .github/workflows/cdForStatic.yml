@@ -1,0 +1,39 @@
+#  참고 : https://www.binaryflavor.com/aws-s3-cloudfront-route53gwa-github-actionseuro-jeongjeog-webpeiji-baepo-hoseuting-jadonghwahagi/
+
+name: Deploy to S3
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main    
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@master
+
+      - name: Cache node modules  
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-master-build-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build:ssg
+
+      - name: Deploy to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_EC2_METADATA_DISABLED: true
+        run: |
+          aws s3 sync ./out s3://jeju-diving.site --acl public-read --delete
