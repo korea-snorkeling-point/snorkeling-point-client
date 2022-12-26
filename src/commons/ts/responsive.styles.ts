@@ -1,5 +1,7 @@
 // 여기는 반응형 작업을 위한 공통적으로 쓰이는 css를 모아놓는 곳입니다!!
 
+import { css } from '@emotion/react';
+
 // breakpoints = ant.ui grid 컴포넌트 기준으로 짠 breakpoint입니다 헷갈리시면 아래 링크 참고해주세여!!
 // https://ant.design/components/grid/
 // xxl: 1600이상
@@ -67,3 +69,25 @@ export const convertNoteBookRem = (px: number) => (px / 12).toFixed(1);
 export const convertBigTabletRem = (px: number) => (px / 10).toFixed(1);
 export const convertSmallTabletRem = (px: number) => (px / 8).toFixed(1);
 export const convertMobileRem = (px: number) => (px / 6).toFixed(1);
+
+interface IDynamicSizeProps {
+  attribute: string;
+  px: number;
+}
+
+export const dynamicSize = ({ attribute, px }: IDynamicSizeProps) =>
+  css({
+    [attribute]: `${convertDeskTopRem(px)}rem`,
+    '@media (min-width: 992px) and (max-width:1199px)': {
+      [attribute]: `${convertNoteBookRem(px)}rem`,
+    },
+    '@media (min-width: 768px) and (max-width: 991px)': {
+      [attribute]: `${convertBigTabletRem(px)}rem`,
+    },
+    '@media (min-width: 576px) and (max-width: 767px)': {
+      [attribute]: `${convertSmallTabletRem(px)}rem`,
+    },
+    '@media (max-width: 575px)': {
+      [attribute]: `${convertMobileRem(px)}rem`,
+    },
+  });
