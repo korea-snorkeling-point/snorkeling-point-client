@@ -1,6 +1,6 @@
 #  참고 : https://www.binaryflavor.com/aws-s3-cloudfront-route53gwa-github-actionseuro-jeongjeog-webpeiji-baepo-hoseuting-jadonghwahagi/
 
-name: Deploy to S3
+name: CI
 
 on: [pull_request]   
 
