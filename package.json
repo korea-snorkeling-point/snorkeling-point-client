@@ -8,7 +8,7 @@
     "build:ssg": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watchAll --coverage"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
