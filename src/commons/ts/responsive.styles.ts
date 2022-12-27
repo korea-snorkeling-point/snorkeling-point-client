@@ -1,6 +1,6 @@
 // 여기는 반응형 작업을 위한 공통적으로 쓰이는 css를 모아놓는 곳입니다!!
 
-import { css } from '@emotion/react';
+import { css, SerializedStyles } from '@emotion/react';
 
 // breakpoints = ant.ui grid 컴포넌트 기준으로 짠 breakpoint입니다 헷갈리시면 아래 링크 참고해주세여!!
 // https://ant.design/components/grid/
@@ -89,5 +89,33 @@ export const dynamicSize = ({ attribute, px }: IDynamicSizeProps) =>
     },
     '@media (max-width: 575px)': {
       [attribute]: `${convertMobileRem(px)}rem`,
+    },
+  });
+
+export const setNoteBookStyle = (style: SerializedStyles) =>
+  css({
+    '@media (min-width: 992px) and (max-width:1199px)': {
+      ...style,
+    },
+  });
+
+export const setBigTabletStyle = (style: SerializedStyles) =>
+  css({
+    '@media (min-width: 768px) and (max-width: 991px)': {
+      ...style,
+    },
+  });
+
+export const setSmallTabletStyle = (style: SerializedStyles) =>
+  css({
+    '@media (min-width: 576px) and (max-width: 767px)': {
+      ...style,
+    },
+  });
+
+export const setMobileStyle = (style: SerializedStyles) =>
+  css({
+    '@media (max-width: 575px)': {
+      ...style,
     },
   });
