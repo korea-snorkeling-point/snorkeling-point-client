@@ -1,4 +1,4 @@
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import NormalMenu from '../../../../src/components/commons/menu/normalMenu/normalMenu';
 import { IMenuItemData } from '../../../../src/components/commons/menu/normalMenu/normalMenu.types';

@@ -23,6 +23,10 @@ const customJestConfig = {
       lines: 80,
     },
   },
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    'jest-plugin-context/setup',
+  ],
 };
 
 module.exports = createJestConfig(customJestConfig);

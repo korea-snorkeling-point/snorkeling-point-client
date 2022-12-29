@@ -1,10 +1,16 @@
 // 여기는 페이지의 css를 초기화 하는 곳입니다!!
 
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
 
 export const resetStyles = css`
   html {
     font-size: 1vw !important;
+  }
+  html,
+  body,
+  body > div {
+    width: 100%;
+    height: 100%;
   }
   html,
   body,
@@ -123,7 +129,7 @@ export const resetStyles = css`
   blockquote:after,
   q:before,
   q:after {
-    content: "";
+    content: '';
     content: none;
   }
   table {
