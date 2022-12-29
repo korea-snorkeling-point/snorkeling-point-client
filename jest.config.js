@@ -27,6 +27,7 @@ const customJestConfig = {
     '@testing-library/jest-dom/extend-expect',
     'jest-plugin-context/setup',
   ],
+  verbose: true,
 };
 
 module.exports = createJestConfig(customJestConfig);
