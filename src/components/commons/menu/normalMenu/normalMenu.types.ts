@@ -8,7 +8,9 @@ export interface IMenuItemData {
   type?: 'group';
 }
 
-export interface INormalMenuProps extends Omit<MenuProps, 'onClick' | 'items'> {
-  onClick: (key: string) => void;
+export interface INormalMenuProps
+  extends Omit<MenuProps, 'onClick' | 'items' | 'inlineCollapsed'> {
+  collapsed: boolean;
   items: IMenuItemData[];
+  handleClickMenu: (key: string) => void;
 }

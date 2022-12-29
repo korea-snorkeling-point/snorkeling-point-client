@@ -4,19 +4,21 @@ import * as S from './normalMenu.styles';
 import { INormalMenuProps } from './normalMenu.types';
 
 export default function NormalMenu({
-  onClick,
+  handleClickMenu,
   items,
+  collapsed,
   ...rest
 }: INormalMenuProps) {
-  const handleClickMenu: MenuProps['onClick'] = e => {
-    onClick(e.key);
+  const onClick: MenuProps['onClick'] = e => {
+    handleClickMenu(e.key);
   };
 
   return (
     <S.MenuWrapper
-      onClick={handleClickMenu}
+      onClick={onClick}
       items={items.map(e => convertToMenuItem(e))}
       mode="inline"
+      inlineCollapsed={collapsed}
       {...rest}
     />
   );

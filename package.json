@@ -50,10 +50,5 @@
     "jest-environment-jsdom": "^29.3.1",
     "jest-plugin-context": "^2.9.0",
     "prettier": "^2.8.1"
-  },
-  "jest": {
-    "setupFiles": [
-      "jest-plugin-context/setup"
-    ]
   }
 }
