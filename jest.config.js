@@ -7,8 +7,15 @@ const createJestConfig = nextJest({
 
 /** @type {import('jest').Config} */
 const customJestConfig = {
+  preset: 'ts-jest',
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
+  moduleNameMapper: {
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@styles/(.*)': '<rootDir>/src/commons/styles/$1',
+    '^@hooks/(.*)': '<rootDir>/src/commons/hooks/$1',
+    '^@constants/(.*)': '<rootDir>/src/commons/constants/$1',
+  },
   collectCoverageFrom: [
     'src/**/*.[jt]s?(x)',
     'pages/**/*.[jt]s?(x)',

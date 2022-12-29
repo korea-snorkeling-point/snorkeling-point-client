@@ -1,5 +1,4 @@
 {
-
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -15,7 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@constants/*":["src/commons/constants/*"],
       "@styles/*":["src/commons/styles/*"],
@@ -24,5 +23,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "**/*.test.tsx", "**/*.test.ts"]
+  "exclude": ["node_modules"]
 }
