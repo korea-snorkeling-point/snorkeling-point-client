@@ -1,6 +1,6 @@
-import { IMenuItemData } from '../../../../../src/components/commons/menu/normalMenu/normalMenu.types';
-import { convertToMenuItem } from '../../../../../src/components/commons/menu/util/convertMenuItem';
-import { getMenuItem } from '../../../../../src/components/commons/menu/util/getMenuItem';
+import { IMenuItemData } from '../../../../../../src/components/commons/menu/normalMenu/normalMenu.types';
+import { convertToMenuItem } from '../../../../../../src/components/commons/menu/util/convertMenuItem';
+import { getMenuItem } from '../../../../../../src/components/commons/menu/util/getMenuItem';
 
 describe('convertMenuItem', () => {
   it('convert IMenuItemData Object to MenuItem', () => {

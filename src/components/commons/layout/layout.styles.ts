@@ -1,60 +1,34 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import * as R from '../../../commons/ts/responsive.styles';
-import { headerSize } from '../../../commons/ts/dimen.styles';
+import * as R from '../../../commons/styles/responsive.styles';
+import { headerSize, sideBarSize } from '../../../commons/styles/dimen.styles';
 
 export const Wrapper = styled.div`
   width: 100%;
-`;
-
-export const Container = styled.div`
-  ${R.dynamicSize({ attribute: 'paddingTop', px: headerSize })}
-  display: flex;
-  width: 100%;
-  flex: 1;
   display: flex;
 
-  @media (min-width: ${R.Mobile}px) and (max-width: ${R.SmallTablet - 1}px) {
+  ${R.setMobileStyle(css`
     flex-direction: column;
-  }
-  @media (max-width: ${R.Mobile - 1}px) {
-    flex-direction: column;
-  }
+  `)}
 `;
 
 export const NavWrapper = styled.div`
-  background-color: aquamarine;
+  height: fit-content;
+  ${sideBarSize}
+`;
 
-  width: ${R.convertDeskTopRem(300)}rem;
-
-  ${R.dynamicSize({
-    attribute: 'padding',
-    px: 20,
-  })}
-
-  ${R.setNoteBookStyle(css`
-    width: ${R.convertNoteBookRem(230)}rem;
-  `)}
-
-  ${R.setBigTabletStyle(css`
-    width: ${R.convertBigTabletRem(160)}rem;
-  `)}
-
-  ${R.setSmallTabletStyle(css`
-    width: 100%;
-  `)}
-
-  ${R.setMobileStyle(css`
-    width: 100%;
-  `)}
+export const Container = styled.div`
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const SectionWrapper = styled.div`
   width: 100%;
-  height: 100%;
-  flex: 9;
-  background-color: beige;
+  min-height: 100vh;
   ${R.dynamicSize({ attribute: 'padding', px: 20 })}
+  ${R.dynamicSize({ attribute: 'paddingTop', px: headerSize })}
 `;
 
 export const Section = styled.section`
