@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import * as R from '@styles/responsive.styles';
 
-export const headerSize = 100;
+export const headerSize = 70;
 
 export const sideBarSize = css`
   width: ${R.convertDeskTopRem(250)}rem !important;

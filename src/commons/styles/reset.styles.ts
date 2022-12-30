@@ -1,10 +1,34 @@
 // 여기는 페이지의 css를 초기화 하는 곳입니다!!
 
 import { css } from '@emotion/react';
+import * as R from '@styles/responsive.styles';
 
 export const resetStyles = css`
   html {
-    font-size: 1vw !important;
+    font-size: 16px !important;
+    ${R.setNoteBookStyle(
+      css`
+        font-size: 12px !important;
+      `,
+    )}
+
+    ${R.setBigTabletStyle(
+      css`
+        font-size: 10px !important;
+      `,
+    )}
+
+    ${R.setSmallTabletStyle(
+      css`
+        font-size: 8px !important;
+      `,
+    )}
+
+    ${R.setMobileStyle(
+      css`
+        font-size: 6px !important;
+      `,
+    )}
   }
   html,
   body,
