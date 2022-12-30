@@ -1,4 +1,5 @@
 import { MenuProps } from 'antd';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
 
 export interface IMenuItemData {
   key: string;
@@ -11,6 +12,6 @@ export interface IMenuItemData {
 export interface INormalMenuProps
   extends Omit<MenuProps, 'onClick' | 'items' | 'inlineCollapsed'> {
   collapsed: boolean;
-  items: IMenuItemData[];
+  items: ItemType[];
   handleClickMenu: (key: string) => void;
 }

@@ -145,4 +145,10 @@ export const resetStyles = css`
     width: 100%;
     height: 100%;
   }
+  .ant-tooltip,
+  .ant-menu-inline-collapsed-tooltip,
+  .ant-tooltip-placement-right,
+  .ant-tooltip-hidden {
+    display: none;
+  }
 `;

@@ -92,6 +92,13 @@ export const dynamicSize = ({ attribute, px }: IDynamicSizeProps) =>
     },
   });
 
+export const setDeskTopStyle = (style: SerializedStyles) =>
+  css({
+    '@media (min-width : 1200px)': {
+      ...style,
+    },
+  });
+
 export const setNoteBookStyle = (style: SerializedStyles) =>
   css({
     '@media (min-width: 992px) and (max-width:1199px)': {

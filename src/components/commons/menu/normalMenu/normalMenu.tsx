@@ -1,5 +1,5 @@
 import { MenuProps } from 'antd';
-import { convertToMenuItem } from '../util/convertMenuItem';
+
 import * as S from './normalMenu.styles';
 import { INormalMenuProps } from './normalMenu.types';
 
@@ -16,7 +16,7 @@ export default function NormalMenu({
   return (
     <S.MenuWrapper
       onClick={onClick}
-      items={items.map(e => convertToMenuItem(e))}
+      items={items}
       mode="inline"
       inlineCollapsed={collapsed}
       {...rest}

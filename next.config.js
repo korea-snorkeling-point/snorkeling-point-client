@@ -11,11 +11,6 @@ const nextConfig = {
     '/404': { page: '/404' },
   }),
   webpack: config => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
-
     // eslint-disable-next-line no-param-reassign
     config.resolve = {
       alias: {
@@ -26,6 +21,11 @@ const nextConfig = {
       },
       ...config.resolve,
     };
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
+
     return config;
   },
 };
