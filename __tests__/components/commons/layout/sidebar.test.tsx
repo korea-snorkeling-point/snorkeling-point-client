@@ -4,7 +4,6 @@ import SideBar from '@components/commons/layout/sideBar/sidebar';
 import menus from '@constants/menu';
 import { useRouter } from 'next/router';
 import { matchers } from '@emotion/jest';
-import { prettyDOM } from '@testing-library/dom';
 
 expect.extend(matchers);
 

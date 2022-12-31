@@ -4,7 +4,7 @@ import MenuItemWithToggleIcon from '@components/commons/menu/menuItem/menuItemWi
 import ToggleIcon from '@components/commons/toggle/toggleIcon/toggleIcon';
 import { useEffect, useState } from 'react';
 import { useWindowSize } from '@hooks/useWindowSize';
-import { BigTablet } from '@styles/responsive.styles';
+import { BigTablet } from '@styles/dimen.styles';
 import { MenuItemWrapper } from '@components/commons/menu/common.styles';
 import { useRouter } from 'next/router';
 import * as S from './sidebar.styles';

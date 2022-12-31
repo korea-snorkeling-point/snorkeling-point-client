@@ -69,6 +69,8 @@ export const MenuToggleButton = styled.div(
       display: flex;
       align-items: center;
       font-size: large;
+      margin-top: ${R.convertMobileRem(16)}rem;
+      margin-left: ${R.convertMobileRem(20)}rem;
     `)}
   `,
 );

@@ -15,6 +15,8 @@ export const Wrapper = styled.div`
 export const NavWrapper = styled.div`
   height: fit-content;
 
+  background-color: white;
+
   ${R.setDeskTopStyle(css`
     width: ${S.DeskTopSideBarSize}rem !important;
   `)}
@@ -28,11 +30,13 @@ export const NavWrapper = styled.div`
   `)}
 
   ${R.setSmallTabletStyle(css`
-    width: ${S.SmallTabletSideBarSize}rem !important;
+    width: ${S.SmallTabletSideBarSize +
+    R.convertSmallTabletRem(20)}rem !important;
   `)}
 
   ${R.setMobileStyle(css`
     width: 100% !important;
+    height: ${R.convertMobileRem(S.MobileHeaderSize)}rem !important;
   `)}
 `;
 
@@ -53,5 +57,4 @@ export const SectionWrapper = styled.div`
 export const Section = styled.section`
   width: 100%;
   height: 100%;
-  background-color: blanchedalmond;
 `;

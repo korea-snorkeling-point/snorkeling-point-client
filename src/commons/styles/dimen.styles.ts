@@ -1,6 +1,8 @@
 import * as R from '@styles/responsive.styles';
 
 export const headerSize = 80;
+export const SmallTabletHeaderSize = 70;
+export const MobileHeaderSize = 70;
 
 export const DeskTopSideBarSize = R.convertDeskTopRem(250);
 export const NoteBookSideBarSize = R.convertNoteBookRem(200);
