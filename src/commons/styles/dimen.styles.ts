@@ -1,4 +1,11 @@
-// 여기는 반응형 작업을 위한 공통적으로 쓰이는 css를 모아놓는 곳입니다!!
+import * as R from '@styles/responsive.styles';
+
+export const headerSize = 80;
+
+export const DeskTopSideBarSize = R.convertDeskTopRem(250);
+export const NoteBookSideBarSize = R.convertNoteBookRem(200);
+export const BigTabletSideBarSize = R.convertNoteBookRem(130);
+export const SmallTabletSideBarSize = R.convertNoteBookRem(80);
 
 // breakpoints = ant.ui grid 컴포넌트 기준으로 짠 breakpoint입니다 헷갈리시면 아래 링크 참고해주세여!!
 // https://ant.design/components/grid/
@@ -61,9 +68,3 @@ export const MobileFontSizeSmall = 2.66; // 16px
 export const MobileFontSizeMicro = 2; // 12px
 export const MobileFontSizeNano = 1.66; // 10px
 export const MobileFontSizePico = 1.33; // 8px
-
-export const convertDeskTopRem = (px: number) => (px / 16).toFixed(1);
-export const convertNoteBookRem = (px: number) => (px / 12).toFixed(1);
-export const convertBigTabletRem = (px: number) => (px / 10).toFixed(1);
-export const convertSmallTabletRem = (px: number) => (px / 8).toFixed(1);
-export const convertMobileRem = (px: number) => (px / 6).toFixed(1);
