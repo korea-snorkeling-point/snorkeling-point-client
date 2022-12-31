@@ -4,7 +4,6 @@ import SideBar from '@components/commons/layout/sideBar/sidebar';
 import menus from '@constants/menu';
 import { useRouter } from 'next/router';
 import { matchers } from '@emotion/jest';
-import { prettyDOM } from '@testing-library/dom';
 
 expect.extend(matchers);
 
@@ -29,6 +28,7 @@ describe('SideBarContainer', () => {
       asPath: '/main',
       push: jest.fn(),
     }));
+
     const router = useRouter();
 
     it('메뉴에 해당하는 페이지 path를 라우터에 설정한다.', () => {
@@ -45,10 +45,9 @@ describe('SideBarContainer', () => {
       const { container, getByAltText, getAllByRole } = renderSideBar();
 
       const menuToggleButton = getByAltText('menuToggleIcon');
-
-      expect(menuToggleButton).not.toBeNull();
       const menus = getAllByRole('listitem', { name: '' });
 
+      expect(menuToggleButton).not.toBeNull();
       expect(menus[0]).toHaveStyleRule('visibility', 'hidden', {
         media: '@media (max-width: 575px)',
       });

@@ -21,9 +21,22 @@ const nextConfig = {
       },
       ...config.resolve,
     };
+
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
+    });
+
+    config.module.rules.push({
+      test: /\.(png |jpg | jpeg)$/,
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+          },
+        },
+      ],
     });
 
     return config;

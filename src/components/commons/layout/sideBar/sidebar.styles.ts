@@ -6,8 +6,8 @@ import * as R from '../../../../commons/styles/responsive.styles';
 
 export const Wrapper = styled.nav(
   (props: IStyleProps) => css`
-    position: fixed;
     z-index: 999;
+    position: fixed;
     background-color: white;
 
     ${R.setDeskTopStyle(css`
@@ -41,6 +41,7 @@ export const Wrapper = styled.nav(
         attribute: 'borderBottomRightRadius',
         px: props.visibility === 'visible' ? 16 : 0,
       })}
+
       ${R.dynamicSize({
         attribute: 'borderBottomLeftRadius',
         px: props.visibility === 'visible' ? 16 : 0,
@@ -65,10 +66,13 @@ export const MenuToggleButton = styled.div(
     display: none;
 
     ${R.dynamicSize({ attribute: 'padding', px: 8 })}
+
     ${R.setMobileStyle(css`
       display: flex;
       align-items: center;
       font-size: large;
+      margin-top: ${R.convertMobileRem(16)}rem;
+      margin-left: ${R.convertMobileRem(20)}rem;
     `)}
   `,
 );

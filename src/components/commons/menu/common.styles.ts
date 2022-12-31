@@ -9,7 +9,9 @@ export const MenuItemWrapper = styled.li(
     height: 100%;
     ${R.dynamicSize({ attribute: 'padding', px: 5 })}
     ${R.setMobileStyle(css`
-      visibility: ${props.visibility || 'hidden'};
+      visibility: ${props.visibility === undefined
+        ? 'visible'
+        : props.visibility};
     `)}
   `,
 );

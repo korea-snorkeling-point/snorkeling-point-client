@@ -26,6 +26,7 @@ export const Wrapper = styled.div(
 
     ${R.dynamicSize({ attribute: 'padding', px: 8 })}
     ${R.dynamicSize({ attribute: 'borderRadius', px: 16 })}
+
     ${R.setSmallTabletStyle(css`
       border-radius: ${R.convertSmallTabletRem(10)}rem;
     `)}
@@ -34,8 +35,8 @@ export const Wrapper = styled.div(
 
 export const ContentsWrapper = styled.div(
   (props: IStyleProps) => css`
-    display: flex;
     width: 100%;
+    display: flex;
     ${R.setBigTabletStyle(setFlexDirection(props))}
   `,
 );
@@ -65,7 +66,6 @@ export const Icon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: rebeccapurple; */
 
   ${R.setDeskTopStyle(css`
     margin-right: ${R.convertDeskTopRem(16)}rem;

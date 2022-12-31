@@ -35,6 +35,9 @@ const customJestConfig = {
     'jest-plugin-context/setup',
   ],
   verbose: true,
+  transform: {
+    '\\.(gpx|png|svg)$': '<rootDir>/assetTransformer.js',
+  },
 };
 
 module.exports = createJestConfig(customJestConfig);

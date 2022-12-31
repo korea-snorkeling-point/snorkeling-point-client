@@ -2,11 +2,12 @@
 
 import { css, SerializedStyles } from '@emotion/react';
 
-export const convertDeskTopRem = (px: number) => (px / 16).toFixed(1);
-export const convertNoteBookRem = (px: number) => (px / 12).toFixed(1);
-export const convertBigTabletRem = (px: number) => (px / 10).toFixed(1);
-export const convertSmallTabletRem = (px: number) => (px / 8).toFixed(1);
-export const convertMobileRem = (px: number) => (px / 6).toFixed(1);
+export const convertDeskTopRem = (px: number) => Number((px / 16).toFixed(1));
+export const convertNoteBookRem = (px: number) => Number((px / 12).toFixed(1));
+export const convertBigTabletRem = (px: number) => Number((px / 10).toFixed(1));
+export const convertSmallTabletRem = (px: number) =>
+  Number((px / 8).toFixed(1));
+export const convertMobileRem = (px: number) => Number((px / 6).toFixed(1));
 
 interface IDynamicSizeProps {
   attribute: string;
