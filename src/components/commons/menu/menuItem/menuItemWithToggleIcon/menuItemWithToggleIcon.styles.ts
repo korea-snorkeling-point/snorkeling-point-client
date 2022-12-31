@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import * as R from '@styles/responsive.styles';
 import * as C from '@styles/colors.styles';
+import * as S from '@styles/dimen.styles';
 import { IStyleProps } from '@styles/types';
 
 const setFlexDirection = (props: IStyleProps) => css`
@@ -42,21 +43,21 @@ export const ContentsWrapper = styled.div(
 export const Title = styled.p`
   display: flex;
   align-items: center;
-  font-size: ${R.DeskTopFontSizeNano}rem;
+  font-size: ${S.DeskTopFontSizeNano}rem;
 
   ${R.dynamicSize({ attribute: 'marginTop', px: 3 })}
   ${R.setNoteBookStyle(css`
-    font-size: ${R.NoteBookFontSizeNano}rem;
+    font-size: ${S.NoteBookFontSizeNano}rem;
   `)}
   ${R.setBigTabletStyle(css`
-    font-size: ${R.BigTabletFontSizeNano}rem;
+    font-size: ${S.BigTabletFontSizeNano}rem;
   `)}
   ${R.setSmallTabletStyle(css`
-    font-size: ${R.SmallTabletFontSizeNano}rem;
+    font-size: ${S.SmallTabletFontSizeNano}rem;
     display: none;
   `)}
   ${R.setMobileStyle(css`
-    font-size: ${R.MobileFontSizeNano}rem;
+    font-size: ${S.MobileFontSizeNano}rem;
   `)}
 `;
 

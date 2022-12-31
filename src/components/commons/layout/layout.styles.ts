@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import * as R from '../../../commons/styles/responsive.styles';
-import { headerSize, sideBarSize } from '../../../commons/styles/dimen.styles';
+import * as S from '../../../commons/styles/dimen.styles';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -14,7 +14,26 @@ export const Wrapper = styled.div`
 
 export const NavWrapper = styled.div`
   height: fit-content;
-  ${sideBarSize}
+
+  ${R.setDeskTopStyle(css`
+    width: ${S.DeskTopSideBarSize}rem !important;
+  `)}
+
+  ${R.setNoteBookStyle(css`
+    width: ${S.NoteBookSideBarSize}rem !important;
+  `)}
+
+  ${R.setBigTabletStyle(css`
+    width: ${S.BigTabletSideBarSize}rem !important;
+  `)}
+
+  ${R.setSmallTabletStyle(css`
+    width: ${S.SmallTabletSideBarSize}rem !important;
+  `)}
+
+  ${R.setMobileStyle(css`
+    width: 100% !important;
+  `)}
 `;
 
 export const Container = styled.div`
@@ -28,10 +47,11 @@ export const SectionWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   ${R.dynamicSize({ attribute: 'padding', px: 20 })}
-  ${R.dynamicSize({ attribute: 'paddingTop', px: headerSize })}
+  ${R.dynamicSize({ attribute: 'paddingTop', px: S.headerSize })}
 `;
 
 export const Section = styled.section`
   width: 100%;
   height: 100%;
+  background-color: blanchedalmond;
 `;

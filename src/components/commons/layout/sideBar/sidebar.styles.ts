@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { sideBarSize } from '@styles/dimen.styles';
+import * as S from '@styles/dimen.styles';
 import { IStyleProps } from '@styles/types';
 import * as R from '../../../../commons/styles/responsive.styles';
 
@@ -10,22 +10,28 @@ export const Wrapper = styled.nav(
     z-index: 999;
     background-color: white;
 
-    ${sideBarSize}
-    padding: ${R.convertDeskTopRem(12)}rem ${R.convertDeskTopRem(20)}rem;
+    ${R.setDeskTopStyle(css`
+      width: ${S.DeskTopSideBarSize}rem !important;
+      padding: ${R.convertDeskTopRem(12)}rem ${R.convertDeskTopRem(20)}rem;
+    `)}
 
     ${R.setNoteBookStyle(css`
+      width: ${S.NoteBookSideBarSize}rem !important;
       padding: ${R.convertDeskTopRem(12)}rem ${R.convertDeskTopRem(20)}rem;
     `)}
 
     ${R.setBigTabletStyle(css`
+      width: ${S.BigTabletSideBarSize}rem !important;
       padding: ${R.convertDeskTopRem(8)}rem ${R.convertDeskTopRem(16)}rem;
     `)}
 
   ${R.setSmallTabletStyle(css`
+      width: ${S.SmallTabletSideBarSize}rem !important;
       padding: ${R.convertDeskTopRem(8)}rem ${R.convertDeskTopRem(16)}rem;
     `)}
 
   ${R.setMobileStyle(css`
+      width: 100% !important;
       box-shadow: ${props.visibility === 'visible'
         ? '0px 4px 10px rgba(0, 0, 0, 0.1)'
         : 'none'};
