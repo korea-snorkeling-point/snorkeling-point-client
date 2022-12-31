@@ -27,9 +27,9 @@ export const HeaderWrapper = styled.header`
   `)}
 
   ${R.setSmallTabletStyle(css`
-    height: ${R.convertSmallTabletRem(S.SmallTabletHeaderSize)}rem !important;
     padding-right: ${S.SmallTabletSideBarSize +
     R.convertSmallTabletRem(20)}rem !important;
+    height: ${R.convertSmallTabletRem(S.SmallTabletHeaderSize)}rem !important;
   `)}
 
   ${R.setMobileStyle(css`
@@ -68,9 +68,7 @@ export const SearchBarWrapper = styled.div`
 
 export const LogoWrapper = styled.div`
   flex: 1;
-  /* width: 100%; */
   text-align: end;
-  /* background-color: aquamarine; */
 
   ${R.dynamicSize({
     px: 20,

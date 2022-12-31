@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
 
 export const NavWrapper = styled.div`
   height: fit-content;
-
   background-color: white;
 
   ${R.setDeskTopStyle(css`

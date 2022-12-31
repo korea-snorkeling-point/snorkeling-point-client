@@ -11,6 +11,7 @@ export default function Header() {
         <S.SearchBarWrapper>
           <SearchOutlined />
         </S.SearchBarWrapper>
+
         <S.LogoWrapper>
           <Image
             src={Logo}

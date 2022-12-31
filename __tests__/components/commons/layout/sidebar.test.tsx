@@ -28,6 +28,7 @@ describe('SideBarContainer', () => {
       asPath: '/main',
       push: jest.fn(),
     }));
+
     const router = useRouter();
 
     it('메뉴에 해당하는 페이지 path를 라우터에 설정한다.', () => {
@@ -44,10 +45,9 @@ describe('SideBarContainer', () => {
       const { container, getByAltText, getAllByRole } = renderSideBar();
 
       const menuToggleButton = getByAltText('menuToggleIcon');
-
-      expect(menuToggleButton).not.toBeNull();
       const menus = getAllByRole('listitem', { name: '' });
 
+      expect(menuToggleButton).not.toBeNull();
       expect(menus[0]).toHaveStyleRule('visibility', 'hidden', {
         media: '@media (max-width: 575px)',
       });
