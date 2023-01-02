@@ -10,6 +10,10 @@ const nextConfig = {
     '/': { page: '/' },
     '/404': { page: '/404' },
   }),
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
   webpack: config => {
     // eslint-disable-next-line no-param-reassign
     config.resolve = {
