@@ -1,7 +1,8 @@
 import * as S from './decoratedText.styles';
+import { IDecoratedTextProps } from './decoratedText.types';
 
-export default function DecoratedText(props: any) {
-  const { value, size = 'super', ...textProps } = props;
+export default function DecoratedText(props: IDecoratedTextProps) {
+  const { value, size = 'sp', ...textProps } = props;
   let fontSize;
 
   if (size === 'sp') fontSize = 'sp';
