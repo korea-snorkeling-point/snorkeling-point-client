@@ -44,12 +44,12 @@
     "@typescript-eslint/no-empty-interface": 0,
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-var-requires": 0,
-    "no-shadow": "off",
+    "no-shadow": 0,
     "react/prop-types": 0,
     "no-empty-pattern": 0,
     "no-alert": 0,
     "react-hooks/exhaustive-deps": 0,
-    "react/require-default-props" : 0
+    "react/require-default-props": 0
   },
   "settings": {
     "import/parsers": {

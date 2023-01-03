@@ -1,9 +1,10 @@
-module.exports ={
-  "singleQuote": true,
-  "semi": true,
-  "useTabs": false,
-  "tabWidth": 2,
-  "trailingComma": "all",
-  "printWidth": 120,
-  "arrowParens": "avoid"
-}
+module.exports = {
+  singleQuote: true,
+  semi: true,
+  tabWidth: 2,
+  useTabs: false,
+  trailingComma: 'all',
+  printWidth: 80,
+  arrowParens: 'avoid',
+  endofLine: 'lf',
+};
