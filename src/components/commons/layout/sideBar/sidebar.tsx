@@ -33,6 +33,7 @@ export default function SideBar() {
         <input hidden alt="menuToggleIcon" />
         <MenuOutlined />
       </S.MenuToggleButton>
+
       <S.MenuWrapper
         visibility={isOpen ? 'visible' : 'hidden'}
         height={isOpen ? '50vh' : '0'}
