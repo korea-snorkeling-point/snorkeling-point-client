@@ -1,13 +1,14 @@
+import { FONT_SIZE } from '@constants/decoratedText';
 import * as S from './decoratedText.styles';
 import { IDecoratedTextProps } from './decoratedText.types';
 
 export default function DecoratedText(props: IDecoratedTextProps) {
-  const { value, size = 'sp', ...textProps } = props;
+  const { value, size = FONT_SIZE.SUPPER, ...textProps } = props;
   let fontSize;
 
-  if (size === 'sp') fontSize = 'sp';
-  if (size === 'lg') fontSize = 'lg';
-  if (size === 'md') fontSize = 'md';
+  if (size === FONT_SIZE.SUPPER) fontSize = FONT_SIZE.SUPPER;
+  if (size === FONT_SIZE.LARGE) fontSize = FONT_SIZE.LARGE;
+  if (size === FONT_SIZE.MIDDLE) fontSize = FONT_SIZE.MIDDLE;
 
   return (
     <S.DecoratedText style={{ fontSize, ...textProps }}>
