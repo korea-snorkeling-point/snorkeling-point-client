@@ -18,7 +18,7 @@ const customJestConfig = {
   },
   collectCoverageFrom: [
     'src/**/*.[jt]s?(x)',
-    'pages/**/*.[jt]s?(x)',
+    '!pages/',
     '!**/*.styles.[jt]s?(x)',
     '!**/*.types.[jt]s?(x)',
   ],
