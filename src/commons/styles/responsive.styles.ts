@@ -16,18 +16,18 @@ interface IDynamicSizeProps {
 
 export const dynamicSize = ({ attribute, px }: IDynamicSizeProps) =>
   css({
-    [attribute]: `${convertDeskTopRem(px)}rem`,
+    [attribute]: `${convertDeskTopRem(px)}rem !important`,
     '@media (min-width: 992px) and (max-width:1199px)': {
-      [attribute]: `${convertNoteBookRem(px)}rem`,
+      [attribute]: `${convertNoteBookRem(px)}rem !important`,
     },
     '@media (min-width: 768px) and (max-width: 991px)': {
-      [attribute]: `${convertBigTabletRem(px)}rem`,
+      [attribute]: `${convertBigTabletRem(px)}rem !important`,
     },
     '@media (min-width: 576px) and (max-width: 767px)': {
-      [attribute]: `${convertSmallTabletRem(px)}rem`,
+      [attribute]: `${convertSmallTabletRem(px)}rem !important`,
     },
     '@media (max-width: 575px)': {
-      [attribute]: `${convertMobileRem(px)}rem`,
+      [attribute]: `${convertMobileRem(px)}rem !important`,
     },
   });
 
