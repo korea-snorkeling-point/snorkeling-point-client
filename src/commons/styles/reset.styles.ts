@@ -2,6 +2,7 @@
 
 import { css } from '@emotion/react';
 import * as R from '@styles/responsive.styles';
+import * as S from '@styles/dimen.styles';
 
 export const resetStyles = css`
   html {
@@ -32,10 +33,6 @@ export const resetStyles = css`
   }
   html,
   body,
-  body > div {
-    width: 100%;
-    height: 100%;
-  }
   html,
   body,
   div,
@@ -169,10 +166,26 @@ export const resetStyles = css`
     width: 100%;
     height: 100%;
   }
-  .ant-tooltip,
-  .ant-menu-inline-collapsed-tooltip,
-  .ant-tooltip-placement-right,
-  .ant-tooltip-hidden {
-    display: none;
+
+  .ant-select-dropdown {
+    ${R.setDeskTopStyle(css`
+      font-size: ${S.DeskTopFontSizeMicro}rem;
+    `)}
+
+    ${R.setNoteBookStyle(css`
+      font-size: ${S.NoteBookFontSizeMicro}rem;
+    `)}
+
+    ${R.setBigTabletStyle(css`
+      font-size: ${S.BigTabletFontSizeMicro}rem;
+    `)}
+
+    ${R.setSmallTabletStyle(css`
+      font-size: ${S.SmallTabletFontSizeMicro}rem;
+    `)}
+
+    ${R.setMobileStyle(css`
+      font-size: ${S.MobileFontSizeMicro}rem;
+    `)}
   }
 `;
