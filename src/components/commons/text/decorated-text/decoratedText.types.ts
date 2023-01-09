@@ -3,7 +3,7 @@ import { FONT_SIZE } from '@constants/decoratedText';
 
 export interface IDecoratedTextProps {
   value: string;
-  size:
+  size?:
     | typeof FONT_SIZE.SUPPER
     | typeof FONT_SIZE.LARGE
     | typeof FONT_SIZE.MIDDLE;

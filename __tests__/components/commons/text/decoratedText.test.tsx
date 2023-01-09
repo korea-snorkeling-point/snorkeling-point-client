@@ -14,7 +14,7 @@ describe('<DecoratedText /> 컴포넌트', () => {
     });
   });
 
-  context('size props를 함께 전달하면', () => {
+  context('size props(FONT_SIZE.SUPPER)를 함께 전달하면', () => {
     it('전달한 size props에 따른 font-size를 갖는다.', () => {
       const componentSupper = () =>
         render(
@@ -25,7 +25,7 @@ describe('<DecoratedText /> 컴포넌트', () => {
     });
   });
 
-  context('size props를 함께 전달하면', () => {
+  context('size props(FONT_SIZE.LARGE)를 함께 전달하면', () => {
     it('전달한 size props에 따른 font-size를 갖는다.', () => {
       const componentLarge = () =>
         render(
@@ -36,7 +36,7 @@ describe('<DecoratedText /> 컴포넌트', () => {
     });
   });
 
-  context('size props를 함께 전달하면', () => {
+  context('size props(FONT_SIZE.MIDDLE)를 함께 전달하면', () => {
     it('전달한 size props에 따른 font-size를 갖는다.', () => {
       const componentMiddle = () =>
         render(
@@ -44,6 +44,15 @@ describe('<DecoratedText /> 컴포넌트', () => {
         );
       const { container } = componentMiddle();
       expect(container).toHaveStyle(`font-size:${FONT_SIZE.MIDDLE};`);
+    });
+  });
+
+  context('size props를 함께 전달하지 않으면', () => {
+    it('default font-size를 갖는다.', () => {
+      const componentDefault = () =>
+        render(<DecoratedText value="value props test" />);
+      const { container } = componentDefault();
+      expect(container).toHaveStyle(`font-size: ${FONT_SIZE.SUPPER}`);
     });
   });
 });
