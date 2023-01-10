@@ -1,11 +1,9 @@
-export interface INormalButtonProps {
-  value: string;
-  color: string;
-  disabled?: boolean;
-  onClick: () => void;
-}
-
 export interface INormalButtonStylesProps {
   color: string;
   disabled?: boolean;
+}
+
+export interface INormalButtonProps extends INormalButtonStylesProps {
+  value: string;
+  onClick: () => void;
 }
