@@ -77,7 +77,7 @@ export const MobileFontSizeMicro = 2; // 12px
 export const MobileFontSizeNano = 1.66; // 10px
 export const MobileFontSizePico = 1.33; // 8px
 
-export const getDeskTopFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
+export const getDeskTopFontSize = (fontSizeUnit: FONT_SIZE_KEY = 'MICRO') => {
   if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SUPPER)
     return DeskTopFontSizeSupper;
 
@@ -93,7 +93,7 @@ export const getDeskTopFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
   return DeskTopFontSizePico;
 };
 
-export const getNoteBookFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
+export const getNoteBookFontSize = (fontSizeUnit: FONT_SIZE_KEY = 'MICRO') => {
   if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SUPPER)
     return NoteBookFontSizeSupper;
 
@@ -109,7 +109,7 @@ export const getNoteBookFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
   return NoteBookFontSizePico;
 };
 
-export const getBigTabletFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
+export const getBigTabletFontSize = (fontSizeUnit: FONT_SIZE_KEY = 'MICRO') => {
   if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SUPPER)
     return BigTabletFontSizeSupper;
 
@@ -129,7 +129,9 @@ export const getBigTabletFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
   return BigTabletFontSizePico;
 };
 
-export const getSmallTabletFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
+export const getSmallTabletFontSize = (
+  fontSizeUnit: FONT_SIZE_KEY = 'MICRO',
+) => {
   if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SUPPER)
     return SmallTabletFontSizeSupper;
 
@@ -150,7 +152,7 @@ export const getSmallTabletFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
   return SmallTabletFontSizePico;
 };
 
-export const getMobileFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
+export const getMobileFontSize = (fontSizeUnit: FONT_SIZE_KEY = 'MICRO') => {
   if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SUPPER) return MobileFontSizeSupper;
 
   if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.LARGE) return MobileFontSizeLg;
