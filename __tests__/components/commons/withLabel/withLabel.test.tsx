@@ -1,6 +1,6 @@
+import { render } from '@testing-library/react';
 import WithLabel from '@components/commons/withLabel/withLabel';
 import { IWithLabelProps } from '@components/commons/withLabel/withLabel.types';
-import { render } from '@testing-library/react';
 
 describe('withLabel', () => {
   const renderWithLabel = (
