@@ -1,13 +1,19 @@
-import * as R from '@styles/responsive.styles';
+import {
+  convertBigTabletRem,
+  convertDeskTopRem,
+  convertNoteBookRem,
+  convertSmallTabletRem,
+} from '@styles/responsive.styles';
+import { FONT_SIZE, FONT_SIZE_KEY } from '@constants/decoratedText';
 
 export const headerSize = 80;
 export const SmallTabletHeaderSize = 70;
 export const MobileHeaderSize = 70;
 
-export const DeskTopSideBarSize = R.convertDeskTopRem(250);
-export const NoteBookSideBarSize = R.convertNoteBookRem(200);
-export const BigTabletSideBarSize = R.convertNoteBookRem(130);
-export const SmallTabletSideBarSize = R.convertNoteBookRem(80);
+export const DeskTopSideBarSize = convertDeskTopRem(250);
+export const NoteBookSideBarSize = convertNoteBookRem(200);
+export const BigTabletSideBarSize = convertBigTabletRem(130);
+export const SmallTabletSideBarSize = convertSmallTabletRem(80);
 
 // breakpoints = ant.ui grid 컴포넌트 기준으로 짠 breakpoint입니다 헷갈리시면 아래 링크 참고해주세여!!
 // https://ant.design/components/grid/
@@ -70,3 +76,92 @@ export const MobileFontSizeSmall = 2.66; // 16px
 export const MobileFontSizeMicro = 2; // 12px
 export const MobileFontSizeNano = 1.66; // 10px
 export const MobileFontSizePico = 1.33; // 8px
+
+export const getDeskTopFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SUPPER)
+    return DeskTopFontSizeSupper;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.LARGE) return DeskTopFontSizeLg;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.MIDDLE)
+    return DeskTopFontSizeMiddle;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SMALL) return DeskTopFontSizeSmall;
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.MICRO) return DeskTopFontSizeMicro;
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.NANO) return DeskTopFontSizeNano;
+
+  return DeskTopFontSizePico;
+};
+
+export const getNoteBookFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SUPPER)
+    return NoteBookFontSizeSupper;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.LARGE) return NoteBookFontSizeLg;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.MIDDLE)
+    return NoteBookFontSizeMiddle;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SMALL) return NoteBookFontSizeSmall;
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.MICRO) return NoteBookFontSizeMicro;
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.NANO) return NoteBookFontSizeNano;
+
+  return NoteBookFontSizePico;
+};
+
+export const getBigTabletFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SUPPER)
+    return BigTabletFontSizeSupper;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.LARGE) return BigTabletFontSizeLg;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.MIDDLE)
+    return BigTabletFontSizeMiddle;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SMALL)
+    return BigTabletFontSizeSmall;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.MICRO)
+    return BigTabletFontSizeMicro;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.NANO) return BigTabletFontSizeNano;
+
+  return BigTabletFontSizePico;
+};
+
+export const getSmallTabletFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SUPPER)
+    return SmallTabletFontSizeSupper;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.LARGE) return SmallTabletFontSizeLg;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.MIDDLE)
+    return SmallTabletFontSizeMiddle;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SMALL)
+    return SmallTabletFontSizeSmall;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.MICRO)
+    return SmallTabletFontSizeMicro;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.NANO)
+    return SmallTabletFontSizeNano;
+
+  return SmallTabletFontSizePico;
+};
+
+export const getMobileFontSize = (fontSizeUnit: FONT_SIZE_KEY) => {
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SUPPER) return MobileFontSizeSupper;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.LARGE) return MobileFontSizeLg;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.MIDDLE) return MobileFontSizeMiddle;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.SMALL) return MobileFontSizeSmall;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.MICRO) return MobileFontSizeMicro;
+
+  if (FONT_SIZE[fontSizeUnit] === FONT_SIZE.NANO) return MobileFontSizeNano;
+
+  return MobileFontSizePico;
+};
