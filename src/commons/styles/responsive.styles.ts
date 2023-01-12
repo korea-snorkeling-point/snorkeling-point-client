@@ -2,17 +2,17 @@
 
 import { css, SerializedStyles } from '@emotion/react';
 
+interface IDynamicSizeProps {
+  attribute: string;
+  px: number;
+}
+
 export const convertDeskTopRem = (px: number) => Number((px / 16).toFixed(1));
 export const convertNoteBookRem = (px: number) => Number((px / 12).toFixed(1));
 export const convertBigTabletRem = (px: number) => Number((px / 10).toFixed(1));
 export const convertSmallTabletRem = (px: number) =>
   Number((px / 8).toFixed(1));
 export const convertMobileRem = (px: number) => Number((px / 6).toFixed(1));
-
-interface IDynamicSizeProps {
-  attribute: string;
-  px: number;
-}
 
 export const dynamicSize = ({ attribute, px }: IDynamicSizeProps) =>
   css({
