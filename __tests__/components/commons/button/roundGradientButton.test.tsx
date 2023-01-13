@@ -1,14 +1,11 @@
-import RoundButton from '@components/commons/button/roundButton/roundButton';
-import { render } from '@testing-library/react';
-import * as C from '@styles/colors.styles';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render } from '@testing-library/react';
 import RoundGradientButton from '@components/commons/button/roundGradientButton/roundGradientButton';
 
 describe('RoundGradientButton', () => {
   const valueText = 'button';
   const onClickMock = jest.fn();
 
-  const renderRoundButton = (
+  const renderRoundGradientButton = (
     value: string = valueText,
     onClick: () => void = onClickMock,
   ) => {
@@ -16,16 +13,16 @@ describe('RoundGradientButton', () => {
   };
 
   it('value를 보여준다.', () => {
-    const { getByText } = renderRoundButton();
+    const { getByText } = renderRoundGradientButton();
 
     expect(getByText(valueText)).toBeInTheDocument();
   });
 
   context('클릭하면', () => {
     it('onClick 메소드가 호출된다.', () => {
-      const { getByText } = renderRoundButton();
+      const { getByText } = renderRoundGradientButton();
 
-      userEvent.click(getByText(valueText));
+      fireEvent.click(getByText(valueText));
 
       expect(onClickMock).toBeCalled();
     });
