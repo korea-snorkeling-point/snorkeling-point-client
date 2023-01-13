@@ -8,7 +8,6 @@ import { Input } from 'antd';
 export const InputWrapper = styled(Input)`
   border-radius: 0;
   width: 100% !important;
-  display: block !important;
   font-weight: 500 !important;
   background-color: white !important;
   border: 1px solid #b9b9b9 !important;
