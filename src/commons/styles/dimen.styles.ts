@@ -1,19 +1,15 @@
-import {
-  convertBigTabletRem,
-  convertDeskTopRem,
-  convertNoteBookRem,
-  convertSmallTabletRem,
-} from '@styles/responsive.styles';
+import * as R from '@styles/responsive.styles';
 import { FONT_SIZE, FONT_SIZE_KEY } from '@constants/decoratedText';
+import { css } from '@emotion/react';
 
 export const headerSize = 80;
 export const SmallTabletHeaderSize = 70;
 export const MobileHeaderSize = 70;
 
-export const DeskTopSideBarSize = convertDeskTopRem(250);
-export const NoteBookSideBarSize = convertNoteBookRem(200);
-export const BigTabletSideBarSize = convertBigTabletRem(130);
-export const SmallTabletSideBarSize = convertSmallTabletRem(80);
+export const DeskTopSideBarSize = R.convertDeskTopRem(250);
+export const NoteBookSideBarSize = R.convertNoteBookRem(200);
+export const BigTabletSideBarSize = R.convertBigTabletRem(130);
+export const SmallTabletSideBarSize = R.convertSmallTabletRem(80);
 
 // breakpoints = ant.ui grid 컴포넌트 기준으로 짠 breakpoint입니다 헷갈리시면 아래 링크 참고해주세여!!
 // https://ant.design/components/grid/
@@ -167,3 +163,157 @@ export const getMobileFontSize = (fontSizeUnit: FONT_SIZE_KEY = 'MICRO') => {
 
   return MobileFontSizePico;
 };
+
+export const setFontSizeSupper = () => css`
+  ${R.setDeskTopStyle(css`
+    font-size: ${DeskTopFontSizeSupper}rem !important;
+  `)}
+
+  ${R.setNoteBookStyle(css`
+    font-size: ${NoteBookFontSizeSupper}rem !important;
+  `)}
+
+  ${R.setBigTabletStyle(css`
+    font-size: ${BigTabletFontSizeSupper}rem !important;
+  `)}
+
+  ${R.setSmallTabletStyle(css`
+    font-size: ${SmallTabletFontSizeSupper}rem !important;
+  `)}
+
+  ${R.setMobileStyle(css`
+    font-size: ${MobileFontSizeSupper}rem !important;
+  `)}
+`;
+
+export const setFontSizeLarge = () => css`
+  ${R.setDeskTopStyle(css`
+    font-size: ${DeskTopFontSizeLg}rem m !important;
+  `)}
+
+  ${R.setNoteBookStyle(css`
+    font-size: ${NoteBookFontSizeLg}rem !important;
+  `)}
+
+  ${R.setBigTabletStyle(css`
+    font-size: ${BigTabletFontSizeLg}rem !important;
+  `)}
+
+  ${R.setSmallTabletStyle(css`
+    font-size: ${SmallTabletFontSizeLg}rem !important;
+  `)}
+
+  ${R.setMobileStyle(css`
+    font-size: ${MobileFontSizeLg}rem !important;
+  `)}
+`;
+
+export const setFontSizeMiddle = () => css`
+  ${R.setDeskTopStyle(css`
+    font-size: ${DeskTopFontSizeMiddle}rem !important;
+  `)}
+
+  ${R.setNoteBookStyle(css`
+    font-size: ${NoteBookFontSizeMiddle}rem !important;
+  `)}
+
+  ${R.setBigTabletStyle(css`
+    font-size: ${BigTabletFontSizeMiddle}rem !important;
+  `)}
+
+  ${R.setSmallTabletStyle(css`
+    font-size: ${SmallTabletFontSizeMiddle}rem !important;
+  `)}
+
+  ${R.setMobileStyle(css`
+    font-size: ${MobileFontSizeMiddle}rem !important;
+  `)}
+`;
+
+export const setFontSizeSmall = () => css`
+  ${R.setDeskTopStyle(css`
+    font-size: ${DeskTopFontSizeSmall}rem !important;
+  `)}
+
+  ${R.setNoteBookStyle(css`
+    font-size: ${NoteBookFontSizeSmall}rem !important;
+  `)}
+
+  ${R.setBigTabletStyle(css`
+    font-size: ${BigTabletFontSizeSmall}rem !important;
+  `)}
+
+  ${R.setSmallTabletStyle(css`
+    font-size: ${SmallTabletFontSizeSmall}rem !important;
+  `)}
+
+  ${R.setMobileStyle(css`
+    font-size: ${MobileFontSizeSmall}rem !important;
+  `)}
+`;
+
+export const setFontSizeMicro = () => css`
+  ${R.setDeskTopStyle(css`
+    font-size: ${DeskTopFontSizeMicro}rem !important;
+  `)}
+
+  ${R.setNoteBookStyle(css`
+    font-size: ${NoteBookFontSizeMicro}rem !important;
+  `)}
+
+  ${R.setBigTabletStyle(css`
+    font-size: ${BigTabletFontSizeMicro}rem !important;
+  `)}
+
+  ${R.setSmallTabletStyle(css`
+    font-size: ${SmallTabletFontSizeMicro}rem !important;
+  `)}
+
+  ${R.setMobileStyle(css`
+    font-size: ${MobileFontSizeMicro}rem !important;
+  `)}
+`;
+
+export const setFontSizeNano = () => css`
+  ${R.setDeskTopStyle(css`
+    font-size: ${DeskTopFontSizeNano}rem !important;
+  `)}
+
+  ${R.setNoteBookStyle(css`
+    font-size: ${NoteBookFontSizeNano}rem !important;
+  `)}
+
+  ${R.setBigTabletStyle(css`
+    font-size: ${BigTabletFontSizeNano}rem !important;
+  `)}
+
+  ${R.setSmallTabletStyle(css`
+    font-size: ${SmallTabletFontSizeNano}rem !important;
+  `)}
+
+  ${R.setMobileStyle(css`
+    font-size: ${MobileFontSizeNano}rem !important;
+  `)}
+`;
+
+export const setFontSizePico = () => css`
+  ${R.setDeskTopStyle(css`
+    font-size: ${DeskTopFontSizePico}rem !important;
+  `)}
+
+  ${R.setNoteBookStyle(css`
+    font-size: ${NoteBookFontSizePico}rem !important;
+  `)}
+
+  ${R.setBigTabletStyle(css`
+    font-size: ${BigTabletFontSizePico}rem !important;
+  `)}
+
+  ${R.setSmallTabletStyle(css`
+    font-size: ${SmallTabletFontSizePico}rem !important;
+  `)}
+
+  ${R.setMobileStyle(css`
+    font-size: ${MobileFontSizePico}rem !important;
+  `)}
+`;
