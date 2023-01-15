@@ -1,4 +1,4 @@
-import { INormalButtonProps } from '../normalButton.types';
+import { INormalButtonProps } from '../normalButton/normalButton.types';
 import * as S from './roundButton.styles';
 
 export default function RoundButton({
