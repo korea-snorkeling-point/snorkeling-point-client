@@ -1,4 +1,4 @@
-import DecoratedText from '@components/commons/text/decorated-text/decoratedText';
+import DecoratedText from '@components/commons/text/decoratedText/decoratedText';
 import { FONT_SIZE } from '@constants/decoratedText';
 import { render } from '@testing-library/react';
 
