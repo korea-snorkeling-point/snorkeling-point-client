@@ -1,4 +1,4 @@
-import NormalButton from '@components/commons/button/normalButton';
+import NormalButton from '@components/commons/button/normalButton/normalButton';
 import { mainBlue } from '@styles/colors.styles';
 import { fireEvent, getByRole, render, screen } from '@testing-library/react';
 
