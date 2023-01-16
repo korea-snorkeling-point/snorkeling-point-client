@@ -44,6 +44,7 @@
     "@testing-library/react": "^12.1.5",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
+    "@types/apollo-upload-client": "^17.0.2",
     "@types/jest": "^29.2.4",
     "@types/jest-plugin-context": "^2.9.5",
     "@types/lodash": "^4.14.191",
