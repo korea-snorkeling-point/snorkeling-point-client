@@ -8,7 +8,8 @@
     "build:ssg": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "generate": "graphql-codegen"
   },
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@emotion/jest": "^11.10.5",
     "@graphql-codegen/cli": "^2.15.0",
+    "@graphql-codegen/typescript": "^2.8.7",
     "@svgr/webpack": "^6.5.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
