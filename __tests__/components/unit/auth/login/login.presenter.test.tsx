@@ -1,23 +1,48 @@
 import LoginUI from '@components/unit/auth/login/login.presenter';
+import { fireEvent, render } from '@testing-library/react';
+import { renderHook } from '@testing-library/react-hooks';
+import {
+  FieldErrorsImpl,
+  FieldValues,
+  useForm,
+  UseFormReturn,
+} from 'react-hook-form';
+
+import mockRouter from 'next-router-mock';
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
+
+import {
+  EMAIL_ERROR_MESSAGE,
+  PASSWORD_ERROR_MESSAGE,
+} from '@constants/errorMessage';
 import {
   EMAIL_PLACEHOLDER,
   PASSWORD_PLACEHOLDER,
 } from '@constants/placeholder';
-import { act, fireEvent, render } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
-import { FieldValues, useForm, UseFormReturn } from 'react-hook-form';
-
-jest.spyOn(require('next/router'), 'useRouter');
 
 describe('LoginUI', () => {
   const onClickLoginMock = jest.fn();
   const formMock = renderHook(() => useForm());
 
   const renderLoginUI = (
+    errors: Partial<
+      FieldErrorsImpl<{
+        [x: string]: any;
+      }>
+    > = formMock.result.current.formState.errors,
     form: UseFormReturn<FieldValues, any> = formMock.result.current,
-    handleClickLogin: (payload: any) => void = onClickLoginMock,
+    handleClickLogin: () => void = onClickLoginMock,
   ) => {
-    return render(<LoginUI form={form} onClickLogin={handleClickLogin} />);
+    return render(
+      <LoginUI
+        control={form.control}
+        errors={errors}
+        onClickLogin={handleClickLogin}
+      />,
+      {
+        wrapper: MemoryRouterProvider,
+      },
+    );
   };
 
   it('이메일 입력 인풋이 보인다.', () => {
@@ -38,16 +63,13 @@ describe('LoginUI', () => {
 
   context('로그인 버튼을 클릭하면', () => {
     it('onClickLogin을 호출한다.', () => {
-      const handleSubmitMock = formMock.result.current.handleSubmit;
       const { getByText } = renderLoginUI();
 
       const loginButton = getByText('로그인');
 
-      act(() => {
-        fireEvent.click(loginButton);
-      });
+      fireEvent.click(loginButton);
 
-      // expect().toBeCalled();
+      expect(onClickLoginMock).toHaveBeenCalled();
     });
   });
 
@@ -59,19 +81,43 @@ describe('LoginUI', () => {
 
       fireEvent.click(joinButton);
 
-      // expect(useRouter.asPath).toBe('/auth/join');
+      expect(mockRouter.asPath).toBe('/auth/join');
     });
   });
 
   context('비밀번호 재설정 버튼을 클릭하면', () => {
-    it('비밀번호 재설정 페이지로 이동한다.', () => {});
+    it('비밀번호 재설정 페이지로 이동한다.', () => {
+      const { getByText } = renderLoginUI();
+
+      const resetPasswordButton = getByText('비밀번호 재설정');
+
+      fireEvent.click(resetPasswordButton);
+
+      expect(mockRouter.asPath).toBe('/auth/reset-password');
+    });
   });
 
-  context('이메일을 잘못 입력했으면', () => {
-    it('이메일 에러 메세지를 보여준다.', () => {});
-  });
+  context('에러 메세지가 있을 경우', () => {
+    it('이메일 에러 메세지를 보여준다.', () => {
+      const { getByText } = renderLoginUI({
+        email: { type: 'onChange', message: EMAIL_ERROR_MESSAGE },
+        password: { type: 'onChange', message: PASSWORD_ERROR_MESSAGE },
+      });
 
-  context('비밀번호를 잘못 입력했으면', () => {
-    it('비밀번호 에러 메세지를 보여준다.', () => {});
+      const emailError = getByText(EMAIL_ERROR_MESSAGE);
+
+      expect(emailError).toBeInTheDocument();
+    });
+
+    it('비밀번호 에러 메세지를 보여준다.', () => {
+      const { getByText } = renderLoginUI({
+        email: { type: 'onChange', message: EMAIL_ERROR_MESSAGE },
+        password: { type: 'onChange', message: PASSWORD_ERROR_MESSAGE },
+      });
+
+      const passwordError = getByText(PASSWORD_ERROR_MESSAGE);
+
+      expect(passwordError).toBeInTheDocument();
+    });
   });
 });
