@@ -10,9 +10,11 @@ import Link from 'next/link';
 import * as S from './login.styles';
 import { LoginUIPropsType } from './login.types';
 
-export default function LoginUI({ form, onClickLogin }: LoginUIPropsType) {
-  const { control, formState, handleSubmit } = form;
-
+export default function LoginUI({
+  control,
+  errors,
+  onClickLogin,
+}: LoginUIPropsType) {
   return (
     <S.PageWrapper>
       <S.Wrapper>
@@ -26,7 +28,7 @@ export default function LoginUI({ form, onClickLogin }: LoginUIPropsType) {
             placeholder={EMAIL_PLACEHOLDER}
             prefix={<UserOutlined />}
           />
-          <ErrorText>{formState.errors.email?.message || ''}</ErrorText>
+          <ErrorText>{errors.email?.message || ''}</ErrorText>
         </S.InputWrapper>
 
         <S.InputWrapper>
@@ -37,14 +39,11 @@ export default function LoginUI({ form, onClickLogin }: LoginUIPropsType) {
             placeholder={PASSWORD_PLACEHOLDER}
             prefix={<KeyOutlined />}
           />
-          <ErrorText>{formState.errors.password?.message || ''}</ErrorText>
+          <ErrorText>{errors.password?.message || ''}</ErrorText>
         </S.InputWrapper>
 
         <S.LoginButtonWrapper>
-          <RoundGradientButton
-            value="로그인"
-            onClick={handleSubmit(onClickLogin)}
-          />
+          <RoundGradientButton value="로그인" onClick={onClickLogin} />
         </S.LoginButtonWrapper>
 
         <p>
