@@ -8,7 +8,8 @@
     "build:ssg": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "generate": "graphql-codegen"
   },
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
@@ -19,9 +20,11 @@
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.2",
     "antd": "^5.0.4",
+    "apollo-upload-client": "^17.0.0",
     "eslint": "^8.2.0",
     "eslint-config-next": "13.0.6",
     "graphql": "^16.6.0",
+    "graphql-request": "^5.1.0",
     "lodash": "^4.17.21",
     "next": "12.1.0",
     "react": "17.0.2",
@@ -35,11 +38,13 @@
   "devDependencies": {
     "@emotion/jest": "^11.10.5",
     "@graphql-codegen/cli": "^2.15.0",
+    "@graphql-codegen/typescript": "^2.8.7",
     "@svgr/webpack": "^6.5.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
+    "@types/apollo-upload-client": "^17.0.2",
     "@types/jest": "^29.2.4",
     "@types/jest-plugin-context": "^2.9.5",
     "@types/lodash": "^4.14.191",

@@ -1,0 +1,7 @@
+schema: https://snkserver.shop/graphql
+generates:
+ ./src/commons/graphqlTypes/generated/types.ts:
+  plugins:
+   - typescript
+  config:
+   typesPrefix: I
