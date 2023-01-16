@@ -10,6 +10,10 @@ const customJestConfig = {
   preset: 'ts-jest',
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
+  testPathIgnorePatterns: [
+    '<rootDir>/src/commons/yupSchema/$1',
+    'node_modules',
+  ],
   moduleNameMapper: {
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@styles/(.*)': '<rootDir>/src/commons/styles/$1',
@@ -19,6 +23,9 @@ const customJestConfig = {
   collectCoverageFrom: [
     'src/**/*.[jt]s?(x)',
     '!pages/',
+    '!src/commons/yupSchema/*.[jt]s?(x)',
+    '!src/commons/settings/*.[jt]s?(x)',
+    '!src/commons/graphqlTypes/**/*.[jt]s?(x)',
     '!**/*.styles.[jt]s?(x)',
     '!**/*.types.[jt]s?(x)',
   ],

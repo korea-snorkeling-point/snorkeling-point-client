@@ -8,4 +8,5 @@ export interface IStyleProps {
   display?: string;
   visibility?: string;
   fontSizeUnit?: FONT_SIZE_KEY;
+  marginBottom?: number;
 }

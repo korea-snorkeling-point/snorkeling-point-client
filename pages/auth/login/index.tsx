@@ -1,3 +1,5 @@
+import LoginContainer from '@components/unit/auth/login/login.container';
+
 export default function LoginPage() {
-  return <div>로그인 페이지</div>;
+  return <LoginContainer />;
 }
