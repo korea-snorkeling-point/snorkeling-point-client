@@ -9,8 +9,16 @@ export const Row = styled.div(
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
-    gap: 20px;
-    ${R.dynamicSize({ attribute: 'marginBottom', px: props.marginBottom })};
+
+    ${R.dynamicSize({
+      attribute: 'gap',
+      px: 8,
+    })};
+
+    ${R.dynamicSize({
+      attribute: 'marginBottom',
+      px: props.marginBottom || 0,
+    })};
   `,
 );
 

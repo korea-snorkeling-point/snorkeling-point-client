@@ -15,26 +15,8 @@ export const NormalButton = styled.button(
     border: none;
     cursor: pointer;
 
-    ${R.setDeskTopStyle(css`
-      height: 2rem !important;
-      font-size: ${S.DeskTopFontSizeMicro}rem;
-    `)};
-    ${R.setNoteBookStyle(css`
-      height: 2.5rem !important;
-      font-size: ${S.NoteBookFontSizeMicro}rem;
-    `)};
-    ${R.setBigTabletStyle(css`
-      height: 3.2rem !important;
-      font-size: ${S.BigTabletFontSizeMicro}rem;
-    `)};
-    ${R.setSmallTabletStyle(css`
-      height: 4.1rem !important;
-      font-size: ${S.SmallTabletFontSizeMicro}rem;
-    `)};
-    ${R.setMobileStyle(css`
-      height: 5.2rem !important;
-      font-size: ${S.MobileFontSizeMicro}rem;
-    `)};
+    ${S.setFontSizeMicro()}
+    ${R.dynamicSize({ attribute: 'height', px: 40 })}
 
     background-color: ${props.color === subYellow && '#FFD354'};
     background-color: ${props.color === red && '#ED3F3F'};
