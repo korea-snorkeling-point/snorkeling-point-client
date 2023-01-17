@@ -14,13 +14,13 @@ const menus = [
     onIcon: <HomeOnIcon />,
     offIcon: <HomeOffIcon />,
     title: '홈',
-    path: '/main',
+    path: '/snorkeling-points',
   },
   {
     onIcon: <MarketOnIcon />,
     offIcon: <MarketOffIcon />,
     title: '중고마켓',
-    path: '/market',
+    path: '/market/products',
   },
   {
     onIcon: <BuddyOnIcon />,
@@ -38,7 +38,7 @@ const menus = [
     onIcon: <MyPageOnIcon />,
     offIcon: <MyPageOffIcon />,
     title: '마이페이지',
-    path: '/my-page',
+    path: '/mypage/snorkeling-point',
   },
 ];
 
