@@ -26,6 +26,7 @@ const customJestConfig = {
     '!src/commons/yupSchema/*.[jt]s?(x)',
     '!src/commons/settings/*.[jt]s?(x)',
     '!src/commons/graphqlTypes/**/*.[jt]s?(x)',
+    '!**/*.presenter.[jt]s?(x)',
     '!**/*.styles.[jt]s?(x)',
     '!**/*.types.[jt]s?(x)',
   ],
