@@ -7,6 +7,7 @@ import {
 } from '@constants/placeholder';
 import { ErrorText } from '@styles/common.styles';
 import Link from 'next/link';
+import { InputWrapper, PageWrapper, Title, Wrapper } from '../common.styles';
 import * as S from './login.styles';
 import { LoginUIPropsType } from './login.types';
 
@@ -16,11 +17,11 @@ export default function LoginUI({
   onClickLogin,
 }: LoginUIPropsType) {
   return (
-    <S.PageWrapper>
-      <S.Wrapper>
-        <S.Title>Login</S.Title>
+    <PageWrapper>
+      <Wrapper>
+        <Title>Login</Title>
 
-        <S.InputWrapper>
+        <InputWrapper>
           <NormalInput
             control={control}
             name="email"
@@ -29,9 +30,9 @@ export default function LoginUI({
             prefix={<UserOutlined />}
           />
           <ErrorText>{errors.email?.message || ''}</ErrorText>
-        </S.InputWrapper>
+        </InputWrapper>
 
-        <S.InputWrapper>
+        <InputWrapper>
           <NormalInput
             control={control}
             name="password"
@@ -40,26 +41,26 @@ export default function LoginUI({
             prefix={<KeyOutlined />}
           />
           <ErrorText>{errors.password?.message || ''}</ErrorText>
-        </S.InputWrapper>
+        </InputWrapper>
 
         <S.LoginButtonWrapper>
           <RoundGradientButton value="로그인" onClick={onClickLogin} />
         </S.LoginButtonWrapper>
 
-        <p>
+        <S.GuideWrapper>
           아직 계정이 없으신가요?
           <Link href="/auth/join">
             <u>회원가입</u>
           </Link>
-        </p>
+        </S.GuideWrapper>
 
-        <p>
+        <S.GuideWrapper>
           비밀번호를 잊어버리셨나요?
           <Link href="/auth/reset-password">
             <u>비밀번호 재설정</u>
           </Link>
-        </p>
-      </S.Wrapper>
-    </S.PageWrapper>
+        </S.GuideWrapper>
+      </Wrapper>
+    </PageWrapper>
   );
 }
