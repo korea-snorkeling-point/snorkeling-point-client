@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { IStyleProps } from '@styles/types';
 import * as S from '@styles/dimen.styles';
 import * as R from '@styles/responsive.styles';
 
@@ -20,19 +19,19 @@ export const Wrapper = styled.div`
   justify-content: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
-  ${R.dynamicSize({ attribute: 'padding', px: 50 })}
+  ${R.dynamicSize({ attribute: 'padding', px: 40 })}
   ${R.dynamicSize({ attribute: 'borderRadius', px: 20 })}
 
   ${R.setDeskTopStyle(css`
-    width: 40%;
-  `)}
-
-  ${R.setNoteBookStyle(css`
     width: 50%;
   `)}
 
-  ${R.setBigTabletStyle(css`
+  ${R.setNoteBookStyle(css`
     width: 60%;
+  `)}
+
+  ${R.setBigTabletStyle(css`
+    width: 70%;
   `)}
 
   ${R.setSmallTabletStyle(css`
@@ -50,14 +49,3 @@ export const Title = styled.h1`
   ${R.dynamicSize({ attribute: 'marginBottom', px: 50 })}
   ${S.setFontSizeSupper()};
 `;
-
-export const InputWrapper = styled.div(
-  (props: IStyleProps) => css`
-    width: 100%;
-
-    ${R.dynamicSize({
-      attribute: 'marginBottom',
-      px: props.marginBottom || 20,
-    })};
-  `,
-);

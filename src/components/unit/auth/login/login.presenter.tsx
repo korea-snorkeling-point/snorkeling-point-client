@@ -7,7 +7,7 @@ import {
 } from '@constants/placeholder';
 import { ErrorText } from '@styles/common.styles';
 import Link from 'next/link';
-import { InputWrapper, PageWrapper, Title, Wrapper } from '../common.styles';
+import { PageWrapper, Title, Wrapper } from '../common.styles';
 import * as S from './login.styles';
 import { LoginUIPropsType } from './login.types';
 
@@ -21,7 +21,7 @@ export default function LoginUI({
       <Wrapper>
         <Title>Login</Title>
 
-        <InputWrapper>
+        <S.InputWrapper>
           <NormalInput
             control={control}
             name="email"
@@ -30,9 +30,9 @@ export default function LoginUI({
             prefix={<UserOutlined />}
           />
           <ErrorText>{errors.email?.message || ''}</ErrorText>
-        </InputWrapper>
+        </S.InputWrapper>
 
-        <InputWrapper>
+        <S.InputWrapper>
           <NormalInput
             control={control}
             name="password"
@@ -41,7 +41,7 @@ export default function LoginUI({
             prefix={<KeyOutlined />}
           />
           <ErrorText>{errors.password?.message || ''}</ErrorText>
-        </InputWrapper>
+        </S.InputWrapper>
 
         <S.LoginButtonWrapper>
           <RoundGradientButton value="로그인" onClick={onClickLogin} />
