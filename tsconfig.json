@@ -20,12 +20,13 @@
       "@styles/*":["src/commons/styles/*"],
       "@hooks/*":["src/commons/hooks/*"],
       "@components/*":["src/components/*"],
+      "@di/*": ["src/commons/di/*"],
+      "@repository/*": ["src/commons/repository/*"],
+      "@dataSource/*": ["src/commons/dataSource/*"],
     },
-    "types": [
-          "reflect-metadata"
-        ],
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": ["reflect-metadata"],
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

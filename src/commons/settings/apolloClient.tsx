@@ -1,40 +1,18 @@
-import {
-  ApolloClient,
-  ApolloLink,
-  ApolloProvider,
-  fromPromise,
-  InMemoryCache,
-} from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
 import { ReactNode } from 'react';
-import { onError } from '@apollo/client/link/error';
-import { createUploadLink } from 'apollo-upload-client';
-import { GraphQLError } from 'graphql';
+import { APOLLO_TYPES, IApolloClientProvider } from '@di/apollo/modules.types';
+import { appContainer } from '../di/container';
 
 type ApolloSettingsProps = {
   children: ReactNode;
 };
 
 export default function ApolloSettings({ children }: ApolloSettingsProps) {
-  const errorLink = onError(({ graphQLErrors, operation, forward }) => {
-    if (!graphQLErrors) return;
-    graphQLErrors.forEach((error: GraphQLError) => {
-      if (error.extensions.code === 'UNAUTHENTICATED') {
-        // return fromPromise().flatMap(() => forward(operation));
-      }
-    });
-  });
+  const client = appContainer.get<IApolloClientProvider>(
+    APOLLO_TYPES.ApolloClientProvider,
+  );
 
-  const uploadLink: ApolloLink = createUploadLink({
-    uri: 'https://snkserver.shop/graphql',
-    headers: {},
-    credentials: 'include',
-  });
-
-  const client = new ApolloClient({
-    link: ApolloLink.from([errorLink, uploadLink]),
-    cache: new InMemoryCache(),
-    connectToDevTools: true,
-  });
-
-  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+  return (
+    <ApolloProvider client={client.apolloClient}>{children}</ApolloProvider>
+  );
 }
