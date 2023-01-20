@@ -20,7 +20,12 @@
       "@styles/*":["src/commons/styles/*"],
       "@hooks/*":["src/commons/hooks/*"],
       "@components/*":["src/components/*"],
-    }
+    },
+    "types": [
+          "reflect-metadata"
+        ],
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
