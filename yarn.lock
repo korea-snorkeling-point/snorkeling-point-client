@@ -5504,7 +5504,7 @@ jest-mock@^29.3.1:
 
 jest-plugin-context@^2.9.0:
   version "2.9.0"
-  resolved "https://registry.npmjs.org/jest-plugin-context/-/jest-plugin-context-2.9.0.tgz"
+  resolved "https://registry.yarnpkg.com/jest-plugin-context/-/jest-plugin-context-2.9.0.tgz#602aacbe61213a3bb229067db0eee9e003eb1931"
   integrity sha512-soBudNt3oTgeSFhRzLY2BwZdVuAlJ29zraNqt+PVRogkTPzNdvxIT3b0JXHQZUnT3jNsoNhTY9EDnGsyO2ExAg==
 
 jest-pnp-resolver@^1.2.2:

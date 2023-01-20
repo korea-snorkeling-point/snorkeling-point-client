@@ -12,7 +12,10 @@
           "@constants": "./src/commons/constants",
           "@styles": "./src/commons/styles",
           "@hooks": "./src/commons/hooks",
-          "@components": "./src/components"
+          "@components": "./src/components",
+          "@di": "./src/commons/di",
+          "@repository": "./src/commons/repository",
+          "@dataSource": "./src/commons/dataSource"
         }
       }
     ],

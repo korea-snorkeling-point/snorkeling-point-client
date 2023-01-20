@@ -23,8 +23,8 @@ const nextConfig = {
         '@hooks': path.resolve(__dirname, 'src/commons/hooks'),
         '@components': path.resolve(__dirname, 'src/components'),
         '@di': path.resolve(__dirname, 'src/commons/di'),
-        '@repository': path.resolve(__dirname, 'src/commons/repository'),
-        '@dataSource': path.resolve(__dirname, 'src/commons/dataSource'),
+        '@repository': path.resolve(__dirname, 'src/commons/repositories'),
+        '@dataSource': path.resolve(__dirname, 'src/commons/dataSources'),
       },
       ...config.resolve,
     };
