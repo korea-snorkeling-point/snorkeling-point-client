@@ -20,7 +20,7 @@ import { JOIN_URL, MAIN_URL, PASSWORD_RESET_URL } from '@constants/router';
 jest.mock('@repository/authRepository');
 
 describe('LoginContainer', () => {
-  const mockAuthRepository: IAuthRepository = mock(AuthRepository);
+  const mockAuthRepository: IAuthRepository = mock<IAuthRepository>();
 
   const renderLoginContainer = (authRepository = mockAuthRepository) => {
     render(
