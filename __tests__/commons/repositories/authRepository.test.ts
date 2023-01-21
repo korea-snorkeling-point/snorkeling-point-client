@@ -1,6 +1,6 @@
-import { IAuthDataSource, IAuthRepository } from '@di/auth/modules.types';
+import { IAuthDataSource } from '@di/auth/modules.types';
 import AuthRepository from '@repository/authRepository';
-import { anything, instance, mock, reset, when } from 'ts-mockito';
+import { instance, mock, reset, when } from 'ts-mockito';
 
 describe('AuthRepository', () => {
   const mockAuthDataSource: IAuthDataSource = mock<IAuthDataSource>();

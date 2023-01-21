@@ -8,7 +8,6 @@ import {
   PASSWORD_PLACEHOLDER,
 } from '@constants/placeholder';
 import { IAuthRepository } from '@di/auth/modules.types';
-import AuthRepository from '@repository/authRepository';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { AuthProvider } from 'src/commons/contexts/authContext';
