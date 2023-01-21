@@ -22,8 +22,8 @@ const customJestConfig = {
     '^@hooks/(.*)': '<rootDir>/src/commons/hooks/$1',
     '^@constants/(.*)': '<rootDir>/src/commons/constants/$1',
     '^@di/(.*)': '<rootDir>/src/commons/di/$1',
-    '^@repository/(.*)': '<rootDir>/src/commons/repository/$1',
-    '^@dataSource/(.*)': '<rootDir>/src/commons/dataSource/$1',
+    '^@repository/(.*)': '<rootDir>/src/commons/repositories/$1',
+    '^@dataSource/(.*)': '<rootDir>/src/commons/dataSources/$1',
   },
   collectCoverageFrom: [
     'src/**/*.[jt]s?(x)',

@@ -7,7 +7,7 @@ type UseAuthContextPropsType = {
 
 const useAuthContext = ({ authRepository }: UseAuthContextPropsType) => {
   const loginUser = (args: { email: string; password: string }) => {
-    authRepository.loginUser(args);
+    return authRepository.loginUser(args);
   };
 
   return {
