@@ -9,7 +9,7 @@ import { onError } from '@apollo/client/link/error';
 import { createUploadLink } from 'apollo-upload-client';
 import { GraphQLError } from 'graphql';
 import { injectable } from 'inversify';
-import { IApolloClientProvider } from '@di/apollo/modules.types';
+import { IApolloClientProvider } from '@di/apollo.modules';
 
 @injectable()
 export default class ApolloClientProvider implements IApolloClientProvider {

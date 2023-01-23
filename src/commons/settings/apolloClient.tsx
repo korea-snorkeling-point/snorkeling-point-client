@@ -1,6 +1,6 @@
 import { ApolloProvider } from '@apollo/client';
 import { ReactNode } from 'react';
-import { APOLLO_TYPES, IApolloClientProvider } from '@di/apollo/modules.types';
+import { APOLLO_TYPES, IApolloClientProvider } from '@di/apollo.modules';
 import { appContainer } from '../di/container';
 
 type ApolloSettingsProps = {

@@ -7,7 +7,7 @@ import {
   EMAIL_PLACEHOLDER,
   PASSWORD_PLACEHOLDER,
 } from '@constants/placeholder';
-import { IAuthRepository } from '@di/auth/modules.types';
+import { IAuthRepository } from '@di/auth.modules';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { AuthProvider } from 'src/commons/contexts/authContext';
@@ -15,8 +15,6 @@ import { anything, instance, mock, when } from 'ts-mockito';
 import mockRouter from 'next-router-mock';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import { JOIN_URL, MAIN_URL, PASSWORD_RESET_URL } from '@constants/router';
-
-jest.mock('@repository/authRepository');
 
 describe('LoginContainer', () => {
   const mockAuthRepository: IAuthRepository = mock<IAuthRepository>();

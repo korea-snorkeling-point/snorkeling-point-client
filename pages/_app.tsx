@@ -3,7 +3,7 @@ import { Global } from '@emotion/react';
 import type { AppProps } from 'next/app';
 import { AuthProvider } from 'src/commons/contexts/authContext';
 import { appContainer } from '@di/container';
-import { AUTH_TYPES, IAuthRepository } from '@di/auth/modules.types';
+import { AUTH_TYPES, IAuthRepository } from '@di/auth.modules';
 import ApolloSettings from '../src/commons/settings/apolloClient';
 import Layout from '../src/components/commons/layout/layout';
 import { resetStyles } from '../src/commons/styles/reset.styles';

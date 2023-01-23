@@ -1,4 +1,4 @@
-import { IAuthRepository } from '@di/auth/modules.types';
+import { IAuthRepository } from '@di/auth.modules';
 import constate from 'constate';
 
 type UseAuthContextPropsType = {

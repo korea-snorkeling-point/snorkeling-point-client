@@ -18,7 +18,7 @@
     "paths": {
       "@constants/*":["src/commons/constants/*"],
       "@styles/*":["src/commons/styles/*"],
-      "@hooks/*":["src/commons/hooks/*"],
+      "@hooks/*":["src/commons/util/hooks/*"],
       "@components/*":["src/components/*"],
       "@di/*": ["src/commons/di/*"],
       "@repository/*": ["src/commons/repositories/*"],

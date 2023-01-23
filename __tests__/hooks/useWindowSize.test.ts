@@ -1,4 +1,4 @@
-import { useWindowSize } from '@hooks/useWindowSize';
+import { useWindowSize } from 'src/commons/util/hooks/useWindowSize';
 import { act, fireEvent } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 

@@ -1,7 +1,10 @@
-import { APOLLO_TYPES } from '@di/apollo/modules.types';
+import { APOLLO_TYPES } from '@di/apollo.modules';
 import { inject, injectable } from 'inversify';
-import { IAuthDataSource } from '../di/auth/modules.types';
-import { IMutation, IMutationLoginArgs } from '../graphqlTypes/generated/types';
+import { IAuthDataSource } from '../di/auth.modules';
+import {
+  IMutation,
+  IMutationLoginArgs,
+} from '../util/graphqlTypes/generated/types';
 import ApolloClientProvider from '../settings/apolloClientProvider';
 import { LOGIN_USER } from './auth.queries';
 

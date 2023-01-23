@@ -1,4 +1,4 @@
-import { IAuthDataSource } from '@di/auth/modules.types';
+import { IAuthDataSource } from '@di/auth.modules';
 import AuthRepository from '@repository/authRepository';
 import { instance, mock, reset, when } from 'ts-mockito';
 

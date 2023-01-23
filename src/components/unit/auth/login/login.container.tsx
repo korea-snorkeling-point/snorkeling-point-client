@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { loginSchema } from 'src/commons/yupSchema/loginSchema';
+import { loginSchema } from 'src/commons/util/yupSchema/loginSchema';
 import { useLoginUser } from 'src/commons/contexts/authContext';
 import { useState } from 'react';
 import { useRouter } from 'next/router';

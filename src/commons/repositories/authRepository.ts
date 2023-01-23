@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { inject, injectable } from 'inversify';
-import * as modulesTypes from '@di/auth/modules.types';
+import * as modulesTypes from '@di/auth.modules';
 
 @injectable()
 export default class AuthRepository implements modulesTypes.IAuthRepository {
