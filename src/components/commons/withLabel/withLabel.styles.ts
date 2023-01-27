@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import * as R from '@styles/responsive.styles';
 import * as S from '@styles/dimen.styles';
+import * as C from '@styles/colors.styles';
 import { IStyleProps } from '@styles/types';
 
 export const Wrapper = styled.div`
@@ -15,7 +16,8 @@ export const Wrapper = styled.div`
 export const Label = styled.label(
   (props: IStyleProps) => css`
     font-weight: 900 !important;
-    ${R.dynamicSize({ attribute: 'marginBottom', px: 16 })}
+    color: ${C.gray54};
+    ${R.dynamicSize({ attribute: 'marginBottom', px: 8 })}
 
     ${R.setDeskTopStyle(css`
       font-size: ${S.getDeskTopFontSize(props.fontSizeUnit)}rem !important;
