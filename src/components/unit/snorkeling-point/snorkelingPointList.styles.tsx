@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import * as R from '@styles/responsive.styles';
 import { IStyleProps } from '@styles/types';
-import { Row } from 'antd';
 
 export const Wrapper = styled.div`
   height: 100%;
