@@ -5,12 +5,7 @@ import Slider from 'react-slick';
 import BestPointItem from './bestPointItem/bestPointItem';
 import * as S from './snorkelingPointList.styles';
 
-type SnorkelingPointListUIPropsType = {
-  bestPoints: any[];
-};
-export default function SnorkelingPointListUI({
-  bestPoints,
-}: SnorkelingPointListUIPropsType) {
+export default function SnorkelingPointListUI() {
   const settings = {
     dots: true,
     infinite: true,
@@ -32,9 +27,11 @@ export default function SnorkelingPointListUI({
 
       <S.BestPointSliderWrapper>
         <Slider {...settings}>
-          {(bestPoints || []).map((item: any) => (
-            <BestPointItem />
-          ))}
+          {Array(5)
+            .fill(0)
+            .map((item: any) => (
+              <BestPointItem />
+            ))}
         </Slider>
       </S.BestPointSliderWrapper>
 
