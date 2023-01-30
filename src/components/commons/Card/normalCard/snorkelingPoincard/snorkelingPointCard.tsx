@@ -2,10 +2,15 @@ import ToggleIcon from '@components/commons/toggle/toggleIcon/toggleIcon';
 import { ChipText } from '@styles/common.styles';
 import * as C from '@styles/colors.styles';
 import * as S from './snorkelingPointCard.styles';
+import NormalCard from '../normalCard';
 
 export default function SnorkelingPointCard() {
+  const handleClickCard = () => {
+    // TODO : 스노클링 상세 페이지로 이동
+  };
+
   return (
-    <S.Wrapper>
+    <NormalCard onClick={handleClickCard}>
       <S.HeaderWrapper>
         <S.TitleWrapper>삼척 장호항</S.TitleWrapper>
         <S.LikeWrapper>
@@ -43,6 +48,6 @@ export default function SnorkelingPointCard() {
             </ChipText>
           ))}
       </S.TagsWrppaer>
-    </S.Wrapper>
+    </NormalCard>
   );
 }

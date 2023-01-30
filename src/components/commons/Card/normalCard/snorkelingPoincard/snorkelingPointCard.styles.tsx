@@ -4,16 +4,6 @@ import * as S from '@styles/dimen.styles';
 import { IStyleProps } from '@styles/types';
 import { css } from '@emotion/react';
 
-export const Wrapper = styled.div`
-  width: 100%;
-  background-color: white;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-
-  ${R.dynamicSize({ attribute: 'padding', px: 24 })}
-  ${R.dynamicSize({ attribute: 'marginBottom', px: 16 })}
-`;
-
 export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
