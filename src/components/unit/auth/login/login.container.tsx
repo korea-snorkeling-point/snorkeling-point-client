@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { loginSchema } from 'src/commons/yupSchema/loginSchema';
+import { loginSchema } from 'src/commons/yup-schema/loginSchema';
 import LoginUI from './login.presenter';
 
 export default function LoginContainer() {

@@ -188,7 +188,7 @@ export const setFontSizeSupper = () => css`
 
 export const setFontSizeLarge = () => css`
   ${R.setDeskTopStyle(css`
-    font-size: ${DeskTopFontSizeLg}rem m !important;
+    font-size: ${DeskTopFontSizeLg}rem !important;
   `)}
 
   ${R.setNoteBookStyle(css`
