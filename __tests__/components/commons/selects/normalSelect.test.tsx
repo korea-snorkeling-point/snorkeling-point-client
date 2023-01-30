@@ -1,10 +1,9 @@
 import NormalSelect from '@components/commons/selects/normalSelect/normalSelect';
 import { INormalSelectProps } from '@components/commons/selects/normalSelect/normalSelect.types';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 import { DefaultOptionType } from 'antd/es/select';
 import { useForm } from 'react-hook-form';
-import { getByText, prettyDOM } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
 describe('NormalSelect', () => {
@@ -37,25 +36,22 @@ describe('NormalSelect', () => {
   };
 
   it('옵션을 선택할 수 있다.', async () => {
-    const {
-      useFormData,
-      render: { getAllByText, getByRole, getAllByRole, container },
-    } = renderNormalSelect({
+    const { useFormData } = renderNormalSelect({
       name,
       placeholder,
       options,
     });
 
-    const selectBox = getByRole('combobox');
+    const selectBox = screen.getByRole('combobox');
     const selectValue = String(options[0].value);
 
     await userEvent.click(selectBox);
 
-    const option = getAllByRole('option')[0];
+    const option = screen.getAllByRole('option')[0];
 
     expect(option).toBeInTheDocument();
 
-    await userEvent.click(getAllByText(selectValue)[1]);
+    await userEvent.click(screen.getAllByText(selectValue)[1]);
 
     expect(useFormData.getValues(name)).toBe(selectValue);
   });

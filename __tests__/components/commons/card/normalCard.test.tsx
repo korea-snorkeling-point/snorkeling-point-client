@@ -1,14 +1,12 @@
 import NormalCard from '@components/commons/Card/normalCard/normalCard';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 describe('<NormalCard /> 컴포넌트', () => {
   const setup = () => {
     const mockOnClick = jest.fn();
     const testChildren = 'Test Children';
-    const { getByText } = render(
-      <NormalCard onClick={mockOnClick}>{testChildren}</NormalCard>,
-    );
-    const card = getByText(testChildren);
+    render(<NormalCard onClick={mockOnClick}>{testChildren}</NormalCard>);
+    const card = screen.getByText(testChildren);
 
     return { card, mockOnClick };
   };
