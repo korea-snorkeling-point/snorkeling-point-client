@@ -29,7 +29,7 @@ export default function SnorkelingPointListUI() {
         <Slider {...settings}>
           {Array(5)
             .fill(0)
-            .map((item: any) => (
+            .map((bestPoint: any) => (
               <BestPointItem />
             ))}
         </Slider>
@@ -49,7 +49,7 @@ export default function SnorkelingPointListUI() {
         <Row gutter={32} justify="space-between">
           {Array(20)
             .fill('hi')
-            .map((item: any) => (
+            .map((snorkelingPoint: any) => (
               <Col xs={32} sm={12} md={8} lg={6}>
                 <SnorkelingPointCard />
               </Col>

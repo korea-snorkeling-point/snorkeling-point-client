@@ -42,9 +42,9 @@ export default function SnorkelingPointCard() {
       <S.TagsWrppaer>
         {Array(5)
           .fill('tag')
-          .map(e => (
+          .map(tag => (
             <ChipText backgroundColor={C.subYellow} color="white">
-              {e}
+              {tag}
             </ChipText>
           ))}
       </S.TagsWrppaer>

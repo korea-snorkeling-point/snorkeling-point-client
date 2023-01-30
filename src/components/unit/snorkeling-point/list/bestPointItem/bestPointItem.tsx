@@ -21,8 +21,8 @@ export default function BestPointItem() {
         <S.TagsWrapper>
           {Array(5)
             .fill('tag')
-            .map(e => (
-              <ChipText>{e}</ChipText>
+            .map(tag => (
+              <ChipText>{tag}</ChipText>
             ))}
         </S.TagsWrapper>
       </S.ContentWrapper>
