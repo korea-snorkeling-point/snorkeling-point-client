@@ -2,7 +2,7 @@ import SnorkelingPointCard from '@components/commons/Card/normalCard/snorkelingP
 import DecoratedText from '@components/commons/text/decoratedText/decoratedText';
 import { Col, Row } from 'antd';
 import Slider from 'react-slick';
-import BestPointItem from '../bestPointItem/bestPointItem';
+import BestPointItem from './bestPointItem/bestPointItem';
 import * as S from './snorkelingPointList.styles';
 
 export default function SnorkelingPointListUI() {
