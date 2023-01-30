@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import WithLabel from '@components/commons/withLabel/withLabel';
 import { IWithLabelProps } from '@components/commons/withLabel/withLabel.types';
 
@@ -18,12 +18,9 @@ describe('withLabel', () => {
     const labelText = '라벨';
     const childComponentText = 'child';
 
-    const { getByText } = renderWithLabel(
-      { label: labelText },
-      childComponentText,
-    );
+    renderWithLabel({ label: labelText }, childComponentText);
 
-    expect(getByText('라벨')).toBeInTheDocument();
-    expect(getByText('child')).toBeInTheDocument();
+    expect(screen.getByText('라벨')).toBeInTheDocument();
+    expect(screen.getByText('child')).toBeInTheDocument();
   });
 });
