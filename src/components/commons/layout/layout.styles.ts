@@ -44,13 +44,39 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+
+  ${R.setDeskTopStyle(css`
+    width: calc(100% - ${S.DeskTopSideBarSize}rem) !important;
+  `)}
+
+  ${R.setNoteBookStyle(css`
+    width: calc(100% - ${S.NoteBookSideBarSize}rem) !important;
+  `)}
+
+  ${R.setBigTabletStyle(css`
+    width: calc(100% - ${S.BigTabletSideBarSize}rem) !important;
+  `)}
+
+  ${R.setSmallTabletStyle(css`
+    width: calc(
+      100% - ${S.SmallTabletSideBarSize + R.convertSmallTabletRem(20)}rem
+    ) !important;
+  `)}
+
+  ${R.setMobileStyle(css`
+    width: 100% !important;
+  `)}
 `;
 
 export const SectionWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
+
   ${R.dynamicSize({ attribute: 'padding', px: 20 })}
-  ${R.dynamicSize({ attribute: 'paddingTop', px: S.headerSize })}
+  ${R.dynamicSize({
+    attribute: 'paddingTop',
+    px: S.headerSize,
+  })}
 `;
 
 export const Section = styled.section`

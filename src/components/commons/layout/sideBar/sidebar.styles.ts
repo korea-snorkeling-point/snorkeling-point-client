@@ -32,10 +32,14 @@ export const Wrapper = styled.nav(
 
   ${R.setMobileStyle(css`
       width: 100% !important;
-      box-shadow: ${props.visibility === 'visible'
-        ? '0px 4px 10px rgba(0, 0, 0, 0.1)'
-        : 'none'};
+      box-shadow: ${
+        props.visibility === 'visible'
+          ? '0px 4px 10px rgba(0, 0, 0, 0.1)'
+          : 'none'
+      };
+
       width: ${props.visibility === 'visible' ? '100%' : '8rem'} !important;
+      min-height: ${R.convertMobileRem(S.MobileHeaderSize)}rem !important};
 
       ${R.dynamicSize({
         attribute: 'borderBottomRightRadius',
