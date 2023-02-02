@@ -10,6 +10,7 @@ export const Wrapper = styled.nav(
     position: fixed;
     background-color: white;
 
+
     ${R.setDeskTopStyle(css`
       width: ${S.DeskTopSideBarSize}rem !important;
       padding: ${R.convertDeskTopRem(12)}rem ${R.convertDeskTopRem(20)}rem;
@@ -68,15 +69,15 @@ export const MenuWrapper = styled.div(
 export const MenuToggleButton = styled.div(
   () => css`
     display: none;
-
-    ${R.dynamicSize({ attribute: 'padding', px: 8 })}
+    width: 100%;
+    height: 100%;
 
     ${R.setMobileStyle(css`
       display: flex;
       align-items: center;
+      justify-content: center;
       font-size: large;
-      margin-top: ${R.convertMobileRem(16)}rem;
-      margin-left: ${R.convertMobileRem(20)}rem;
+      height: ${R.convertMobileRem(S.MobileHeaderSize)}rem !important};
     `)}
   `,
 );
