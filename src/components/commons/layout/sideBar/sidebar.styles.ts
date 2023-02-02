@@ -10,7 +10,6 @@ export const Wrapper = styled.nav(
     position: fixed;
     background-color: white;
 
-
     ${R.setDeskTopStyle(css`
       width: ${S.DeskTopSideBarSize}rem !important;
       padding: ${R.convertDeskTopRem(12)}rem ${R.convertDeskTopRem(20)}rem;
@@ -71,6 +70,7 @@ export const MenuToggleButton = styled.div(
     display: none;
     width: 100%;
     height: 100%;
+    background-color: white;
 
     ${R.setMobileStyle(css`
       display: flex;

@@ -71,12 +71,20 @@ export const Container = styled.div`
 export const SectionWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
-
   ${R.dynamicSize({ attribute: 'padding', px: 20 })}
+
   ${R.dynamicSize({
     attribute: 'paddingTop',
     px: S.headerSize,
   })}
+
+  ${R.setMobileStyle(css`
+    padding-top: 0 !important;
+  `)}
+
+  ${R.setMobileStyle(css`
+    padding-top: 0 !important;
+  `)}
 `;
 
 export const Section = styled.section`
