@@ -167,6 +167,14 @@ export const resetStyles = css`
     height: 100%;
   }
 
+  button {
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+  }
+
   .ant-select-dropdown {
     ${R.setDeskTopStyle(css`
       font-size: ${S.DeskTopFontSizeMicro}rem;
