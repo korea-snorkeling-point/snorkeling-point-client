@@ -21,28 +21,11 @@ export const SelectWrapper = styled(Select)`
   & .ant-select-selector,
   .ant-select-selection-search-input,
   .ant-select-selection-item {
+    display: flex;
     border-radius: 0;
+    align-items: center;
+
+    ${S.setFontSizeMicro()}
     ${R.dynamicSize({ attribute: 'height', px: 40 })}
-    ${R.dynamicSize({ attribute: 'lineHeight', px: 40 })}
-
-    ${R.setDeskTopStyle(css`
-      font-size: ${S.DeskTopFontSizeMicro}rem;
-    `)}
-
-    ${R.setNoteBookStyle(css`
-      font-size: ${S.NoteBookFontSizeMicro}rem;
-    `)}
-
-    ${R.setBigTabletStyle(css`
-      font-size: ${S.BigTabletFontSizeMicro}rem;
-    `)}
-
-    ${R.setSmallTabletStyle(css`
-      font-size: ${S.SmallTabletFontSizeMicro}rem;
-    `)}
-
-    ${R.setMobileStyle(css`
-      font-size: ${S.MobileFontSizeMicro}rem;
-    `)}
   }
 `;
