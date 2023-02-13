@@ -9,7 +9,7 @@ export default function LoginContainer() {
     mode: 'onChange',
   });
 
-  const handleClickLogin = handleSubmit((payload: any) => {
+  const handleClickLogin = handleSubmit(async (payload: any) => {
     // TODO : 로그인 버튼 클릭 로직 구현하기
   });
 

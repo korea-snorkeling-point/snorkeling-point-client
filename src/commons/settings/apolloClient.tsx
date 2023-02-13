@@ -25,7 +25,7 @@ export default function ApolloSettings({ children }: ApolloSettingsProps) {
   });
 
   const uploadLink: ApolloLink = createUploadLink({
-    uri: 'https://snkserver.shop/graphql',
+    uri: 'http://localhost:3000/graphql',
     headers: {},
     credentials: 'include',
   });
