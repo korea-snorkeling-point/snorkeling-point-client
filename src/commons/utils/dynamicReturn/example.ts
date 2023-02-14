@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
-import { IUser } from 'src/commons/graphql-types/generated/types';
-import { IProduct } from 'src/commons/graphqlTypes/generated/types';
+import { IProduct, IUser } from 'src/commons/graphql-types/generated/types';
+
 import Field from './Field';
 import ObjectField from './ObjectField';
 
