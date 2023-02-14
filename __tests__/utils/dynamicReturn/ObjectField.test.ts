@@ -1,5 +1,4 @@
-import { IUser } from 'src/commons/graphql-types/generated/types';
-import { IProduct } from 'src/commons/graphqlTypes/generated/types';
+import { IProduct, IUser } from 'src/commons/graphql-types/generated/types';
 import Field from 'src/commons/utils/dynamicReturn/Field';
 import ObjectField from 'src/commons/utils/dynamicReturn/ObjectField';
 
