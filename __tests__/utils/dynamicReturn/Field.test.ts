@@ -1,8 +1,6 @@
 import { IUser } from 'src/commons/graphql-types/generated/types';
 import Field from 'src/commons/utils/dynamicReturn/Field';
 
-export {};
-
 describe('Field', () => {
   it('하위에 자식 필드를 추가할 수 없다.', () => {
     const field = new Field<IUser>('email');

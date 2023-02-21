@@ -4,14 +4,20 @@ import ObjectField from 'src/commons/utils/dynamicReturn/ObjectField';
 
 describe('ObjectField', () => {
   it('하위에 자식 필드를 추가할 수 있다.', () => {
-    const objectField = new ObjectField<IProduct>('product');
+    const objectField = new ObjectField<IUser | IProduct>()
+      .add(new Field<IUser>('email'))
+      .add(new Field<IUser>('nickname'))
+      .add(new Field<IUser>('profileImg'))
+      .add(
+        new ObjectField<IProduct>('product').add(new Field<IProduct>('title')),
+      )
+      .toQuery();
 
-    objectField.add(new Field<IProduct>('title'));
-    objectField.add(new Field<IProduct>('address'));
-
-    expect(objectField.toQuery()).toContain('product');
-    expect(objectField.toQuery()).toContain('title');
-    expect(objectField.toQuery()).toContain('address');
+    expect(objectField).toContain('product');
+    expect(objectField).toContain('title');
+    expect(objectField).toContain('email');
+    expect(objectField).toContain('nickname');
+    expect(objectField).toContain('profileImg');
   });
 
   context('하위 필드 출력', () => {
