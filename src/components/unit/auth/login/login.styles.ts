@@ -1,10 +1,8 @@
-import styled from '@emotion/styled';
-import * as R from '@styles/responsive.styles';
-import * as S from '@styles/dimen.styles';
-import * as C from '@styles/colors.styles';
-import { IStyleProps } from '@styles/types';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import * as C from '@styles/colors.styles';
 import FontStyles from '@styles/font.styles';
+import { IStyleProps } from '@styles/types';
 
 export const GuideWrapper = styled.p`
   color: ${C.gray54};

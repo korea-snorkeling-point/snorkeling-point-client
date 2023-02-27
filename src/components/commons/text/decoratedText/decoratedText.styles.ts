@@ -1,8 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import * as R from '@styles/responsive.styles';
-import * as S from '@styles/dimen.styles';
 import FontStyles from '@styles/font.styles';
+import * as R from '@styles/responsive.styles';
 import { IDecoratedTextStylesProps } from './decoratedText.types';
 
 export const DecoratedText = styled.div(

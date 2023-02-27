@@ -1,9 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { IStyleProps } from '@styles/types';
-import * as R from '@styles/responsive.styles';
-import * as S from '@styles/dimen.styles';
 import FontStyles from '@styles/font.styles';
+import * as R from '@styles/responsive.styles';
+import { IStyleProps } from '@styles/types';
 
 export const Wrapper = styled.div(
   (props: IStyleProps) => css`
