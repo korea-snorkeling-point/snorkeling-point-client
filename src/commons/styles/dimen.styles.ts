@@ -8,7 +8,7 @@ export const HEADER_SIZE = {
 
 export const SIDE_BAR_SIZE = {
   lg: 240,
-  md: 80,
+  md: 95,
   sm: 80,
 };
 

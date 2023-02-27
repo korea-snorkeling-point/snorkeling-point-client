@@ -10,6 +10,9 @@ const nextConfig = {
     '/': { page: '/' },
     '/404': { page: '/404' },
   }),
+  compiler: {
+    emotion: true,
+  },
   images: {
     loader: 'akamai',
     path: '',

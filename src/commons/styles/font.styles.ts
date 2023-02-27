@@ -16,92 +16,92 @@ export const FontSizes = (display: DISPLAY = 'lg') => ({
 const FontStyles = (display: DISPLAY = 'lg') => ({
   '900': {
     SUPPER: css`
-      font-size: ${FontSizes(display).SUPPER};
+      font-size: ${FontSizes(display).SUPPER}px;
       font-weight: 900;
     `,
     LARGE: css`
-      font-size: ${FontSizes(display).LARGE};
+      font-size: ${FontSizes(display).LARGE}px;
       font-weight: 900;
     `,
     MIDDLE: css`
-      font-size: ${FontSizes(display).MIDDLE};
+      font-size: ${FontSizes(display).MIDDLE}px;
       font-weight: 900;
     `,
     SMALL: css`
-      font-size: ${FontSizes(display).SMALL};
+      font-size: ${FontSizes(display).SMALL}px;
       font-weight: 900;
     `,
     MICRO: css`
-      font-size: ${FontSizes(display).MICRO};
+      font-size: ${FontSizes(display).MICRO}px;
       font-weight: 900;
     `,
     NANO: css`
-      font-size: ${FontSizes(display).NANO};
+      font-size: ${FontSizes(display).NANO}px;
       font-weight: 900;
     `,
     PICO: css`
-      font-size: ${FontSizes(display).PICO};
+      font-size: ${FontSizes(display).PICO}px;
       font-weight: 900;
     `,
   },
 
   '700': {
     SUPPER: css`
-      font-size: ${FontSizes(display).SUPPER};
+      font-size: ${FontSizes(display).SUPPER}px;
       font-weight: 700;
     `,
     LARGE: css`
-      font-size: ${FontSizes(display).LARGE};
+      font-size: ${FontSizes(display).LARGE}px;
       font-weight: 700;
     `,
     MIDDLE: css`
-      font-size: ${FontSizes(display).MIDDLE};
+      font-size: ${FontSizes(display).MIDDLE}px;
       font-weight: 700;
     `,
     SMALL: css`
-      font-size: ${FontSizes(display).SMALL};
+      font-size: ${FontSizes(display).SMALL}px;
       font-weight: 700;
     `,
     MICRO: css`
-      font-size: ${FontSizes(display).MICRO};
+      font-size: ${FontSizes(display).MICRO}px;
       font-weight: 700;
     `,
     NANO: css`
-      font-size: ${FontSizes(display).NANO};
+      font-size: ${FontSizes(display).NANO}px;
       font-weight: 700;
     `,
     PICO: css`
-      font-size: ${FontSizes(display).PICO};
+      font-size: ${FontSizes(display).PICO}px;
       font-weight: 700;
     `,
   },
   '400': {
     SUPPER: css`
-      font-size: ${FontSizes(display).SUPPER};
+      font-size: ${FontSizes(display).SUPPER}px;
       font-weight: 400;
     `,
     LARGE: css`
-      font-size: ${FontSizes(display).LARGE};
+      font-size: ${FontSizes(display).LARGE}px;
       font-weight: 400;
     `,
     MIDDLE: css`
-      font-size: ${FontSizes(display).MIDDLE};
+      font-size: ${FontSizes(display).MIDDLE}px;
       font-weight: 400;
     `,
     SMALL: css`
-      font-size: ${FontSizes(display).SMALL};
+      font-size: ${FontSizes(display).SMALL}px;
       font-weight: 400;
     `,
     MICRO: css`
-      font-size: ${FontSizes(display).MICRO};
+      font-size: ${FontSizes(display).MICRO}px;
       font-weight: 400;
     `,
     NANO: css`
-      font-size: ${FontSizes(display).NANO};
+      font-size: ${FontSizes(display).NANO}px;
       font-weight: 400;
     `,
     PICO: css`
-      font-size: ${FontSizes(display).PICO};
+      font-size: ${FontSizes(display).PICO}px;
       font-weight: 400;
     `,
   },

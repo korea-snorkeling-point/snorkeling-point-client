@@ -1,4 +1,3 @@
-import { FONT_SIZE } from '@constants/decoratedText';
 import * as S from './decoratedText.styles';
 import { IDecoratedTextProps } from './decoratedText.types';
 

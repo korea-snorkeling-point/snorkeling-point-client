@@ -7,7 +7,7 @@ import FontStyles from './font.styles';
 
 export const resetStyles = css`
   html {
-    font-size: 10px !important;
+    font-size: 12px !important;
   }
   html,
   body,

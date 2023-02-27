@@ -32,8 +32,9 @@ export const ContentsWrapper = styled.div`
 `;
 
 export const Title = styled.span`
-  margin-top: 3px;
-  ${FontStyles()[400].MICRO}
+  margin-top: 8px;
+  ${FontStyles()[400].NANO}
+  text-align: center;
 `;
 
 export const Icon = styled.div`
