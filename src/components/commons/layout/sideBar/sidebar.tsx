@@ -1,23 +1,15 @@
 import menus from '@constants/menu';
-import { MenuOutlined } from '@ant-design/icons';
+import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 import MenuItemWithToggleIcon from '@components/commons/menu/menuItem/menuItemWithToggleIcon/menuItemWithToggleIcon';
 import ToggleIcon from '@components/commons/toggle/toggleIcon/toggleIcon';
-import { useEffect, useState } from 'react';
-import { useWindowSize } from '@hooks/useWindowSize';
-import { BigTablet } from '@styles/dimen.styles';
-import { MenuItemWrapper } from '@components/commons/menu/common.styles';
+import { useState } from 'react';
+
 import { useRouter } from 'next/router';
 import * as S from './sidebar.styles';
 
 export default function SideBar() {
   const router = useRouter();
-  const [collapsed, setCollapsed] = useState(false);
   const [isOpen, setOpen] = useState(false);
-  const [windowSize] = useWindowSize();
-
-  useEffect(() => {
-    setCollapsed(windowSize.width < BigTablet);
-  }, [windowSize]);
 
   const handleClickMenu = (path: string) => () => {
     router.push(path);
@@ -31,7 +23,7 @@ export default function SideBar() {
     <S.Wrapper visibility={isOpen ? 'visible' : 'hidden'}>
       <S.MenuToggleButton onClick={handleClickToggle}>
         <input hidden alt="menuToggleIcon" />
-        <MenuOutlined />
+        {isOpen ? <CloseOutlined /> : <MenuOutlined />}
       </S.MenuToggleButton>
 
       <S.MenuWrapper
@@ -40,7 +32,7 @@ export default function SideBar() {
       >
         <ul>
           {menus.map(({ onIcon, offIcon, title, path }) => (
-            <MenuItemWrapper
+            <S.MenuItemWrapper
               key={path}
               onClick={handleClickMenu(path)}
               visibility={isOpen ? 'visible' : 'hidden'}
@@ -54,10 +46,9 @@ export default function SideBar() {
                   />
                 }
                 title={title}
-                collapsed={collapsed}
                 selected={router.asPath.includes(path)}
               />
-            </MenuItemWrapper>
+            </S.MenuItemWrapper>
           ))}
         </ul>
       </S.MenuWrapper>
