@@ -1,41 +1,32 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import * as R from '../../../commons/styles/responsive.styles';
-import * as S from '../../../commons/styles/dimen.styles';
+import * as R from '@styles/responsive.styles';
+import * as S from '@styles/dimen.styles';
 
 export const Wrapper = styled.div`
   width: 100%;
+  height: 100%;
+  min-height: 100vh;
   display: flex;
 
-  ${R.setMobileStyle(css`
+  ${R.setSmallDisplayStyle(css`
     flex-direction: column;
   `)}
 `;
 
-export const NavWrapper = styled.div`
+export const NavWrapper = styled.nav`
   height: fit-content;
-  background-color: white;
+  min-height: ${S.HEADER_SIZE.lg}px;
+  width: ${S.SIDE_BAR_SIZE.lg}px;
 
-  ${R.setDeskTopStyle(css`
-    width: ${S.DeskTopSideBarSize}rem !important;
+  ${R.setMiddleDisplayStyle(css`
+    width: ${S.SIDE_BAR_SIZE.md}px;
+    min-height: ${S.HEADER_SIZE.md}px;
   `)}
 
-  ${R.setNoteBookStyle(css`
-    width: ${S.NoteBookSideBarSize}rem !important;
-  `)}
-
-  ${R.setBigTabletStyle(css`
-    width: ${S.BigTabletSideBarSize}rem !important;
-  `)}
-
-  ${R.setSmallTabletStyle(css`
-    width: ${S.SmallTabletSideBarSize +
-    R.convertSmallTabletRem(20)}rem !important;
-  `)}
-
-  ${R.setMobileStyle(css`
-    width: 100% !important;
-    height: ${R.convertMobileRem(S.MobileHeaderSize)}rem !important;
+  ${R.setSmallDisplayStyle(css`
+    width: ${S.SIDE_BAR_SIZE.sm}px;
+    min-height: ${S.HEADER_SIZE.sm}px;
   `)}
 `;
 
@@ -44,42 +35,40 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  width: calc(100% - ${S.SIDE_BAR_SIZE.lg}px) !important;
 
-  ${R.setDeskTopStyle(css`
-    width: calc(100% - ${S.DeskTopSideBarSize}rem) !important;
+  ${R.setMiddleDisplayStyle(css`
+    width: calc(100% - ${S.SIDE_BAR_SIZE.md}px) !important;
   `)}
 
-  ${R.setNoteBookStyle(css`
-    width: calc(100% - ${S.NoteBookSideBarSize}rem) !important;
-  `)}
-
-  ${R.setBigTabletStyle(css`
-    width: calc(100% - ${S.BigTabletSideBarSize}rem) !important;
-  `)}
-
-  ${R.setSmallTabletStyle(css`
-    width: calc(
-      100% - ${S.SmallTabletSideBarSize + R.convertSmallTabletRem(20)}rem
-    ) !important;
-  `)}
-
-  ${R.setMobileStyle(css`
+  ${R.setSmallDisplayStyle(css`
     width: 100% !important;
   `)}
 `;
 
-export const SectionWrapper = styled.div`
-  width: 100%;
-  min-height: 100vh;
+export const HeaderWrapper = styled.header`
+  height: ${S.HEADER_SIZE.lg}px;
 
-  ${R.dynamicSize({ attribute: 'padding', px: 20 })}
-  ${R.dynamicSize({
-    attribute: 'paddingTop',
-    px: S.headerSize,
-  })}
+  ${R.setMiddleDisplayStyle(css`
+    height: ${S.HEADER_SIZE.md}px;
+  `)}
+
+  ${R.setSmallDisplayStyle(css`
+    height: 0px;
+  `)}
 `;
 
-export const Section = styled.section`
+export const SectionWrapper = styled.section`
   width: 100%;
-  height: 100%;
+  padding: 16px;
+  max-width: 1440px;
+  height: calc(100% - ${S.HEADER_SIZE.lg}px) !important;
+
+  ${R.setMiddleDisplayStyle(css`
+    height: calc(100% - ${S.HEADER_SIZE.md}px) !important;
+  `)}
+
+  ${R.setSmallDisplayStyle(css`
+    height: calc(100% - ${S.HEADER_SIZE.sm}px) !important;
+  `)}
 `;

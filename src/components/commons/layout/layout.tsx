@@ -1,6 +1,6 @@
-import { ILayoutProps } from './layout.types';
-import * as S from './layout.styles';
 import Header from './header/header';
+import * as S from './layout.styles';
+import { ILayoutProps } from './layout.types';
 import SideBar from './sideBar/sidebar';
 
 export default function Layout({ children }: ILayoutProps) {
@@ -11,7 +11,9 @@ export default function Layout({ children }: ILayoutProps) {
       </S.NavWrapper>
 
       <S.Container>
-        <Header />
+        <S.HeaderWrapper>
+          <Header />
+        </S.HeaderWrapper>
         <S.SectionWrapper>{children}</S.SectionWrapper>
       </S.Container>
     </S.Wrapper>

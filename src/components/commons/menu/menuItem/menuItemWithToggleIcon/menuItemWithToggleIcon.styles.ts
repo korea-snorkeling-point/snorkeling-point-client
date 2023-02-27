@@ -2,80 +2,55 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import * as R from '@styles/responsive.styles';
 import * as C from '@styles/colors.styles';
-import * as S from '@styles/dimen.styles';
 import { IStyleProps } from '@styles/types';
-
-const setFlexDirection = (props: IStyleProps) => css`
-  align-items: center;
-  justify-content: center;
-  flex-direction: ${props.flexDirection || 'row'};
-`;
+import FontStyles from '@styles/font.styles';
 
 export const Wrapper = styled.div(
   (props: IStyleProps) => css`
     width: 100%;
-    display: flex;
     cursor: pointer;
-    align-items: center;
-    justify-content: center;
     background-color: ${props.backgroundColor || 'white'};
 
     &:hover {
       background-color: ${C.grayF6};
     }
 
-    ${R.dynamicSize({ attribute: 'padding', px: 8 })}
-    ${R.dynamicSize({ attribute: 'borderRadius', px: 16 })}
-
-    ${R.setSmallTabletStyle(css`
-      border-radius: ${R.convertSmallTabletRem(10)}rem;
-    `)}
+    padding: 8px;
+    border-radius: 10px;
   `,
 );
 
-export const ContentsWrapper = styled.div(
-  (props: IStyleProps) => css`
-    width: 100%;
-    display: flex;
-    ${R.setBigTabletStyle(setFlexDirection(props))}
-  `,
-);
-
-export const Title = styled.p`
+export const ContentsWrapper = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
-  font-size: ${S.DeskTopFontSizeNano}rem;
 
-  ${R.dynamicSize({ attribute: 'marginTop', px: 3 })}
-  ${R.setNoteBookStyle(css`
-    font-size: ${S.NoteBookFontSizeNano}rem;
-  `)}
-  ${R.setBigTabletStyle(css`
-    font-size: ${S.BigTabletFontSizeNano}rem;
-  `)}
-  ${R.setSmallTabletStyle(css`
-    font-size: ${S.SmallTabletFontSizeNano}rem;
-    display: none;
-  `)}
-  ${R.setMobileStyle(css`
-    font-size: ${S.MobileFontSizeNano}rem;
+  ${R.setMiddleDisplayStyle(css`
+    flex-direction: column;
+    justify-content: center;
   `)}
 `;
 
+export const Title = styled.span`
+  margin-top: 8px;
+  ${FontStyles()[400].NANO}
+  text-align: center;
+`;
+
 export const Icon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  ${R.setDeskTopStyle(css`
-    margin-right: ${R.convertDeskTopRem(16)}rem;
+  ${R.setLargeDisplayStyle(css`
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
   `)}
 
-  ${R.setNoteBookStyle(css`
-    margin-right: ${R.convertNoteBookRem(16)}rem;
+  ${R.setMiddleDisplayStyle(css`
+    width: 24px;
+    height: 24px;
   `)}
 
-  ${R.setMobileStyle(css`
-    margin-right: ${R.convertMobileRem(16)}rem;
+  ${R.setSmallDisplayStyle(css`
+    width: 24px;
+    height: 24px;
   `)}
 `;

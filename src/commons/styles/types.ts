@@ -1,4 +1,4 @@
-import { FONT_SIZE_KEY } from '@constants/decoratedText';
+import { FONT_SIZE_KEY } from './font.styles';
 
 export interface IStyleProps {
   width?: string;

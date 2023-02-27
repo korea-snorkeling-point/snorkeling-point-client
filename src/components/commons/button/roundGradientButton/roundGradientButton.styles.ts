@@ -1,5 +1,6 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import * as S from '@styles/dimen.styles';
+import FontStyles from '@styles/font.styles';
 import * as R from '@styles/responsive.styles';
 
 export const RoundGradientButtonWrapper = styled.button`
@@ -11,6 +12,7 @@ export const RoundGradientButtonWrapper = styled.button`
   padding: 0 !important;
   font-weight: 500 !important;
   color: #ffffff !important;
+  height: 40px;
   background: linear-gradient(273.41deg, #546fff -22.5%, #63eded 100%);
 
   &:disabled {
@@ -20,6 +22,9 @@ export const RoundGradientButtonWrapper = styled.button`
     color: #4a4a4a !important;
   }
 
-  ${S.setFontSizeSmall()}
-  ${R.dynamicSize({ attribute: 'height', px: 50 })}
+  ${FontStyles()[700].MICRO}
+
+  ${R.setSmallDisplayStyle(css`
+    ${FontStyles('sm')[700].MICRO}
+  `)}
 `;
