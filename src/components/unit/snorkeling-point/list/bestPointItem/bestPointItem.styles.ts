@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { IStyleProps } from '@styles/types';
 import * as R from '@styles/responsive.styles';
 import * as S from '@styles/dimen.styles';
+import FontStyles from '@styles/font.styles';
 
 export const Wrapper = styled.div(
   (props: IStyleProps) => css`
@@ -22,34 +23,42 @@ export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding: 30px;
 
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 50%,
     rgba(0, 0, 0, 0.74) 100%
   );
-
-  ${R.dynamicSize({ attribute: 'padding', px: 30 })}
 `;
 
 export const TitleWrapper = styled.h2`
   font-weight: 900;
-  ${S.setFontSizeLarge()}
-  ${R.dynamicSize({ attribute: 'marginBottom', px: 12 })}
+  margin-bottom: 12px;
+
+  ${FontStyles()[900].LARGE}
+
+  ${R.setMiddleDisplayStyle(css`
+    ${FontStyles('md')[900].LARGE}
+  `)}
+
+  ${R.setSmallDisplayStyle(css`
+    ${FontStyles('sm')[900].LARGE}
+  `)}
 `;
 
 export const AddressWrapper = styled.p`
   font-weight: 400;
   display: flex;
   align-items: center;
+  margin-bottom: 19px;
 
   > img {
     margin-right: 0.5rem;
-    ${R.dynamicSize({ attribute: 'width', px: 24 })}
+    width: 24px;
   }
 
-  ${S.setFontSizeSmall()}
-  ${R.dynamicSize({ attribute: 'marginBottom', px: 19 })}
+  ${FontStyles()[400].SMALL}
 `;
 
 export const DescriptionWrapper = styled.p`
@@ -61,9 +70,9 @@ export const DescriptionWrapper = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  margin-bottom: 17px;
 
-  ${S.setFontSizeMicro()};
-  ${R.dynamicSize({ attribute: 'marginBottom', px: 17 })}
+  ${FontStyles()[400].MICRO}
 `;
 
 export const TagsWrapper = styled.span`

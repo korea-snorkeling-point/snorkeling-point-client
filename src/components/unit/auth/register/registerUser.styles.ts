@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import * as R from '@styles/responsive.styles';
 import { IStyleProps } from '@styles/types';
 
 export const Row = styled.div(
@@ -9,16 +8,8 @@ export const Row = styled.div(
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
-
-    ${R.dynamicSize({
-      attribute: 'gap',
-      px: 8,
-    })};
-
-    ${R.dynamicSize({
-      attribute: 'marginBottom',
-      px: props.marginBottom || 0,
-    })};
+    gap: 8px;
+    margin-bottom: ${props.marginBottom || 0}px;
   `,
 );
 

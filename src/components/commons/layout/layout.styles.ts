@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   height: 100%;
   min-height: 100vh;
   display: flex;
-  background-color: aliceblue;
 
   ${R.setSmallDisplayStyle(css`
     flex-direction: column;
@@ -20,7 +19,6 @@ export const NavWrapper = styled.nav`
   min-height: ${S.HEADER_SIZE.lg}px;
   width: ${S.SIDE_BAR_SIZE.lg}px;
 
-  background-color: green;
   ${R.setMiddleDisplayStyle(css`
     width: ${S.SIDE_BAR_SIZE.md}px;
     min-height: ${S.HEADER_SIZE.md}px;
@@ -62,9 +60,9 @@ export const HeaderWrapper = styled.header`
 
 export const SectionWrapper = styled.section`
   width: 100%;
+  padding: 16px;
   max-width: 1440px;
   height: calc(100% - ${S.HEADER_SIZE.lg}px) !important;
-  background-color: aqua;
 
   ${R.setMiddleDisplayStyle(css`
     height: calc(100% - ${S.HEADER_SIZE.md}px) !important;

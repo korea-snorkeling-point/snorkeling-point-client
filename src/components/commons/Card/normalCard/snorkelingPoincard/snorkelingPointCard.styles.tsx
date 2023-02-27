@@ -32,7 +32,7 @@ export const ImageWrapper = styled.img(
     width: ${props.width || '100%'};
     margin-right: 8px;
     border-radius: 10px;
-    margin-bottom: ${props.marginBottom || 0};
+    margin-bottom: ${props.marginBottom || 0}px;
   `,
 );
 
