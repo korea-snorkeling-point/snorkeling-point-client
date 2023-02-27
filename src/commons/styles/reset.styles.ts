@@ -145,6 +145,10 @@ export const resetStyles = css`
     height: 100%;
   }
 
+  button {
+    cursor: pointer;
+  }
+
   .ant-select-dropdown {
     ${FontStyles()[400].MICRO}
 

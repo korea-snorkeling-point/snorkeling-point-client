@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import * as R from '@styles/responsive.styles';
-import * as S from '@styles/dimen.styles';
 import * as C from '@styles/colors.styles';
 import { IStyleProps } from '@styles/types';
+import FontStyles from '@styles/font.styles';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -15,28 +15,17 @@ export const Wrapper = styled.div`
 
 export const Label = styled.label(
   (props: IStyleProps) => css`
-    font-weight: 900 !important;
     color: ${C.gray54};
-    ${R.dynamicSize({ attribute: 'marginBottom', px: 8 })}
+    margin-bottom: 8px;
 
-    ${R.setDeskTopStyle(css`
-      font-size: ${S.getDeskTopFontSize(props.fontSizeUnit)}rem !important;
+    ${FontStyles()[900][props.fontSizeUnit || 'MICRO']}
+
+    ${R.setMiddleDisplayStyle(css`
+      ${FontStyles('md')[900][props.fontSizeUnit || 'MICRO']}
     `)}
 
-    ${R.setNoteBookStyle(css`
-      font-size: ${S.getNoteBookFontSize(props.fontSizeUnit)}rem !important;
-    `)}
-
-    ${R.setBigTabletStyle(css`
-      font-size: ${S.getBigTabletFontSize(props.fontSizeUnit)}rem !important;
-    `)}
-
-    ${R.setSmallTabletStyle(css`
-      font-size: ${S.getSmallTabletFontSize(props.fontSizeUnit)}rem !important;
-    `)}
-
-    ${R.setMobileStyle(css`
-      font-size: ${S.getMobileFontSize(props.fontSizeUnit)}rem !important;
+    ${R.setMiddleDisplayStyle(css`
+      ${FontStyles('sm')[900][props.fontSizeUnit || 'MICRO']}
     `)}
   `,
 );

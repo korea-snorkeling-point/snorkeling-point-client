@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import * as R from '@styles/responsive.styles';
 import * as S from '@styles/dimen.styles';
+import FontStyles from '@styles/font.styles';
 import { IDecoratedTextStylesProps } from './decoratedText.types';
 
 export const DecoratedText = styled.div(
@@ -27,48 +28,14 @@ export const DecoratedText = styled.div(
       z-index: -1;
     }
 
-    ${R.setDeskTopStyle(css`
-      font-size: ${props.style.fontSize === 'sp'
-          ? `${S.DeskTopFontSizeSupper}rem`
-          : ''}
-        ${props.style.fontSize === 'lg' ? `${S.DeskTopFontSizeLg}rem` : ''}
-        ${props.style.fontSize === 'md' ? `${S.DeskTopFontSizeMiddle}rem` : ''};
+    ${FontStyles()[900][props.fontSizeUnit || 'SUPPER']}
+
+    ${R.setMiddleDisplayStyle(css`
+      ${FontStyles('md')[900][props.fontSizeUnit || 'SUPPER']}
     `)}
 
-    ${R.setNoteBookStyle(css`
-      font-size: ${props.style.fontSize === 'sp'
-          ? `${S.NoteBookFontSizeSupper}rem`
-          : ''}
-        ${props.style.fontSize === 'lg' ? `${S.NoteBookFontSizeLg}rem` : ''}
-        ${props.style.fontSize === 'md' ? `${S.NoteBookFontSizeMiddle}rem` : ''};
-    `)}
-
-    ${R.setBigTabletStyle(css`
-      font-size: ${props.style.fontSize === 'sp'
-          ? `${S.BigTabletFontSizeSupper}rem`
-          : ''}
-        ${props.style.fontSize === 'lg' ? `${S.BigTabletFontSizeLg}rem` : ''}
-        ${props.style.fontSize === 'md'
-          ? `${S.BigTabletFontSizeMiddle}rem`
-          : ''};
-    `)}
-
-    ${R.setSmallTabletStyle(css`
-      font-size: ${props.style.fontSize === 'sp'
-          ? `${S.SmallTabletFontSizeSupper}rem`
-          : ''}
-        ${props.style.fontSize === 'lg' ? `${S.SmallTabletFontSizeLg}rem` : ''}
-        ${props.style.fontSize === 'md'
-          ? `${S.SmallTabletFontSizeMiddle}rem`
-          : ''};
-    `)}
-
-    ${R.setMobileStyle(css`
-      font-size: ${props.style.fontSize === 'sp'
-          ? `${S.MobileFontSizeSupper}rem`
-          : ''}
-        ${props.style.fontSize === 'lg' ? `${S.MobileFontSizeLg}rem` : ''}
-        ${props.style.fontSize === 'md' ? `${S.MobileFontSizeMiddle}rem` : ''};
+    ${R.setSmallDisplayStyle(css`
+      ${FontStyles('sm')[900][props.fontSizeUnit || 'SUPPER']}
     `)}
   `,
 );

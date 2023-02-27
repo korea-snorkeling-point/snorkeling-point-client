@@ -13,6 +13,15 @@ export const FontSizes = (display: DISPLAY = 'lg') => ({
   PICO: display === 'sm' ? 10 : 12,
 });
 
+export type FONT_SIZE_KEY =
+  | 'SUPPER'
+  | 'LARGE'
+  | 'MIDDLE'
+  | 'SMALL'
+  | 'MICRO'
+  | 'NANO'
+  | 'PICO';
+
 const FontStyles = (display: DISPLAY = 'lg') => ({
   '900': {
     SUPPER: css`
