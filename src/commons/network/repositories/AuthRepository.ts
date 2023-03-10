@@ -1,3 +1,4 @@
+import ERROR_MESSAGE from '@constants/errorMessage';
 import { inject, injectable } from 'inversify';
 import APP_TYPES from 'src/commons/di/type';
 import {
@@ -28,7 +29,33 @@ export default class AuthRepository implements IAuthRepository {
       { createUserInput },
     );
 
-    if (!result?.id) throw Error('회원가입에 실패했습니다.');
+    if (!result?.id) throw Error(ERROR_MESSAGE.AUTH.FAIL_REGISTER_USER);
     return result.id;
+  }
+
+  async createMailToken(email: string, type: string): Promise<boolean> {
+    const result = await this.httpClient.mutation<boolean>(
+      MUTATION.createMailToken,
+      {
+        email,
+        type,
+      },
+    );
+
+    if (!result) throw Error(ERROR_MESSAGE.AUTH.FAIL_SEND_EMAIL);
+    return result;
+  }
+
+  async verifyMailToken(email: string, code: string): Promise<boolean> {
+    const result = await this.httpClient.mutation<boolean>(
+      MUTATION.verifyMailToken,
+      {
+        email,
+        code,
+      },
+    );
+
+    if (!result) throw Error(ERROR_MESSAGE.AUTH.FAIL_VERIFY_CODE);
+    return result;
   }
 }

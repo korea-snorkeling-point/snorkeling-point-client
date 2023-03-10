@@ -1,3 +1,4 @@
+import ERROR_MESSAGE from '@constants/errorMessage';
 import 'reflect-metadata';
 import { IUser } from 'src/commons/graphql-types/generated/types';
 import AuthRepository from 'src/commons/network/repositories/AuthRepository';
@@ -49,7 +50,77 @@ describe('AuthRepository', () => {
               gender: 'gender',
             });
           } catch (e) {
-            expect((e as Error).message).toBe('회원가입에 실패했습니다.');
+            expect((e as Error).message).toBe(
+              ERROR_MESSAGE.AUTH.FAIL_REGISTER_USER,
+            );
+          }
+        });
+      });
+    });
+  });
+
+  describe('createMailToken 메서드', () => {
+    context('createMailToken api 응답이 성공일 때,', () => {
+      it('boolean 타입의 값을 응답으로 받는다.', async () => {
+        const expected = true;
+
+        when(mockHttpClient.mutation(anything(), anything())).thenResolve(
+          expected,
+        );
+
+        const actual = await authRepository.createMailToken('email', 'type');
+
+        expect(actual).toEqual(expected);
+      });
+
+      context('응답 객체가 null 또는 undefined인 경우', () => {
+        it('예외를 던진다.', async () => {
+          const expected: null | undefined = null;
+
+          when(mockHttpClient.mutation(anything(), anything())).thenResolve(
+            expected,
+          );
+
+          try {
+            await authRepository.createMailToken('email', 'type');
+          } catch (e) {
+            expect((e as Error).message).toBe(
+              ERROR_MESSAGE.AUTH.FAIL_SEND_EMAIL,
+            );
+          }
+        });
+      });
+    });
+  });
+
+  describe('verifyMailToken 메서드', () => {
+    context('verifyMailToken api 응답이 성공일 때,', () => {
+      it('boolean 타입의 값을 응답으로 받는다.', async () => {
+        const expected = true;
+
+        when(mockHttpClient.mutation(anything(), anything())).thenResolve(
+          expected,
+        );
+
+        const actual = await authRepository.verifyMailToken('email', 'code');
+
+        expect(actual).toEqual(expected);
+      });
+
+      context('응답 객체가 null 또는 undefined인 경우', () => {
+        it('예외를 던진다.', async () => {
+          const expected: null | undefined = null;
+
+          when(mockHttpClient.mutation(anything(), anything())).thenResolve(
+            expected,
+          );
+
+          try {
+            await authRepository.verifyMailToken('email', 'code');
+          } catch (e) {
+            expect((e as Error).message).toBe(
+              ERROR_MESSAGE.AUTH.FAIL_VERIFY_CODE,
+            );
           }
         });
       });
