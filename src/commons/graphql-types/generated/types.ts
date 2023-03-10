@@ -1,8 +1,14 @@
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -190,134 +196,110 @@ export type IMutation = {
   verifyMailToken: Scalars['Boolean'];
 };
 
-
 export type IMutationAdminLoginArgs = {
   account: Scalars['String'];
   password: Scalars['String'];
 };
 
-
 export type IMutationCreateAdminUserArgs = {
   createAdminUserInput: ICreateAdminUserInput;
 };
-
 
 export type IMutationCreateMailTokenArgs = {
   email: Scalars['String'];
   type: Scalars['String'];
 };
 
-
 export type IMutationCreateProductArgs = {
   createProductInput: ICreateProductInput;
 };
-
 
 export type IMutationCreateProductLikeArgs = {
   productId: Scalars['String'];
   userId: Scalars['String'];
 };
 
-
 export type IMutationCreateSnkBoardArgs = {
   createSnkBoardInput: ICreateSnkBoardInput;
 };
-
 
 export type IMutationCreateSnkBookMarkArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
-
 export type IMutationCreateSnkLikeArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
-
 export type IMutationCreateUserArgs = {
   createUserInput: ICreateUserInput;
 };
-
 
 export type IMutationDeleteAdminUserArgs = {
   account: Scalars['String'];
 };
 
-
 export type IMutationDeleteProductArgs = {
   productId: Scalars['String'];
 };
-
 
 export type IMutationDeleteProductLikeArgs = {
   productId: Scalars['String'];
   userId: Scalars['String'];
 };
 
-
 export type IMutationDeleteSnkBoardArgs = {
   snkBoardId: Scalars['String'];
 };
-
 
 export type IMutationDeleteSnkBookMarkArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
-
 export type IMutationDeleteSnkLikeArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
-
 export type IMutationDeleteUserArgs = {
   email: Scalars['String'];
 };
-
 
 export type IMutationLoginArgs = {
   email: Scalars['String'];
   password: Scalars['String'];
 };
 
-
 export type IMutationRestoreSnkBookMarkArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
-
 
 export type IMutationRestoreSnkLikeArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
-
 export type IMutationUpdateProductArgs = {
   productId: Scalars['String'];
   updateProductInput: IUpdateProductInput;
 };
-
 
 export type IMutationUpdateSnkBoardArgs = {
   snkBoardId: Scalars['String'];
   updateSnkBoardInput: IUpdateSnkBoardInput;
 };
 
-
 export type IMutationUpdateUserArgs = {
   updateUserInput: IUpdateUserInput;
 };
 
-
 export type IMutationUploadFileArgs = {
   files: Array<Scalars['Upload']>;
 };
-
 
 export type IMutationVerifyMailTokenArgs = {
   code: Scalars['String'];
@@ -326,7 +308,7 @@ export type IMutationVerifyMailTokenArgs = {
 
 export enum IPayment_Status_Enum {
   Cancel = 'CANCEL',
-  Payment = 'PAYMENT'
+  Payment = 'PAYMENT',
 }
 
 export type IPayment = {
@@ -408,64 +390,52 @@ export type IQuery = {
   fetchUserSnkLikes: Array<ISnkBoardLike>;
 };
 
-
 export type IQueryFetchAllProductsArgs = {
   page: Scalars['Float'];
 };
-
 
 export type IQueryFetchBookMarkedSnkBoardsArgs = {
   userId: Scalars['String'];
 };
 
-
 export type IQueryFetchLikedSnkBoardsArgs = {
   userId: Scalars['String'];
 };
-
 
 export type IQueryFetchOneUserArgs = {
   email: Scalars['String'];
 };
 
-
 export type IQueryFetchProductArgs = {
   productId: Scalars['String'];
 };
-
 
 export type IQueryFetchProductLikeArgs = {
   productId: Scalars['String'];
   userId: Scalars['String'];
 };
 
-
 export type IQueryFetchSnkBoardArgs = {
   snkBoardId: Scalars['String'];
 };
 
-
 export type IQueryFetchSnkBoardsArgs = {
   page: Scalars['Float'];
 };
-
 
 export type IQueryFetchSnkBookMarkArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
-
 export type IQueryFetchSnkLikeArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
-
 export type IQueryFetchUserSnkBookMarksArgs = {
   userId: Scalars['String'];
 };
-
 
 export type IQueryFetchUserSnkLikesArgs = {
   userId: Scalars['String'];
