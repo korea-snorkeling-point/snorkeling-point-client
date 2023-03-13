@@ -1,5 +1,4 @@
 import ERROR_MESSAGE from '@constants/errorMessage';
-import 'reflect-metadata';
 import { IUser } from 'src/commons/graphql-types/generated/types';
 import AuthRepository from 'src/commons/network/repositories/AuthRepository';
 import IHttpClient from 'src/commons/network/types/HttpClient.interface';
