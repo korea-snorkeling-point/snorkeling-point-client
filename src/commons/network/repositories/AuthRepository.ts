@@ -1,6 +1,4 @@
 import ERROR_MESSAGE from '@constants/errorMessage';
-import { inject, injectable } from 'inversify';
-import APP_TYPES from 'src/commons/di/type';
 import {
   ICreateUserInput,
   IUser,
@@ -11,13 +9,10 @@ import { MUTATION } from '../query/auth';
 import type IHttpClient from '../types/HttpClient.interface';
 import { IAuthRepository } from '../types/interfaces';
 
-@injectable()
 export default class AuthRepository implements IAuthRepository {
   private httpClient: IHttpClient;
 
-  constructor(
-    @inject(APP_TYPES.HTTP_CLIENT.IHttpClient) client: IHttpClient | any,
-  ) {
+  constructor(client: IHttpClient) {
     this.httpClient = client;
   }
 

@@ -26,6 +26,7 @@ const customJestConfig = {
     '!src/commons/yup-schema/*.[jt]s?(x)',
     '!src/commons/settings/*.[jt]s?(x)',
     '!src/commons/di/*.[jt]s?(x)',
+    '!src/commons/network/ApolloHttpClient.ts',
     '!src/commons/graphql-types/**/*.[jt]s?(x)',
     '!**/*.styles.[jt]s?(x)',
     '!**/*.types.[jt]s?(x)',
