@@ -1,4 +1,5 @@
 import useCreateMailToken from '@hooks/auth/useCreateMailToken';
+import useVerifyMailToken from '@hooks/auth/useVerifyMailToken';
 import { renderHook } from '@testing-library/react-hooks';
 
 import { useAuthRepository } from 'src/commons/di/containerContext';
@@ -19,9 +20,9 @@ const mockUseAuthRepository = useAuthRepository as jest.MockedFunction<
   typeof useAuthRepository
 >;
 
-describe('useCreateMailToken', () => {
+describe('useVerifyToken', () => {
   const mockAuthRepository = mock<IAuthRepository>();
-  const customRender = () => renderHook(() => useCreateMailToken());
+  const customRender = () => renderHook(() => useVerifyMailToken());
 
   beforeEach(() => {
     reset(mockAuthRepository);
@@ -31,30 +32,36 @@ describe('useCreateMailToken', () => {
     );
   });
 
-  context('email 값이 정상적으로 들어온 경우', () => {
-    it('authRepository의 createMailToken 메서드를 호출한다.', async () => {
+  context('email, code 값이 정상적으로 들어온 경우', () => {
+    it('authRepository의 verifyEmailToken 메서드를 호출한다.', async () => {
       when(
-        mockAuthRepository.createMailToken(anything(), anything()),
+        mockAuthRepository.verifyMailToken(anything(), anything()),
       ).thenResolve(true);
 
       const {
         result: { current: createMailToken },
       } = customRender();
 
-      await createMailToken('email');
+      await createMailToken('email', 'code');
 
-      verify(mockAuthRepository.createMailToken('email', 'signUp')).once();
+      verify(mockAuthRepository.verifyMailToken('email', 'code')).once();
     });
   });
 
-  context('email 값이 정상적으로 들어오지 않은 경우', () => {
+  context('email, code 값이 정상적으로 들어오지 않은 경우', () => {
     it('예외를 던진다', async () => {
       const {
-        result: { current: createMailToken },
+        result: { current: verifyMailToken },
       } = customRender();
 
       try {
-        await createMailToken('');
+        await verifyMailToken('', 'code');
+      } catch (e) {
+        expect((e as Error).message.length).toBeGreaterThan(0);
+      }
+
+      try {
+        await verifyMailToken('email', '');
       } catch (e) {
         expect((e as Error).message.length).toBeGreaterThan(0);
       }
@@ -64,15 +71,15 @@ describe('useCreateMailToken', () => {
   context('return을 false로 받았을 경우', () => {
     it('예외를 던진다.', async () => {
       when(
-        mockAuthRepository.createMailToken(anything(), anything()),
+        mockAuthRepository.verifyMailToken(anything(), anything()),
       ).thenResolve(false);
 
       const {
-        result: { current: createMailToken },
+        result: { current: verifyMailToken },
       } = customRender();
 
       try {
-        await createMailToken('email');
+        await verifyMailToken('email', 'code');
       } catch (e) {
         expect((e as Error).message.length).toBeGreaterThan(0);
       }

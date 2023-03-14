@@ -5,7 +5,6 @@ import { renderHook } from '@testing-library/react-hooks';
 import { useAuthRepository } from 'src/commons/di/containerContext';
 import { IAuthRepository } from 'src/commons/network/types/interfaces';
 import { anything, instance, mock, reset, verify, when } from 'ts-mockito';
-import { string } from 'yup/lib/locale';
 
 jest.mock('src/commons/di/containerContext', () => {
   const origin = jest.requireActual('src/commons/di/containerContext');

@@ -7,7 +7,8 @@ const useCreateMailToken = () => {
   const createMailToken = async (email: string) => {
     if (!email) throw Error(ERROR_MESSAGE.AUTH.EMAIL_REQUIRE);
 
-    await authRepository.createMailToken(email, 'signUp');
+    const result = await authRepository.createMailToken(email, 'signUp');
+    if (!result) throw Error(ERROR_MESSAGE.AUTH.FAIL_SEND_EMAIL);
   };
 
   return createMailToken;
