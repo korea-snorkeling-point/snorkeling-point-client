@@ -1,7 +1,6 @@
 import { Global } from '@emotion/react';
 import 'antd/dist/reset.css';
 import type { AppProps } from 'next/app';
-import 'reflect-metadata';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import { ContainerProvider } from 'src/commons/di/containerContext';
