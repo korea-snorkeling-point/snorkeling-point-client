@@ -1,3 +1,4 @@
+
 const PLACEHOLDER = {
   EMAIL: '이메일을 입력해 주세요.',
   PASSWORD: '비밀번호를 입력해 주세요.',
@@ -5,6 +6,10 @@ const PLACEHOLDER = {
   NICKNAME: '닉네임을 입력해 주세요.',
   GENDER: '성별을 입력해 주세요.',
   VERIFY_CODE: '인증번호를 입력해 주세요.',
+  TITLE_PLACEHOLDER = '제목을 입력해 주세요.',
+  CONTENT_PLACEHOLDER = '내용을 입력해 주세요.',
+  TAG_PLACEHOLDER = '태그를 입력해 주세요.',
 };
 
 export default PLACEHOLDER;
+
