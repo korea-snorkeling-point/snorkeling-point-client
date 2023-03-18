@@ -1,23 +1,83 @@
+/* eslint-disable no-param-reassign */
 import NormalButton from '@components/commons/button/normalButton/normalButton';
+import RoundGradientButton from '@components/commons/button/roundGradientButton/roundGradientButton';
 import NormalInput from '@components/commons/inputs/normalInput/normalInput';
+import NormalSelect from '@components/commons/selects/normalSelect/normalSelect';
 import WithLabel from '@components/commons/withLabel/withLabel';
+import PLACEHOLDER from '@constants/placeholder';
+import { yupResolver } from '@hookform/resolvers/yup';
+import useCreateMailToken from '@hooks/auth/useCreateMailToken';
+import useCreateUser, { CreateUserArgs } from '@hooks/auth/useCreateUser';
+import useVerifyMailToken from '@hooks/auth/useVerifyMailToken';
 import { subYellow } from '@styles/colors.styles';
 import { ErrorText } from '@styles/common.styles';
-import NormalSelect from '@components/commons/selects/normalSelect/normalSelect';
-import RoundGradientButton from '@components/commons/button/roundGradientButton/roundGradientButton';
-import PLACEHOLDER from '@constants/placeholder';
+import { useForm } from 'react-hook-form';
+import { registerUserSchema } from 'src/commons/yup-schema/auth';
 import { PageWrapper, Title, Wrapper } from '../common.styles';
-import { RegisterUserUIProps } from './registerUser.types';
 import * as S from './registerUser.styles';
 
-export default function RegisterUserUI({
-  control,
-  errors,
-  onClickCheckDuplicate,
-  onClickRequestEmailToken,
-  onClickVerifyEmailToken,
-  onClickRegisterUser,
-}: RegisterUserUIProps) {
+export default function RegisterUserUI() {
+  const createUser = useCreateUser();
+  const createMailToken = useCreateMailToken();
+  const verifyMailToken = useVerifyMailToken();
+
+  const {
+    control,
+    setError,
+    getValues,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({
+    resolver: yupResolver(registerUserSchema),
+    mode: 'onChange',
+  });
+
+  const handleClickCheckNickName = () => {
+    // TODO : 닉네임 중복확인 API
+    // setError('nickName', {
+    //   type: 'custom',
+    //   message: ERROR_MESSAGE.AUTH.NICKNAME_ALREADY_EXISTS,
+    // });
+  };
+
+  const handleClickRequestCode = async () => {
+    const email = getValues('email');
+    try {
+      await createMailToken(email);
+    } catch (e) {
+      setError('email', {
+        type: 'custom',
+        message: (e as Error).message,
+      });
+    }
+  };
+
+  const handleClickVerifyCode = async () => {
+    const code = getValues('code');
+    const email = getValues('email');
+
+    try {
+      await verifyMailToken(email, code);
+    } catch (e) {
+      setError('code', {
+        type: 'custom',
+        message: (e as Error).message,
+      });
+    }
+  };
+
+  const handleClickRegister = handleSubmit(async (inputs: any) => {
+    const args: CreateUserArgs = {
+      email: String(inputs.email),
+      gender: String(inputs.gender),
+      nickname: String(inputs.nickName),
+      password: String(inputs.password),
+    };
+
+    await createUser(args);
+    // 예외가 발생한 경우 에러 바운더리로 보내기
+  });
+
   return (
     <PageWrapper>
       <Wrapper>
@@ -37,7 +97,7 @@ export default function RegisterUserUI({
           <S.ButtonWrapper>
             <NormalButton
               value="중복확인"
-              onClick={onClickCheckDuplicate}
+              onClick={handleClickCheckNickName}
               color={subYellow}
             />
           </S.ButtonWrapper>
@@ -80,7 +140,7 @@ export default function RegisterUserUI({
           <S.ButtonWrapper>
             <NormalButton
               value="인증요청"
-              onClick={onClickRequestEmailToken}
+              onClick={handleClickRequestCode}
               color={subYellow}
             />
           </S.ButtonWrapper>
@@ -105,7 +165,7 @@ export default function RegisterUserUI({
           <S.ButtonWrapper>
             <NormalButton
               value="인증확인"
-              onClick={onClickVerifyEmailToken}
+              onClick={handleClickVerifyCode}
               color={subYellow}
             />
           </S.ButtonWrapper>
@@ -146,7 +206,7 @@ export default function RegisterUserUI({
         </S.Row>
 
         <S.RegisterButtonWrapper>
-          <RoundGradientButton value="회원가입" onClick={onClickRegisterUser} />
+          <RoundGradientButton value="회원가입" onClick={handleClickRegister} />
         </S.RegisterButtonWrapper>
       </Wrapper>
     </PageWrapper>

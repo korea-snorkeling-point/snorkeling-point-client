@@ -22,14 +22,12 @@
       "@components/*": ["src/components/*"]
     },
     "types": [
-      "reflect-metadata",
       "node",
       "jest",
       "@testing-library/jest-dom",
       "jest-plugin-context"
     ],
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+  
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

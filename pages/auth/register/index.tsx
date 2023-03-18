@@ -1,5 +1,5 @@
-import RegisterUserContainer from '@components/unit/auth/register/registerUser.container';
+import RegisterUserUI from '@components/unit/auth/register/registerUser.presenter';
 
 export default function RegisterUserPage() {
-  return <RegisterUserContainer />;
+  return <RegisterUserUI />;
 }
