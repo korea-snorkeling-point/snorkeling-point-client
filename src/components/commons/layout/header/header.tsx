@@ -1,8 +1,10 @@
 import { SearchOutlined } from '@ant-design/icons';
+
 import NormalInput from '@components/commons/inputs/normalInput/normalInput';
 import SearchInput from '@components/commons/inputs/searchInput/searchInput';
 import NormalSelect from '@components/commons/selects/normalSelect/normalSelect';
 import { useForm } from 'react-hook-form';
+
 
 import * as S from './header.styles';
 
@@ -64,8 +66,9 @@ export default function Header() {
         </S.SearchIconWrapper>
 
         <S.LogoWrapper>
-          {/* TODO : 로고 교체 예정 */}
-          <img alt="logo" />
+
+          <img src="/image/logo.png" alt="logo" />
+          Snorkeling
         </S.LogoWrapper>
       </S.ContentsWrapper>
     </S.HeaderWrapper>

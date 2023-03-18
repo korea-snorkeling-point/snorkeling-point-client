@@ -1,24 +1,30 @@
 import styled from '@emotion/styled';
 import * as R from '@styles/responsive.styles';
-import * as S from '@styles/dimen.styles';
 import { IStyleProps } from '@styles/types';
 import { css } from '@emotion/react';
+import FontStyles from '@styles/font.styles';
 
 export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  ${R.dynamicSize({ attribute: 'marginBottom', px: 30 })}
+  margin-bottom: 30px;
 `;
 
 export const TitleWrapper = styled.h2`
-  font-weight: 700;
-  ${S.setFontSizeMiddle()}
+  ${FontStyles()[700].MIDDLE}
+
+  ${R.setMiddleDisplayStyle(css`
+    ${FontStyles('md')[700].MIDDLE}
+  `)}
+
+  ${R.setSmallDisplayStyle(css`
+    ${FontStyles('sm')[700].MIDDLE}
+  `)}
 `;
 
 export const LikeWrapper = styled.div`
-  ${R.dynamicSize({ attribute: 'width', px: 24 })}
+  width: 24px;
 `;
 
 export const ImageWrapper = styled.img(
@@ -26,7 +32,7 @@ export const ImageWrapper = styled.img(
     width: ${props.width || '100%'};
     margin-right: 8px;
     border-radius: 10px;
-    ${R.dynamicSize({ attribute: 'marginBottom', px: props.marginBottom || 0 })}
+    margin-bottom: ${props.marginBottom || 0}px;
   `,
 );
 
@@ -39,23 +45,22 @@ export const DescriptionWrapper = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  ${S.setFontSizeMicro()}
-  ${R.dynamicSize({ attribute: 'lineHeight', px: 18 })}
-  ${R.dynamicSize({ attribute: 'marginBottom', px: 20 })}
+  line-height: 18px;
+  margin-bottom: 20px;
+  ${FontStyles()[400].MICRO}
 `;
 
 export const AddressWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
   p {
     color: #292d32;
-    ${S.setFontSizeMicro()}
+    ${FontStyles()[400].MICRO}
   }
-
-  ${R.dynamicSize({ attribute: 'marginBottom', px: 20 })}
 `;
 
-export const TagsWrppaer = styled.div`
+export const TagsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;

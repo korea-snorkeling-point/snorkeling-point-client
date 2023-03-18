@@ -1,12 +1,12 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import * as R from '@styles/responsive.styles';
-import * as S from '@styles/dimen.styles';
-
 import { Input } from 'antd';
+import FontStyles from '@styles/font.styles';
+import { setSmallDisplayStyle } from '@styles/responsive.styles';
+import { css } from '@emotion/react';
 
 export const InputWrapper = styled(Input)`
   border-radius: 0;
+  height: 40px;
   width: 100% !important;
   font-weight: 500 !important;
   background-color: white !important;
@@ -24,25 +24,9 @@ export const InputWrapper = styled(Input)`
     }
   }
 
-  ${R.dynamicSize({ attribute: 'height', px: 40 })}
+  ${FontStyles()[400].MICRO}
 
-  ${R.setDeskTopStyle(css`
-    font-size: ${S.DeskTopFontSizeMicro}rem;
-  `)}
-
-  ${R.setNoteBookStyle(css`
-    font-size: ${S.NoteBookFontSizeMicro}rem;
-  `)}
-
-  ${R.setBigTabletStyle(css`
-    font-size: ${S.NoteBookFontSizeMicro}rem;
-  `)}
-
-  ${R.setSmallTabletStyle(css`
-    font-size: ${S.SmallTabletFontSizeMicro}rem;
-  `)}
-
-  ${R.setMobileStyle(css`
-    font-size: ${S.MobileFontSizeMicro}rem;
+  ${setSmallDisplayStyle(css`
+    ${FontStyles('sm')[400].MICRO}
   `)}
 `;

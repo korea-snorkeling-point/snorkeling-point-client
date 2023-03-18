@@ -39,7 +39,7 @@ export default function SnorkelingPointCard() {
         <p>강원 삼척시 근덕면 장호리</p>
       </S.AddressWrapper>
 
-      <S.TagsWrppaer>
+      <S.TagsWrapper>
         {Array(5)
           .fill('tag')
           .map(tag => (
@@ -47,7 +47,7 @@ export default function SnorkelingPointCard() {
               {tag}
             </ChipText>
           ))}
-      </S.TagsWrppaer>
+      </S.TagsWrapper>
     </NormalCard>
   );
 }

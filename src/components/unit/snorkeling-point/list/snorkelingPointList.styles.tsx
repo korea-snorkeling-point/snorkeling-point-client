@@ -5,42 +5,34 @@ import { IStyleProps } from '@styles/types';
 
 export const Wrapper = styled.div`
   height: 100%;
-
-  ${R.setDeskTopStyle(css`
-    margin-right: ${R.convertDeskTopRem(100)}rem;
-  `)}
-
-  ${R.setNoteBookStyle(css`
-    margin-right: ${R.convertDeskTopRem(100)}rem;
-  `)}
 `;
 
 export const TitleWrapper = styled.h2(
   (props: IStyleProps) => css`
     width: fit-content;
     font-weight: 900 !important;
-
-    ${R.dynamicSize({
-      attribute: 'marginBottom',
-      px: props.marginBottom || 10,
-    })}
-
-    ${R.dynamicSize({
-      attribute: 'marginTop',
-      px: props.marginTop || 10,
-    })}
+    margin-bottom: ${props.marginBottom || 10}px;
+    margin-top: ${props.marginTop || 10}px;
   `,
 );
 
 export const BestPointSliderWrapper = styled.div`
   width: 100%;
-  height: ${R.convertDeskTopRem(457)}rem;
+  height: 500px;
+
+  ${R.setMiddleDisplayStyle(css`
+    height: 400px;
+  `)}
+
+  ${R.setSmallDisplayStyle(css`
+    height: 260px;
+  `)}
 
   .slick-slider {
     height: 100%;
     div {
       height: 100%;
-      ${R.dynamicSize({ attribute: 'borderRadius', px: 10 })}
+      border-radius: 10px;
     }
 
     .slick-dots {

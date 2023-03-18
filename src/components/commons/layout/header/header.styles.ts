@@ -8,36 +8,21 @@ export const HeaderWrapper = styled.header`
   position: fixed;
   overflow: hidden;
   top: 0;
+  right: 0;
   z-index: 990 !important;
   background-color: white;
+  padding: 8px 16px;
+  height: ${S.HEADER_SIZE.lg}px;
+  width: calc(100% - ${S.SIDE_BAR_SIZE.lg}px);
 
-  font-size: ${S.DeskTopFontSizeSupper}rem;
-
-  ${R.dynamicSize({ attribute: 'height', px: S.headerSize })}
-
-  ${R.setDeskTopStyle(css`
-    padding-right: ${S.DeskTopSideBarSize}rem !important;
+  ${R.setMiddleDisplayStyle(css`
+    height: ${S.HEADER_SIZE.md}px;
+    width: calc(100% - ${S.SIDE_BAR_SIZE.md}px);
   `)}
 
-  ${R.setNoteBookStyle(css`
-    padding-right: ${S.NoteBookSideBarSize}rem !important;
-  `)}
-
-  ${R.setBigTabletStyle(css`
-    padding-right: ${S.BigTabletSideBarSize}rem !important;
-  `)}
-
-  ${R.setSmallTabletStyle(css`
-    padding-right: ${S.SmallTabletSideBarSize +
-    R.convertSmallTabletRem(20)}rem !important;
-    height: ${R.convertSmallTabletRem(S.SmallTabletHeaderSize)}rem !important;
-  `)}
-
-  ${R.setMobileStyle(css`
-    margin-left: 8rem;
-    padding-right: 8rem;
-    width: 100% !important;
-    height: ${R.convertMobileRem(S.MobileHeaderSize)}rem !important;
+  ${R.setSmallDisplayStyle(css`
+    height: ${S.HEADER_SIZE.sm}px;
+    width: calc(100% - ${S.SIDE_BAR_SIZE.sm}px);
   `)}
 `;
 
@@ -55,14 +40,17 @@ export const SearchBarWrapper = styled.div`
   height: 100%;
   display: flex;
 
-  ${R.dynamicSize({ attribute: ' padding', px: 20 })}
 
-  ${R.setSmallTabletStyle(css`
-    display: none;
+  ${R.setMiddleDisplayStyle(css`
+    flex: 0.5;
+    font-size: large;
+    align-items: center;
   `)}
-  
-  ${R.setMobileStyle(css`
-    display: none;
+  ${R.setSmallDisplayStyle(css`
+    flex: 0.5;
+    font-size: large;
+    align-items: center;
+
   `)}
 `;
 
@@ -93,23 +81,4 @@ export const SearchIconWrapper = styled.button`
 
 export const LogoWrapper = styled.div`
   text-align: end;
-
-  ${R.dynamicSize({
-    px: 20,
-    attribute: 'paddingRight',
-  })}
-
-  ${R.setSmallTabletStyle(css`
-    flex: 9;
-    order: -1;
-    text-align: start;
-    padding-left: ${R.convertSmallTabletRem(20)}rem;
-  `)}
-
-  ${R.setMobileStyle(css`
-    flex: 9;
-    order: -1;
-    text-align: start;
-    padding-left: ${R.convertSmallTabletRem(20)}rem;
-  `)}
 `;

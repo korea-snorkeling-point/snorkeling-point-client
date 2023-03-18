@@ -5,14 +5,7 @@ import { subYellow } from '@styles/colors.styles';
 import { ErrorText } from '@styles/common.styles';
 import NormalSelect from '@components/commons/selects/normalSelect/normalSelect';
 import RoundGradientButton from '@components/commons/button/roundGradientButton/roundGradientButton';
-import {
-  EMAIL_PLACEHOLDER,
-  GENDER_PLACEHOLDER,
-  NICKNAME_PLACEHOLDER,
-  PASSWORD_CHECK_PLACEHOLDER,
-  PASSWORD_PLACEHOLDER,
-  VERIFY_CODE_PLACEHOLDER,
-} from '@constants/placeholder';
+import PLACEHOLDER from '@constants/placeholder';
 import { PageWrapper, Title, Wrapper } from '../common.styles';
 import { RegisterUserUIProps } from './registerUser.types';
 import * as S from './registerUser.styles';
@@ -36,7 +29,7 @@ export default function RegisterUserUI({
               <NormalInput
                 control={control}
                 name="nickName"
-                placeholder={NICKNAME_PLACEHOLDER}
+                placeholder={PLACEHOLDER.NICKNAME}
               />
             </WithLabel>
           </S.InputWrapper>
@@ -63,7 +56,7 @@ export default function RegisterUserUI({
                 { value: 'male', label: '남자' },
                 { value: 'female', label: '여자' },
               ]}
-              placeholder={GENDER_PLACEHOLDER}
+              placeholder={PLACEHOLDER.GENDER}
             />
           </WithLabel>
         </S.Row>
@@ -79,7 +72,7 @@ export default function RegisterUserUI({
                 control={control}
                 name="email"
                 type="email"
-                placeholder={EMAIL_PLACEHOLDER}
+                placeholder={PLACEHOLDER.EMAIL}
               />
             </WithLabel>
           </S.InputWrapper>
@@ -104,7 +97,7 @@ export default function RegisterUserUI({
                 control={control}
                 name="code"
                 type="number"
-                placeholder={VERIFY_CODE_PLACEHOLDER}
+                placeholder={PLACEHOLDER.VERIFY_CODE}
               />
             </WithLabel>
           </S.InputWrapper>
@@ -128,7 +121,7 @@ export default function RegisterUserUI({
               control={control}
               name="password"
               type="password"
-              placeholder={PASSWORD_PLACEHOLDER}
+              placeholder={PLACEHOLDER.PASSWORD}
             />
           </WithLabel>
         </S.Row>
@@ -143,7 +136,7 @@ export default function RegisterUserUI({
               control={control}
               name="passwordCheck"
               type="password"
-              placeholder={PASSWORD_CHECK_PLACEHOLDER}
+              placeholder={PLACEHOLDER.PASSWORD_CHECK}
             />
           </WithLabel>
         </S.Row>
