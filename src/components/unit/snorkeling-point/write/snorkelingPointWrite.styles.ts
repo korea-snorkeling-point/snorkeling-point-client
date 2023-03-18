@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 import * as S from '@styles/dimen.styles';
 import * as R from '@styles/responsive.styles';
+import FontStyles from '@styles/font.styles';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -17,22 +18,14 @@ export const TitleWrapper = styled.h2(
   (props: IStyleProps) => css`
     width: fit-content;
     font-weight: 900 !important;
-
-    ${R.dynamicSize({
-      attribute: 'marginBottom',
-      px: props.marginBottom || 80,
-    })}
+    margin-bottom: ${props.marginBottom || 80};
   `,
 );
 
 export const InputWrapper = styled.div(
   (props: IStyleProps) => css`
     width: 100%;
-
-    ${R.dynamicSize({
-      attribute: 'marginBottom',
-      px: props.marginBottom || 20,
-    })};
+    margin-bottom: ${props.marginBottom || 20};
   `,
 );
 
@@ -42,7 +35,7 @@ export const Editor = styled(ReactQuill)`
 `;
 
 export const Point = styled.div`
-  ${S.setFontSizeLarge()}
+  ${FontStyles()[900].LARGE}
   margin-bottom: 10px;
 `;
 
@@ -73,7 +66,7 @@ export const SearchBtnWrap = styled.div`
 `;
 
 export const Tag = styled.div`
-  ${S.setFontSizeLarge()}
+  ${FontStyles()[900].LARGE}
   margin-bottom: 10px;
 `;
 

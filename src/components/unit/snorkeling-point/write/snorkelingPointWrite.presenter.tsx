@@ -2,11 +2,7 @@ import RoundGradientButton from '@components/commons/button/roundGradientButton/
 import NormalInput from '@components/commons/inputs/normalInput/normalInput';
 import NormalSelect from '@components/commons/selects/normalSelect/normalSelect';
 import DecoratedText from '@components/commons/text/decoratedText/decoratedText';
-import {
-  CONTENT_PLACEHOLDER,
-  TAG_PLACEHOLDER,
-  TITLE_PLACEHOLDER,
-} from '@constants/placeholder';
+import PLACEHOLDER from '@constants/placeholder';
 import { ErrorText } from '@styles/common.styles';
 import * as S from './snorkelingPointWrite.styles';
 import { SnorkelingPointWriteUIPropsType } from './snorkelingPointWrite.types';
@@ -46,12 +42,12 @@ export default function SnorkelingPointWriteUI(
           control={control}
           name="title"
           type="text"
-          placeholder={TITLE_PLACEHOLDER}
+          placeholder={PLACEHOLDER.TITLE}
         />
         <ErrorText>{errors.title?.message || ''}</ErrorText>
       </S.InputWrapper>
 
-      <S.Editor placeholder={CONTENT_PLACEHOLDER} />
+      <S.Editor placeholder={PLACEHOLDER.CONTENT} />
       <ErrorText>{errors.content?.message || ''}</ErrorText>
 
       <S.Point>👉🏻 포인트</S.Point>
@@ -80,7 +76,7 @@ export default function SnorkelingPointWriteUI(
           control={control}
           name="tag"
           type="text"
-          placeholder={TAG_PLACEHOLDER}
+          placeholder={PLACEHOLDER.TAG}
         />
         <S.AddBtnWrap>
           <RoundGradientButton value="추가" onClick={() => {}} />
