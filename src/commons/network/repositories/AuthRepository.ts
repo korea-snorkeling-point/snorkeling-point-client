@@ -1,6 +1,7 @@
 import ERROR_MESSAGE from '@constants/errorMessage';
 import {
   ICreateUserInput,
+  IMutation,
   IUser,
 } from 'src/commons/graphql-types/generated/types';
 import Field from 'src/commons/utils/dynamicReturn/Field';
@@ -17,40 +18,44 @@ export default class AuthRepository implements IAuthRepository {
   }
 
   async createUser(createUserInput: ICreateUserInput): Promise<string> {
-    const result = await this.httpClient.mutation<Partial<IUser>>(
+    const result = await this.httpClient.mutation<
+      Pick<IMutation, 'createUser'>
+    >(
       MUTATION.createUserMutation(
         new ObjectField<IUser>('').add(new Field('id')).toQuery(),
       ),
       { createUserInput },
     );
 
-    if (!result?.id) throw Error(ERROR_MESSAGE.AUTH.FAIL_REGISTER_USER);
-    return result.id;
+    if (!result?.createUser.id)
+      throw Error(ERROR_MESSAGE.AUTH.FAIL_REGISTER_USER);
+
+    return result.createUser.id;
   }
 
   async createMailToken(email: string, type: string): Promise<boolean> {
-    const result = await this.httpClient.mutation<boolean>(
-      MUTATION.createMailToken,
-      {
-        email,
-        type,
-      },
-    );
+    const result = await this.httpClient.mutation<
+      Pick<IMutation, 'createMailToken'>
+    >(MUTATION.createMailToken, {
+      email,
+      type,
+    });
 
-    if (!result) throw Error(ERROR_MESSAGE.AUTH.FAIL_SEND_EMAIL);
-    return result;
+    if (!result?.createMailToken)
+      throw Error(ERROR_MESSAGE.AUTH.FAIL_SEND_EMAIL);
+    return result.createMailToken;
   }
 
   async verifyMailToken(email: string, code: string): Promise<boolean> {
-    const result = await this.httpClient.mutation<boolean>(
-      MUTATION.verifyMailToken,
-      {
-        email,
-        code,
-      },
-    );
+    const result = await this.httpClient.mutation<
+      Pick<IMutation, 'verifyMailToken'>
+    >(MUTATION.verifyMailToken, {
+      email,
+      code,
+    });
 
-    if (!result) throw Error(ERROR_MESSAGE.AUTH.FAIL_VERIFY_CODE);
-    return result;
+    if (!result?.verifyMailToken)
+      throw Error(ERROR_MESSAGE.AUTH.FAIL_VERIFY_CODE);
+    return result.verifyMailToken;
   }
 }
