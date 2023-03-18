@@ -1,10 +1,8 @@
 import { SearchOutlined } from '@ant-design/icons';
 
-import NormalInput from '@components/commons/inputs/normalInput/normalInput';
 import SearchInput from '@components/commons/inputs/searchInput/searchInput';
 import NormalSelect from '@components/commons/selects/normalSelect/normalSelect';
 import { useForm } from 'react-hook-form';
-
 
 import * as S from './header.styles';
 
@@ -57,7 +55,9 @@ export default function Header() {
             control={control}
             name="keyword"
             placeholder="자세한 위치를 입력해 주세요."
-            onSearch={value => {}}
+            onSearch={value => {
+              // TODO
+            }}
           />
         </S.SearchBarWrapper>
 
@@ -66,7 +66,6 @@ export default function Header() {
         </S.SearchIconWrapper>
 
         <S.LogoWrapper>
-
           <img src="/image/logo.png" alt="logo" />
           Snorkeling
         </S.LogoWrapper>

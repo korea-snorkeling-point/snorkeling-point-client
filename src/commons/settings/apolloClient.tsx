@@ -2,13 +2,12 @@ import {
   ApolloClient,
   ApolloLink,
   ApolloProvider,
-  fromPromise,
   InMemoryCache,
 } from '@apollo/client';
-import { ReactNode } from 'react';
 import { onError } from '@apollo/client/link/error';
 import { createUploadLink } from 'apollo-upload-client';
 import { GraphQLError } from 'graphql';
+import { ReactNode } from 'react';
 
 type ApolloSettingsProps = {
   children: ReactNode;

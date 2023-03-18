@@ -40,7 +40,6 @@ export const SearchBarWrapper = styled.div`
   height: 100%;
   display: flex;
 
-
   ${R.setMiddleDisplayStyle(css`
     flex: 0.5;
     font-size: large;
@@ -50,7 +49,6 @@ export const SearchBarWrapper = styled.div`
     flex: 0.5;
     font-size: large;
     align-items: center;
-
   `)}
 `;
 
@@ -67,16 +65,6 @@ export const SearchIconWrapper = styled.button`
   font-size: large;
   margin-right: 8px;
   display: none;
-
-  ${R.setSmallTabletStyle(
-    css`
-      display: flex;
-    `,
-  )}
-
-  ${R.setMobileStyle(css`
-    display: flex;
-  `)}
 `;
 
 export const LogoWrapper = styled.div`

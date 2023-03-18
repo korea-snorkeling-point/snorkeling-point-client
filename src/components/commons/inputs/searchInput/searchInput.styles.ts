@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Input } from 'antd';
 import * as R from '@styles/responsive.styles';
 import * as S from '@styles/dimen.styles';
+import FontStyles from '@styles/font.styles';
 
 const { Search } = Input;
 
@@ -37,6 +38,6 @@ export const SearchInputWrapper = styled(Search)`
     }
   }
 
-  ${S.setFontSizeMicro()}
-  ${R.dynamicSize({ attribute: 'height', px: 40 })}
+  height: 40px;
+  ${FontStyles()[400].MICRO}
 `;
