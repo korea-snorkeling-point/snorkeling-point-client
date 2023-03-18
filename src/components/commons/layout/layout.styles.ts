@@ -61,7 +61,7 @@ export const HeaderWrapper = styled.header`
 export const SectionWrapper = styled.section`
   width: 100%;
   padding: 16px;
-  max-width: 1440px;
+  max-width: 1140px;
   height: calc(100% - ${S.HEADER_SIZE.lg}px) !important;
 
   ${R.setMiddleDisplayStyle(css`
