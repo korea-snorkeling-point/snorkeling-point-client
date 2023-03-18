@@ -52,6 +52,10 @@ export const MenuWrapper = styled.div(
 
 export const MenuToggleButton = styled.div(
   () => css`
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: white;
     visibility: hidden;
     padding: 16px;
 
@@ -59,6 +63,7 @@ export const MenuToggleButton = styled.div(
       visibility: visible;
       display: flex;
       align-items: center;
+      justify-content: center;
       font-size: large;
     `)}
   `,
