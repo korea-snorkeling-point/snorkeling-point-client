@@ -1,9 +1,15 @@
-export const EMAIL_PLACEHOLDER = '이메일을 입력해 주세요.';
-export const PASSWORD_PLACEHOLDER = '비밀번호를 입력해 주세요.';
-export const PASSWORD_CHECK_PLACEHOLDER = '비밀번호를 다시 입력해 주세요.';
-export const NICKNAME_PLACEHOLDER = '닉네임을 입력해 주세요.';
-export const GENDER_PLACEHOLDER = '성별을 입력해 주세요.';
-export const VERIFY_CODE_PLACEHOLDER = '인증번호를 입력해 주세요.';
-export const TITLE_PLACEHOLDER = '제목을 입력해 주세요.';
-export const CONTENT_PLACEHOLDER = '내용을 입력해 주세요.';
-export const TAG_PLACEHOLDER = '태그를 입력해 주세요.';
+
+const PLACEHOLDER = {
+  EMAIL: '이메일을 입력해 주세요.',
+  PASSWORD: '비밀번호를 입력해 주세요.',
+  PASSWORD_CHECK: '비밀번호 다시 입력해 주세요.',
+  NICKNAME: '닉네임을 입력해 주세요.',
+  GENDER: '성별을 입력해 주세요.',
+  VERIFY_CODE: '인증번호를 입력해 주세요.',
+  TITLE_PLACEHOLDER = '제목을 입력해 주세요.',
+  CONTENT_PLACEHOLDER = '내용을 입력해 주세요.',
+  TAG_PLACEHOLDER = '태그를 입력해 주세요.',
+};
+
+export default PLACEHOLDER;
+

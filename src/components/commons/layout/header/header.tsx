@@ -1,6 +1,4 @@
 import { SearchOutlined } from '@ant-design/icons';
-import Image from 'next/image';
-import Logo from 'public/image/logo.png';
 
 import * as S from './header.styles';
 
@@ -13,13 +11,8 @@ export default function Header() {
         </S.SearchBarWrapper>
 
         <S.LogoWrapper>
-          <Image
-            src={Logo}
-            alt="logo"
-            placeholder="blur"
-            width={160}
-            height={40}
-          />
+          <img src="/image/logo.png" alt="logo" />
+          Snorkeling
         </S.LogoWrapper>
       </S.ContentsWrapper>
     </S.HeaderWrapper>

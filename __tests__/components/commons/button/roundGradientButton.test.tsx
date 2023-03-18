@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import RoundGradientButton from '@components/commons/button/roundGradientButton/roundGradientButton';
 
 describe('RoundGradientButton', () => {
@@ -13,16 +13,16 @@ describe('RoundGradientButton', () => {
   };
 
   it('value를 보여준다.', () => {
-    const { getByText } = renderRoundGradientButton();
+    renderRoundGradientButton();
 
-    expect(getByText(valueText)).toBeInTheDocument();
+    expect(screen.getByText(valueText)).toBeInTheDocument();
   });
 
   context('클릭하면', () => {
     it('onClick 메소드가 호출된다.', () => {
       const { getByText } = renderRoundGradientButton();
 
-      fireEvent.click(getByText(valueText));
+      fireEvent.click(screen.getByText(valueText));
 
       expect(onClickMock).toBeCalled();
     });

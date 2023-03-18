@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { loginSchema } from 'src/commons/yupSchema/loginSchema';
+import { loginSchema } from 'src/commons/yup-schema/loginSchema';
 import LoginUI from './login.presenter';
 
 export default function LoginContainer() {
@@ -9,7 +9,7 @@ export default function LoginContainer() {
     mode: 'onChange',
   });
 
-  const handleClickLogin = handleSubmit((payload: any) => {
+  const handleClickLogin = handleSubmit(async (payload: any) => {
     // TODO : 로그인 버튼 클릭 로직 구현하기
   });
 

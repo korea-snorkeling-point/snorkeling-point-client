@@ -4,75 +4,76 @@ import * as S from '@styles/dimen.styles';
 import { IStyleProps } from '@styles/types';
 import * as R from '../../../../commons/styles/responsive.styles';
 
-export const Wrapper = styled.nav(
+export const Wrapper = styled.div(
   (props: IStyleProps) => css`
     z-index: 999;
     position: fixed;
     background-color: white;
+    width: ${S.SIDE_BAR_SIZE.lg}px;
+    min-height: ${S.HEADER_SIZE.lg}px;
 
-    ${R.setDeskTopStyle(css`
-      width: ${S.DeskTopSideBarSize}rem !important;
-      padding: ${R.convertDeskTopRem(12)}rem ${R.convertDeskTopRem(20)}rem;
+    ${R.setMiddleDisplayStyle(css`
+      width: ${S.SIDE_BAR_SIZE.md}px;
+      min-height: ${S.HEADER_SIZE.md}px;
     `)}
 
-    ${R.setNoteBookStyle(css`
-      width: ${S.NoteBookSideBarSize}rem !important;
-      padding: ${R.convertDeskTopRem(12)}rem ${R.convertDeskTopRem(20)}rem;
-    `)}
+    ${R.setSmallDisplayStyle(css`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: ${S.HEADER_SIZE.sm}px;
 
-    ${R.setBigTabletStyle(css`
-      width: ${S.BigTabletSideBarSize}rem !important;
-      padding: ${R.convertDeskTopRem(8)}rem ${R.convertDeskTopRem(16)}rem;
-    `)}
-
-  ${R.setSmallTabletStyle(css`
-      width: ${S.SmallTabletSideBarSize}rem !important;
-      padding: ${R.convertDeskTopRem(8)}rem ${R.convertDeskTopRem(16)}rem;
-    `)}
-
-  ${R.setMobileStyle(css`
-      width: 100% !important;
-      box-shadow: ${props.visibility === 'visible'
-        ? '0px 4px 10px rgba(0, 0, 0, 0.1)'
-        : 'none'};
-      width: ${props.visibility === 'visible' ? '100%' : '8rem'} !important;
-
-      ${R.dynamicSize({
-        attribute: 'borderBottomRightRadius',
-        px: props.visibility === 'visible' ? 16 : 0,
-      })}
-
-      ${R.dynamicSize({
-        attribute: 'borderBottomLeftRadius',
-        px: props.visibility === 'visible' ? 16 : 0,
-      })};
+      ${props.visibility === 'visible'
+        ? css`
+            width: 100%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+          `
+        : css`
+            box-shadow: none;
+            width: ${S.SIDE_BAR_SIZE.sm}px !important;
+          `}
     `)}
   `,
 );
 
 export const MenuWrapper = styled.div(
   (props: IStyleProps) => css`
-    transition: all 0.2s;
-    ${R.setMobileStyle(css`
+    transition: all 0.4s;
+    ${R.setSmallDisplayStyle(css`
       visibility: ${props.visibility || 'hidden'};
-      max-height: ${props.height || '0'};
-      width: ${props.visibility === 'visible' ? '100%' : '0'};
+      max-height: ${props.height || 0};
+      width: ${props.visibility === 'visible' ? '100%' : 0};
     `)}
   `,
 );
 
 export const MenuToggleButton = styled.div(
   () => css`
-    display: none;
+    visibility: hidden;
+    padding: 16px;
 
-    ${R.dynamicSize({ attribute: 'padding', px: 8 })}
-
-    ${R.setMobileStyle(css`
+    ${R.setSmallDisplayStyle(css`
+      visibility: visible;
       display: flex;
       align-items: center;
       font-size: large;
-      margin-top: ${R.convertMobileRem(16)}rem;
-      margin-left: ${R.convertMobileRem(20)}rem;
+    `)}
+  `,
+);
+
+export const MenuItemWrapper = styled.li(
+  (props: IStyleProps) => css`
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+
+    ${R.setSmallDisplayStyle(css`
+      visibility: ${props.visibility === undefined
+        ? 'visible'
+        : props.visibility};
     `)}
   `,
 );

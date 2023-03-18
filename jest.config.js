@@ -11,7 +11,7 @@ const customJestConfig = {
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
   testPathIgnorePatterns: [
-    '<rootDir>/src/commons/yupSchema/$1',
+    '<rootDir>/src/commons/yup-schema/$1',
     'node_modules',
   ],
   moduleNameMapper: {
@@ -23,10 +23,10 @@ const customJestConfig = {
   collectCoverageFrom: [
     'src/**/*.[jt]s?(x)',
     '!pages/',
-    '!src/commons/yupSchema/*.[jt]s?(x)',
+    '!src/commons/yup-schema/*.[jt]s?(x)',
     '!src/commons/settings/*.[jt]s?(x)',
-    '!src/commons/graphqlTypes/**/*.[jt]s?(x)',
-    '!**/*.presenter.[jt]s?(x)',
+    '!src/commons/di/*.[jt]s?(x)',
+    '!src/commons/graphql-types/**/*.[jt]s?(x)',
     '!**/*.styles.[jt]s?(x)',
     '!**/*.types.[jt]s?(x)',
   ],
@@ -38,6 +38,7 @@ const customJestConfig = {
       lines: 80,
     },
   },
+  setupFiles: ['<rootDir>/test-setup.js'],
   setupFilesAfterEnv: [
     '@testing-library/jest-dom/extend-expect',
     'jest-plugin-context/setup',

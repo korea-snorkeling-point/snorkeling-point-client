@@ -1,12 +1,15 @@
-import { FONT_SIZE_KEY } from '@constants/decoratedText';
+import { FONT_SIZE_KEY } from './font.styles';
 
 export interface IStyleProps {
   width?: string;
   height?: string;
-  flexDirection?: string;
-  backgroundColor?: string;
+  color?: string;
   display?: string;
   visibility?: string;
-  fontSizeUnit?: FONT_SIZE_KEY;
   marginBottom?: number;
+  marginTop?: number;
+  flexDirection?: string;
+  backgroundColor?: string;
+  backgroundImage?: string;
+  fontSizeUnit?: FONT_SIZE_KEY;
 }

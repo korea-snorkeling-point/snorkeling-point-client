@@ -3,33 +3,11 @@
 import { css } from '@emotion/react';
 import * as R from '@styles/responsive.styles';
 import * as S from '@styles/dimen.styles';
+import FontStyles from './font.styles';
 
 export const resetStyles = css`
   html {
-    font-size: 16px !important;
-    ${R.setNoteBookStyle(
-      css`
-        font-size: 12px !important;
-      `,
-    )}
-
-    ${R.setBigTabletStyle(
-      css`
-        font-size: 10px !important;
-      `,
-    )}
-
-    ${R.setSmallTabletStyle(
-      css`
-        font-size: 8px !important;
-      `,
-    )}
-
-    ${R.setMobileStyle(
-      css`
-        font-size: 6px !important;
-      `,
-    )}
+    font-size: 12px !important;
   }
   html,
   body,
@@ -167,25 +145,15 @@ export const resetStyles = css`
     height: 100%;
   }
 
+  button {
+    cursor: pointer;
+  }
+
   .ant-select-dropdown {
-    ${R.setDeskTopStyle(css`
-      font-size: ${S.DeskTopFontSizeMicro}rem;
-    `)}
+    ${FontStyles()[400].MICRO}
 
-    ${R.setNoteBookStyle(css`
-      font-size: ${S.NoteBookFontSizeMicro}rem;
-    `)}
-
-    ${R.setBigTabletStyle(css`
-      font-size: ${S.BigTabletFontSizeMicro}rem;
-    `)}
-
-    ${R.setSmallTabletStyle(css`
-      font-size: ${S.SmallTabletFontSizeMicro}rem;
-    `)}
-
-    ${R.setMobileStyle(css`
-      font-size: ${S.MobileFontSizeMicro}rem;
+    ${R.setSmallDisplayStyle(css`
+      ${FontStyles('sm')[400].MICRO}
     `)}
   }
 `;

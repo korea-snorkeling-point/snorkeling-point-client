@@ -1,10 +1,7 @@
 import { KeyOutlined, UserOutlined } from '@ant-design/icons';
 import RoundGradientButton from '@components/commons/button/roundGradientButton/roundGradientButton';
 import NormalInput from '@components/commons/inputs/normalInput/normalInput';
-import {
-  EMAIL_PLACEHOLDER,
-  PASSWORD_PLACEHOLDER,
-} from '@constants/placeholder';
+import PLACEHOLDER from '@constants/placeholder';
 import { ErrorText } from '@styles/common.styles';
 import Link from 'next/link';
 import { PageWrapper, Title, Wrapper } from '../common.styles';
@@ -26,7 +23,7 @@ export default function LoginUI({
             control={control}
             name="email"
             type="email"
-            placeholder={EMAIL_PLACEHOLDER}
+            placeholder={PLACEHOLDER.EMAIL}
             prefix={<UserOutlined />}
           />
           <ErrorText>{errors.email?.message || ''}</ErrorText>
@@ -37,7 +34,7 @@ export default function LoginUI({
             control={control}
             name="password"
             type="password"
-            placeholder={PASSWORD_PLACEHOLDER}
+            placeholder={PLACEHOLDER.PASSWORD}
             prefix={<KeyOutlined />}
           />
           <ErrorText>{errors.password?.message || ''}</ErrorText>

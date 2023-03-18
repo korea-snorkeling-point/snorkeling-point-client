@@ -1,42 +1,31 @@
-import HomeOnIcon from 'public/menu/menu_home_on.svg';
-import HomeOffIcon from 'public/menu/menu_home_off.svg';
-import MarketOnIcon from 'public/menu/menu_shop_on.svg';
-import MarketOffIcon from 'public/menu/menu_shop_off.svg';
-import MyPageOnIcon from 'public/menu/menu_mypage_on.svg';
-import MyPageOffIcon from 'public/menu/menu_mypage_off.svg';
-import ChatOnIcon from 'public/menu/menu_chat_on.svg';
-import ChatOffIcon from 'public/menu/menu_chat_off.svg';
-import BuddyOnIcon from 'public/menu/menu_buddy_on.svg';
-import BuddyOffIcon from 'public/menu/menu_buddy_off.svg';
-
 const menus = [
   {
-    onIcon: <HomeOnIcon />,
-    offIcon: <HomeOffIcon />,
+    onIcon: <img src="/menu/menu_home_on.svg" alt="home-on" />,
+    offIcon: <img src="/menu/menu_home_off.svg" alt="home-off" />,
     title: '홈',
     path: '/snorkeling-points',
   },
   {
-    onIcon: <MarketOnIcon />,
-    offIcon: <MarketOffIcon />,
+    onIcon: <img src="/menu/menu_shop_on.svg" alt="shop-on" />,
+    offIcon: <img src="/menu/menu_shop_off.svg" alt="shop-off" />,
     title: '중고마켓',
     path: '/market/products',
   },
   {
-    onIcon: <BuddyOnIcon />,
-    offIcon: <BuddyOffIcon />,
+    onIcon: <img src="/menu/menu_buddy_on.svg" alt="buddy-on" />,
+    offIcon: <img src="/menu/menu_buddy_off.svg" alt="buddy-off" />,
     title: '버디 모집',
     path: '/buddy',
   },
   {
-    onIcon: <ChatOnIcon />,
-    offIcon: <ChatOffIcon />,
+    onIcon: <img src="/menu/menu_chat_on.svg" alt="chat-on" />,
+    offIcon: <img src="/menu/menu_chat_off.svg" alt="chat-off" />,
     title: '채팅',
     path: '/chat',
   },
   {
-    onIcon: <MyPageOnIcon />,
-    offIcon: <MyPageOffIcon />,
+    onIcon: <img src="/menu/menu_mypage_on.svg" alt="mypage-on" />,
+    offIcon: <img src="/menu/menu_mypage_off.svg" alt="mypage-off" />,
     title: '마이페이지',
     path: '/mypage/snorkeling-point',
   },

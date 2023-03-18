@@ -1,5 +1,5 @@
 import RoundButton from '@components/commons/button/roundButton/roundButton';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import * as C from '@styles/colors.styles';
 
 describe('RoundButton', () => {
@@ -16,16 +16,16 @@ describe('RoundButton', () => {
   };
 
   it('value를 보여준다.', () => {
-    const { getByText } = renderRoundButton();
+    renderRoundButton();
 
-    expect(getByText(valueText)).toBeInTheDocument();
+    expect(screen.getByText(valueText)).toBeInTheDocument();
   });
 
   context('클릭하면', () => {
     it('onClick 메소드가 호출된다.', () => {
-      const { getByText } = renderRoundButton();
+      renderRoundButton();
 
-      fireEvent.click(getByText(valueText));
+      fireEvent.click(screen.getByText(valueText));
 
       expect(onClickMock).toBeCalled();
     });

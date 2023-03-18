@@ -1,9 +1,10 @@
-import { act, fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import SideBar from '@components/commons/layout/sideBar/sidebar';
 import menus from '@constants/menu';
 import { useRouter } from 'next/router';
 import { matchers } from '@emotion/jest';
+import userEvent from '@testing-library/user-event';
 
 expect.extend(matchers);
 
@@ -32,31 +33,29 @@ describe('SideBarContainer', () => {
     const router = useRouter();
 
     it('메뉴에 해당하는 페이지 path를 라우터에 설정한다.', () => {
-      const { getByText } = renderSideBar();
+      renderSideBar();
 
-      fireEvent.click(getByText('홈'));
+      fireEvent.click(screen.getByText('홈'));
 
       expect(router.asPath).toBe('/main');
     });
   });
 
   context('메뉴 토글 버튼을 클릭하면', () => {
-    it('메뉴 타이틀이 보인다.', () => {
-      const { container, getByAltText, getAllByRole } = renderSideBar();
+    it('메뉴 타이틀이 보인다.', async () => {
+      renderSideBar();
 
-      const menuToggleButton = getByAltText('menuToggleIcon');
-      const menus = getAllByRole('listitem', { name: '' });
+      const menuToggleButton = screen.getByAltText('menuToggleIcon');
+      const menus = screen.getAllByRole('listitem', { name: '' });
 
       expect(menuToggleButton).not.toBeNull();
       expect(menus[0]).toHaveStyleRule('visibility', 'hidden', {
         media: '@media (max-width: 575px)',
       });
 
-      act(() => {
-        fireEvent.click(menuToggleButton);
-      });
+      await userEvent.click(menuToggleButton);
 
-      expect(container).toHaveTextContent('홈');
+      expect(screen.getByText('홈')).toBeInTheDocument();
       expect(menus[0]).toHaveStyleRule('visibility', 'visible', {
         media: '@media (max-width: 575px)',
       });

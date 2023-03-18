@@ -1,6 +1,6 @@
 schema: https://snkserver.shop/graphql
 generates:
- ./src/commons/graphqlTypes/generated/types.ts:
+ ./src/commons/graphql-types/generated/types.ts:
   plugins:
    - typescript
   config:
