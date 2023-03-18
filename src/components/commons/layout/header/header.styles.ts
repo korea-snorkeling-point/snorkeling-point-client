@@ -31,13 +31,15 @@ export const ContentsWrapper = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export const SearchBarWrapper = styled.div`
-  flex: 3;
-  width: 100%;
+  gap: 8px;
+  width: 60%;
   height: 100%;
   display: flex;
+
 
   ${R.setMiddleDisplayStyle(css`
     flex: 0.5;
@@ -48,10 +50,35 @@ export const SearchBarWrapper = styled.div`
     flex: 0.5;
     font-size: large;
     align-items: center;
+
+  `)}
+`;
+
+export const SelectWrapper = styled.div`
+  width: 50%;
+`;
+
+export const SearchIconWrapper = styled.button`
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: large;
+  margin-right: 8px;
+  display: none;
+
+  ${R.setSmallTabletStyle(
+    css`
+      display: flex;
+    `,
+  )}
+
+  ${R.setMobileStyle(css`
+    display: flex;
   `)}
 `;
 
 export const LogoWrapper = styled.div`
-  flex: 1;
   text-align: end;
 `;

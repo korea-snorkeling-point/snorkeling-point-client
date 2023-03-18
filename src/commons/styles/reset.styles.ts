@@ -147,6 +147,11 @@ export const resetStyles = css`
 
   button {
     cursor: pointer;
+
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
   }
 
   .ant-select-dropdown {
