@@ -9,7 +9,7 @@ import {
   NormalizedCacheObject,
 } from '@apollo/client';
 import { createUploadLink } from 'apollo-upload-client';
-import IHttpClient from './types/HttpClient.interface';
+import IHttpClient from './HttpClient.interface';
 
 export default class ApolloHttpClient implements IHttpClient {
   private client: ApolloClient<NormalizedCacheObject>;

@@ -2,7 +2,7 @@ import ERROR_MESSAGE from '@constants/errorMessage';
 import { IUser } from 'src/commons/graphql-types/generated/types';
 import AuthRepository from 'src/commons/network/repositories/AuthRepository/AuthRepository';
 import IAuthRepository from 'src/commons/network/repositories/AuthRepository/AuthRepository.interface';
-import IHttpClient from 'src/commons/network/types/HttpClient.interface';
+import IHttpClient from 'src/commons/network/HttpClient/HttpClient.interface';
 
 import { anything, instance, mock, reset, when } from 'ts-mockito';
 
