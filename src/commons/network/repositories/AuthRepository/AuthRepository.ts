@@ -6,9 +6,9 @@ import {
 } from 'src/commons/graphql-types/generated/types';
 import Field from 'src/commons/utils/dynamicReturn/Field';
 import ObjectField from 'src/commons/utils/dynamicReturn/ObjectField';
-import { MUTATION } from '../query/auth';
-import type IHttpClient from '../types/HttpClient.interface';
-import { IAuthRepository } from '../types/interfaces';
+import { MUTATION } from '../../query/auth';
+import type IHttpClient from '../../types/HttpClient.interface';
+import IAuthRepository from './AuthRepository.interface';
 
 export default class AuthRepository implements IAuthRepository {
   private httpClient: IHttpClient;

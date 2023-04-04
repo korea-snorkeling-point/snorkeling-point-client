@@ -3,7 +3,8 @@
 import useCreateUser, { CreateUserArgs } from '@hooks/auth/useCreateUser';
 import { renderHook } from '@testing-library/react-hooks';
 import { useAuthRepository } from 'src/commons/di/containerContext';
-import { IAuthRepository } from 'src/commons/network/types/interfaces';
+import IAuthRepository from 'src/commons/network/repositories/AuthRepository/AuthRepository.interface';
+
 import { anything, instance, mock, reset, verify, when } from 'ts-mockito';
 
 jest.mock('src/commons/di/containerContext', () => {
