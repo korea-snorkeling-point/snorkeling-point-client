@@ -1,5 +1,5 @@
 import ERROR_MESSAGE from '@constants/errorMessage';
-import { useAuthRepository } from 'src/commons/context/containerContext';
+import { useAuthRepository } from 'src/commons/context/ContainerContext';
 
 export type CreateUserArgs = {
   [key: string]: string;

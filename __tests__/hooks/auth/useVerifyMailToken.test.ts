@@ -1,7 +1,7 @@
 import useVerifyMailToken from '@hooks/auth/useVerifyMailToken';
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useAuthRepository } from 'src/commons/context/containerContext';
+import { useAuthRepository } from 'src/commons/context/ContainerContext';
 import IAuthRepository from 'src/commons/network/repositories/AuthRepository/AuthRepository.interface';
 
 import { anything, instance, mock, reset, verify, when } from 'ts-mockito';
