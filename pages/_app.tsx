@@ -3,7 +3,7 @@ import 'antd/dist/reset.css';
 import type { AppProps } from 'next/app';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { ContainerProvider } from 'src/commons/di/containerContext';
+import { ContainerProvider } from 'src/commons/context/containerContext';
 import { resetStyles } from '../src/commons/styles/reset.styles';
 import Layout from '../src/components/commons/layout/layout';
 
