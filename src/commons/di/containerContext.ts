@@ -2,8 +2,8 @@ import constate from 'constate';
 import { useMemo } from 'react';
 import ApolloHttpClient from '../network/ApolloHttpClient';
 import AuthRepository from '../network/repositories/AuthRepository/AuthRepository';
+import IAuthRepository from '../network/repositories/AuthRepository/AuthRepository.interface';
 import IHttpClient from '../network/types/HttpClient.interface';
-import { IAuthRepository } from '../network/repositories/AuthRepository/AuthRepository.interface';
 
 const useContainerContext = () => {
   const httpClient: IHttpClient = useMemo(() => {

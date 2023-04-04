@@ -58,4 +58,18 @@ export default class AuthRepository implements IAuthRepository {
       throw Error(ERROR_MESSAGE.AUTH.FAIL_VERIFY_CODE);
     return result.verifyMailToken;
   }
+
+  async loginUser(email: string, password: string): Promise<string> {
+    const result = await this.httpClient.mutation<Pick<IMutation, 'login'>>(
+      MUTATION.login,
+      {
+        email,
+        password,
+      },
+    );
+
+    if (!result?.login) throw Error(ERROR_MESSAGE.AUTH.FAIL_LOGIN);
+
+    return result.login;
+  }
 }
