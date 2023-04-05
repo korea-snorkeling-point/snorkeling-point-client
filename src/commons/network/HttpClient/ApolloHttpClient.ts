@@ -8,6 +8,7 @@ import {
   InMemoryCache,
   NormalizedCacheObject,
 } from '@apollo/client';
+import { onError } from '@apollo/client/link/error';
 import { createUploadLink } from 'apollo-upload-client';
 import IHttpClient from './HttpClient.interface';
 
@@ -15,6 +16,10 @@ export default class ApolloHttpClient implements IHttpClient {
   private client: ApolloClient<NormalizedCacheObject>;
 
   constructor(baseUri: string) {
+    const errorLink = onError(({ graphQLErrors, operation, forward }) => {
+
+    });
+    
     const uploadLink = createUploadLink({
       uri: baseUri,
       credentials: 'include',

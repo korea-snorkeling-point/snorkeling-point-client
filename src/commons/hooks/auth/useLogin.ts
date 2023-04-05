@@ -1,5 +1,5 @@
 import ERROR_MESSAGE from '@constants/errorMessage';
-import { useAuthRepository } from 'src/commons/context/ContainerContext';
+import { useAuthRepository } from 'src/commons/context/containerContext';
 import { useSetToken } from 'src/commons/context/UserContext';
 
 const useLogin = () => {

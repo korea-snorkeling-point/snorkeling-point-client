@@ -21,6 +21,7 @@ export const MUTATION = {
       createMailToken(email: $email, type: $type)
     }
   `.toString(),
+
   login: gql`
     mutation login($email: String!, $password: String!) {
       login(email: $email, password: $password)

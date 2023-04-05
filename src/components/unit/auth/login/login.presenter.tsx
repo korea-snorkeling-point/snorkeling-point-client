@@ -8,11 +8,16 @@ import { ErrorText } from '@styles/common.styles';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { loginSchema } from 'src/commons/yup-schema/auth';
+import { useSetAlert } from 'src/commons/context/AlertContext';
+import { useRouter } from 'next/router';
+import ROUTES from '@constants/routes';
 import { PageWrapper, Title, Wrapper } from '../common.styles';
 import * as S from './login.styles';
 
 export default function LoginUI() {
+  const router = useRouter();
   const login = useLogin();
+  const setAlert = useSetAlert();
 
   const { control, formState, handleSubmit } = useForm({
     resolver: yupResolver(loginSchema),
@@ -23,7 +28,15 @@ export default function LoginUI() {
     const email = String(inputs.email);
     const password = String(inputs.password);
 
-    await login(email, password);
+    try {
+      await login(email, password);
+      router.replace(ROUTES.MAIN_PAGE);
+    } catch (e) {
+      setAlert({
+        state: 'error',
+        message: (e as Error).message,
+      });
+    }
   });
 
   return (
