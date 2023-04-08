@@ -12,17 +12,17 @@ import Layout from '../src/components/commons/layout/layout';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ContainerProvider>
-      <AlertProvider>
-        <AlertMessage>
-          <UserProvider>
+    <AlertProvider>
+      <AlertMessage>
+        <UserProvider>
+          <ContainerProvider>
             <Global styles={resetStyles} />
             <Layout>
               <Component {...pageProps} />
             </Layout>
-          </UserProvider>
-        </AlertMessage>
-      </AlertProvider>
-    </ContainerProvider>
+          </ContainerProvider>
+        </UserProvider>
+      </AlertMessage>
+    </AlertProvider>
   );
 }

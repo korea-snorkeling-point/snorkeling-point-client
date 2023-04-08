@@ -6,8 +6,8 @@ import {
 } from 'src/commons/graphql-types/generated/types';
 import Field from 'src/commons/utils/dynamicReturn/Field';
 import ObjectField from 'src/commons/utils/dynamicReturn/ObjectField';
-import { MUTATION } from '../../query/auth';
 import type IHttpClient from '../../HttpClient/HttpClient.interface';
+import { MUTATION } from '../../query/auth';
 import IAuthRepository from './AuthRepository.interface';
 
 export default class AuthRepository implements IAuthRepository {
@@ -28,7 +28,7 @@ export default class AuthRepository implements IAuthRepository {
     );
 
     if (!result?.createUser.id)
-      throw Error(ERROR_MESSAGE.AUTH.FAIL_REGISTER_USER);
+      throw new Error(ERROR_MESSAGE.AUTH.FAIL_REGISTER_USER);
 
     return result.createUser.id;
   }
@@ -42,7 +42,7 @@ export default class AuthRepository implements IAuthRepository {
     });
 
     if (!result?.createMailToken)
-      throw Error(ERROR_MESSAGE.AUTH.FAIL_SEND_EMAIL);
+      throw new Error(ERROR_MESSAGE.AUTH.FAIL_SEND_EMAIL);
     return result.createMailToken;
   }
 
@@ -55,7 +55,7 @@ export default class AuthRepository implements IAuthRepository {
     });
 
     if (!result?.verifyMailToken)
-      throw Error(ERROR_MESSAGE.AUTH.FAIL_VERIFY_CODE);
+      throw new Error(ERROR_MESSAGE.AUTH.FAIL_VERIFY_CODE);
     return result.verifyMailToken;
   }
 
@@ -68,8 +68,19 @@ export default class AuthRepository implements IAuthRepository {
       },
     );
 
-    if (!result?.login) throw Error(ERROR_MESSAGE.AUTH.FAIL_LOGIN);
+    if (!result?.login) throw new Error(ERROR_MESSAGE.AUTH.FAIL_LOGIN);
 
     return result.login;
+  }
+
+  static async getAccessToken(httpClient: IHttpClient): Promise<string> {
+    const result = await httpClient.mutation<
+      Pick<IMutation, 'restoreAccessToken'>
+    >(MUTATION.restoreAccessToken);
+
+    if (!result?.restoreAccessToken)
+      throw new Error(ERROR_MESSAGE.AUTH.FAIL_AUTHORIZ);
+
+    return result.restoreAccessToken;
   }
 }

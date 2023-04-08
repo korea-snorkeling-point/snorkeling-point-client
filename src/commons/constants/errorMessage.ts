@@ -14,6 +14,7 @@ const AUTH = {
   FAIL_SEND_EMAIL: '이메일 전송에 실패했습니다.',
   FAIL_VERIFY_CODE: '인증번호 확인에 실패했습니다.',
   FAIL_LOGIN: '로그인에 실패했습니다.',
+  FAIL_AUTHORIZ: '인증에 실패했습니다. 다시 로그인해 주세요.',
 };
 
 const SNORKELING = {
