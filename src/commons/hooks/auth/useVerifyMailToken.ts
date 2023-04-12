@@ -1,5 +1,5 @@
 import ERROR_MESSAGE from '@constants/errorMessage';
-import { useAuthRepository } from 'src/commons/di/containerContext';
+import { useAuthRepository } from 'src/commons/context/ContainerContext';
 
 const useVerifyMailToken = () => {
   const authRepository = useAuthRepository();
