@@ -7,8 +7,9 @@ import {
 import Field from 'src/commons/utils/dynamicReturn/Field';
 import ObjectField from 'src/commons/utils/dynamicReturn/ObjectField';
 import type IHttpClient from '../../HttpClient/HttpClient.interface';
-import { MUTATION } from '../../query/auth';
+
 import IAuthRepository from './AuthRepository.interface';
+import { AUTH } from '../../query';
 
 export default class AuthRepository implements IAuthRepository {
   private httpClient: IHttpClient;
@@ -21,7 +22,7 @@ export default class AuthRepository implements IAuthRepository {
     const result = await this.httpClient.mutation<
       Pick<IMutation, 'createUser'>
     >(
-      MUTATION.createUserMutation(
+      AUTH.MUTATION.createUserMutation(
         new ObjectField<IUser>('').add(new Field('id')).toQuery(),
       ),
       { createUserInput },
@@ -36,7 +37,7 @@ export default class AuthRepository implements IAuthRepository {
   async createMailToken(email: string, type: string): Promise<boolean> {
     const result = await this.httpClient.mutation<
       Pick<IMutation, 'createMailToken'>
-    >(MUTATION.createMailToken, {
+    >(AUTH.MUTATION.createMailToken, {
       email,
       type,
     });
@@ -49,7 +50,7 @@ export default class AuthRepository implements IAuthRepository {
   async verifyMailToken(email: string, code: string): Promise<boolean> {
     const result = await this.httpClient.mutation<
       Pick<IMutation, 'verifyMailToken'>
-    >(MUTATION.verifyMailToken, {
+    >(AUTH.MUTATION.verifyMailToken, {
       email,
       code,
     });
@@ -61,7 +62,7 @@ export default class AuthRepository implements IAuthRepository {
 
   async loginUser(email: string, password: string): Promise<string> {
     const result = await this.httpClient.mutation<Pick<IMutation, 'login'>>(
-      MUTATION.login,
+      AUTH.MUTATION.login,
       {
         email,
         password,
@@ -73,10 +74,23 @@ export default class AuthRepository implements IAuthRepository {
     return result.login;
   }
 
+  async checkNickname(nickname: string): Promise<boolean> {
+    const result = await this.httpClient.mutation<
+      Pick<IMutation, 'checkNickname'>
+    >(AUTH.MUTATION.checkNickName, {
+      nickname,
+    });
+
+    if (result?.checkNickname === undefined)
+      throw new Error(ERROR_MESSAGE.NETWORK.FAIL);
+
+    return result.checkNickname;
+  }
+
   static async getAccessToken(httpClient: IHttpClient): Promise<string> {
     const result = await httpClient.mutation<
       Pick<IMutation, 'restoreAccessToken'>
-    >(MUTATION.restoreAccessToken);
+    >(AUTH.MUTATION.restoreAccessToken);
 
     if (!result?.restoreAccessToken)
       throw new Error(ERROR_MESSAGE.AUTH.FAIL_AUTHORIZ);

@@ -25,9 +25,14 @@ const SNORKELING = {
   DETAIL_POINT: '상세 주소를 입력해 주세요.',
 };
 
+const NETWORK = {
+  FAIL: '요청에 실패했습니다.',
+};
+
 const ERROR_MESSAGE = {
   AUTH,
   SNORKELING,
+  NETWORK,
 };
 
 export default ERROR_MESSAGE;

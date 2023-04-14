@@ -33,5 +33,11 @@ export const MUTATION = {
       restoreAccessToken
     }
   `,
+
+  checkNickName: gql`
+    mutation checkNickName($nickname: String!) {
+      checkNickName(nickname: $nickname)
+    }
+  `,
 };
 export const QUERY = {};
