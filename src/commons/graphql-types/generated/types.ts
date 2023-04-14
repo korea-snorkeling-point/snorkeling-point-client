@@ -1,14 +1,8 @@
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -117,7 +111,7 @@ export type ICreateProductInput = {
   description: Scalars['String'];
   price: Scalars['Float'];
   productCategory: Scalars['String'];
-  productImages: Array<Scalars['String']>;
+  productImages?: InputMaybe<Array<Scalars['String']>>;
   title: Scalars['String'];
 };
 
@@ -140,17 +134,32 @@ export type ICreateUserInput = {
   password: Scalars['String'];
 };
 
+export type IFetchProductOutput = {
+  __typename?: 'FetchProductOutput';
+  address: Scalars['String'];
+  description: Scalars['String'];
+  isLike: Scalars['Boolean'];
+  price: Scalars['Float'];
+  productCategory: Scalars['String'];
+  productImages?: Maybe<Array<Scalars['String']>>;
+  title: Scalars['String'];
+};
+
 export type IMutation = {
   __typename?: 'Mutation';
   /** Return : 발급된 Admin AccessToken */
   adminLogin: Scalars['String'];
   /** Return : Admin User 로그아웃 성공여부 (true / false) */
   adminLogout: Scalars['Boolean'];
+  /** 유저 닉네임 중복 여부 */
+  checkNickname: Scalars['Boolean'];
   /** Return : 생성된 adminUser 정보 */
   createAdminUser: IAdminUser;
   /** Return : 메일발송 성공 여부 (true / false) */
   createMailToken: Scalars['Boolean'];
   createProduct: IProduct;
+  /** 상품 카테고리 등록 */
+  createProductCategory: IProductCategory;
   /** Return : 생성된 ProductLike 정보 */
   createProductLike: IProductLike;
   /** Return : 생성된 SnkBoard */
@@ -196,110 +205,144 @@ export type IMutation = {
   verifyMailToken: Scalars['Boolean'];
 };
 
+
 export type IMutationAdminLoginArgs = {
   account: Scalars['String'];
   password: Scalars['String'];
 };
 
+
+export type IMutationCheckNicknameArgs = {
+  nickname: Scalars['String'];
+};
+
+
 export type IMutationCreateAdminUserArgs = {
   createAdminUserInput: ICreateAdminUserInput;
 };
+
 
 export type IMutationCreateMailTokenArgs = {
   email: Scalars['String'];
   type: Scalars['String'];
 };
 
+
 export type IMutationCreateProductArgs = {
   createProductInput: ICreateProductInput;
 };
+
+
+export type IMutationCreateProductCategoryArgs = {
+  productCategory: Scalars['String'];
+};
+
 
 export type IMutationCreateProductLikeArgs = {
   productId: Scalars['String'];
   userId: Scalars['String'];
 };
 
+
 export type IMutationCreateSnkBoardArgs = {
   createSnkBoardInput: ICreateSnkBoardInput;
 };
+
 
 export type IMutationCreateSnkBookMarkArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
+
 export type IMutationCreateSnkLikeArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
+
 export type IMutationCreateUserArgs = {
   createUserInput: ICreateUserInput;
 };
+
 
 export type IMutationDeleteAdminUserArgs = {
   account: Scalars['String'];
 };
 
+
 export type IMutationDeleteProductArgs = {
   productId: Scalars['String'];
 };
+
 
 export type IMutationDeleteProductLikeArgs = {
   productId: Scalars['String'];
   userId: Scalars['String'];
 };
 
+
 export type IMutationDeleteSnkBoardArgs = {
   snkBoardId: Scalars['String'];
 };
+
 
 export type IMutationDeleteSnkBookMarkArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
+
 export type IMutationDeleteSnkLikeArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
+
 export type IMutationDeleteUserArgs = {
   email: Scalars['String'];
 };
+
 
 export type IMutationLoginArgs = {
   email: Scalars['String'];
   password: Scalars['String'];
 };
 
+
 export type IMutationRestoreSnkBookMarkArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
+
 
 export type IMutationRestoreSnkLikeArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
+
 export type IMutationUpdateProductArgs = {
   productId: Scalars['String'];
   updateProductInput: IUpdateProductInput;
 };
+
 
 export type IMutationUpdateSnkBoardArgs = {
   snkBoardId: Scalars['String'];
   updateSnkBoardInput: IUpdateSnkBoardInput;
 };
 
+
 export type IMutationUpdateUserArgs = {
   updateUserInput: IUpdateUserInput;
 };
 
+
 export type IMutationUploadFileArgs = {
   files: Array<Scalars['Upload']>;
 };
+
 
 export type IMutationVerifyMailTokenArgs = {
   code: Scalars['String'];
@@ -308,7 +351,7 @@ export type IMutationVerifyMailTokenArgs = {
 
 export enum IPayment_Status_Enum {
   Cancel = 'CANCEL',
-  Payment = 'PAYMENT',
+  Payment = 'PAYMENT'
 }
 
 export type IPayment = {
@@ -371,7 +414,7 @@ export type IQuery = {
   /** 회원 한명 조회 */
   fetchOneUser: IUser;
   /** 상품 조회 */
-  fetchProduct: IProduct;
+  fetchProduct: IFetchProductOutput;
   /** Return : 사용자의 Board Like 여부 */
   fetchProductLike: Scalars['Boolean'];
   /** Return : id 값으로 조회된 SnkBoard 정보 */
@@ -388,57 +431,77 @@ export type IQuery = {
   fetchUserSnkBookMarks: Array<ISnkBoardBookMark>;
   /** Return : User의 모든 SnkboardLike */
   fetchUserSnkLikes: Array<ISnkBoardLike>;
+  /** Return : SnkBoard에 좋아요를 누른 유저 목록 */
+  fetchWhoLikesBoard: Array<IUser>;
 };
+
 
 export type IQueryFetchAllProductsArgs = {
   page: Scalars['Float'];
 };
 
+
 export type IQueryFetchBookMarkedSnkBoardsArgs = {
   userId: Scalars['String'];
 };
+
 
 export type IQueryFetchLikedSnkBoardsArgs = {
   userId: Scalars['String'];
 };
 
+
 export type IQueryFetchOneUserArgs = {
   email: Scalars['String'];
 };
 
+
 export type IQueryFetchProductArgs = {
   productId: Scalars['String'];
+  userId: Scalars['String'];
 };
+
 
 export type IQueryFetchProductLikeArgs = {
   productId: Scalars['String'];
   userId: Scalars['String'];
 };
 
+
 export type IQueryFetchSnkBoardArgs = {
   snkBoardId: Scalars['String'];
 };
 
+
 export type IQueryFetchSnkBoardsArgs = {
   page: Scalars['Float'];
 };
+
 
 export type IQueryFetchSnkBookMarkArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
+
 export type IQueryFetchSnkLikeArgs = {
   snkBoardId: Scalars['String'];
   userId: Scalars['String'];
 };
 
+
 export type IQueryFetchUserSnkBookMarksArgs = {
   userId: Scalars['String'];
 };
 
+
 export type IQueryFetchUserSnkLikesArgs = {
   userId: Scalars['String'];
+};
+
+
+export type IQueryFetchWhoLikesBoardArgs = {
+  snkBoardId: Scalars['String'];
 };
 
 export type ISnkBoard = {
