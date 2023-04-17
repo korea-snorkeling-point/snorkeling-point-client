@@ -35,8 +35,8 @@ export const MUTATION = {
   `,
 
   checkNickName: gql`
-    mutation checkNickName($nickname: String!) {
-      checkNickName(nickname: $nickname)
+    mutation checkNickname($nickname: String!) {
+      checkNickname(nickname: $nickname)
     }
   `,
 };
