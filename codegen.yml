@@ -1,4 +1,4 @@
-schema: https://snkserver.shop/graphql
+schema: http://34.64.62.118:3000/graphql
 generates:
  ./src/commons/graphql-types/generated/types.ts:
   plugins:

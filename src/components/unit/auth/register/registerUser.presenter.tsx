@@ -13,6 +13,7 @@ import { subYellow } from '@styles/colors.styles';
 import { ErrorText } from '@styles/common.styles';
 import { useForm } from 'react-hook-form';
 import { registerUserSchema } from 'src/commons/yup-schema/auth';
+import useCheckNickname from '@hooks/auth/useCheckNickname';
 import { PageWrapper, Title, Wrapper } from '../common.styles';
 import * as S from './registerUser.styles';
 
@@ -20,6 +21,7 @@ export default function RegisterUserUI() {
   const createUser = useCreateUser();
   const createMailToken = useCreateMailToken();
   const verifyMailToken = useVerifyMailToken();
+  const checkNickname = useCheckNickname();
 
   const {
     control,
@@ -32,12 +34,17 @@ export default function RegisterUserUI() {
     mode: 'onChange',
   });
 
-  const handleClickCheckNickName = () => {
-    // TODO : 닉네임 중복확인 API
-    // setError('nickName', {
-    //   type: 'custom',
-    //   message: ERROR_MESSAGE.AUTH.NICKNAME_ALREADY_EXISTS,
-    // });
+  const handleClickCheckNickName = async () => {
+    const nickname = getValues('nickname');
+
+    try {
+      await checkNickname(nickname);
+    } catch (e) {
+      setError('nickname', {
+        type: 'manual',
+        message: (e as Error).message,
+      });
+    }
   };
 
   const handleClickRequestCode = async () => {
@@ -88,7 +95,7 @@ export default function RegisterUserUI() {
             <WithLabel label="닉네임">
               <NormalInput
                 control={control}
-                name="nickName"
+                name="nickname"
                 placeholder={PLACEHOLDER.NICKNAME}
               />
             </WithLabel>
@@ -104,7 +111,7 @@ export default function RegisterUserUI() {
         </S.Row>
 
         <S.Row marginBottom={16}>
-          <ErrorText>{errors.nickName?.message || ''}</ErrorText>
+          <ErrorText>{errors.nickname?.message || ''}</ErrorText>
         </S.Row>
 
         <S.Row>

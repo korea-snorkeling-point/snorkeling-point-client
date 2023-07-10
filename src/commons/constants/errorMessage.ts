@@ -15,6 +15,7 @@ const AUTH = {
   FAIL_VERIFY_CODE: '인증번호 확인에 실패했습니다.',
   FAIL_LOGIN: '로그인에 실패했습니다.',
   FAIL_AUTHORIZ: '인증에 실패했습니다. 다시 로그인해 주세요.',
+  DUPLICATE_NICKNAME: '이미 존재하는 닉네임입니다.',
 };
 
 const SNORKELING = {
@@ -25,9 +26,14 @@ const SNORKELING = {
   DETAIL_POINT: '상세 주소를 입력해 주세요.',
 };
 
+const NETWORK = {
+  FAIL: '요청에 실패했습니다.',
+};
+
 const ERROR_MESSAGE = {
   AUTH,
   SNORKELING,
+  NETWORK,
 };
 
 export default ERROR_MESSAGE;
